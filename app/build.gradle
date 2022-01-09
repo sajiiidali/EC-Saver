@@ -1,4 +1,8 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'androidx.navigation.safeargs.kotlin'
+}
 
 android {
     compileSdkVersion 31
@@ -7,8 +11,8 @@ android {
         applicationId "com.myECapplication.sajiiidali.ecsaver"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 8
-        versionName "1.7"
+        versionCode 13
+        versionName "1.12"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -17,9 +21,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
+    def nav_version = "2.3.5"
+    // Kotlin
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    implementation ("androidx.core:core-ktx:1.7.0")
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.6.0'
+    implementation 'androidx.core:core-ktx:1.7.0'
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.gms:play-services-ads:20.5.0'

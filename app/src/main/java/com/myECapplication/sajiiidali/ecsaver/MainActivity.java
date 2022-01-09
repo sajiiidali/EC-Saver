@@ -356,11 +356,7 @@ public class MainActivity extends AppCompatActivity {
                 SearchByOldYear();
             return true;
             case R.id.mshare:
-                shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.setType("text/plain");
-                shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
-                shareIntent.putExtra(Intent.EXTRA_TEXT,"https://play.google.com/store/apps/details?id=com.myECapplication.sajiiidali.ecsaver");
-                startActivity(Intent.createChooser(shareIntent,"Share Via"));
+               share();
                 return true;
             case R.id.bmi_calculator:
                 it = new Intent(MainActivity.this,BMI_Calculator.class);
@@ -369,6 +365,14 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void share() {
+        shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+        shareIntent.putExtra(Intent.EXTRA_TEXT,"https://play.google.com/store/apps/details?id=com.myECapplication.sajiiidali.ecsaver");
+        startActivity(Intent.createChooser(shareIntent,"Share Via"));
     }
 
     private void SearchByOldYear() {

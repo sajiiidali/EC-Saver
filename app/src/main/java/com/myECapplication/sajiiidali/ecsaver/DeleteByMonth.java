@@ -73,13 +73,13 @@ public class DeleteByMonth extends AppCompatActivity {
             total = res.getCount();
             total = res.getCount();
             while (res.moveToNext()){
-                if(Integer.valueOf(res.getString(1)) == IsDayOff)
+                if(Integer.parseInt(res.getString(1)) == IsDayOff)
                     total = total-1;
             }
             for (i = 1; i < 12; i++) {
                 res = mydb.showawholedate(i);
                 while (res.moveToNext()) {
-                    if ( Integer.valueOf(res.getString(1)) == IsDayOff )
+                    if ( Integer.parseInt(res.getString(1)) == IsDayOff )
                         listitem.add(res.getString(0) + "\t\t||\t\t" + res.getString(2));
                     else
                     listitem.add(res.getString(0) + "\t\t||\t\t" + res.getString(1) + "\t\t||\t\t" + res.getString(2));

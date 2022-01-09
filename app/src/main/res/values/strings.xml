@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">EC Saver</string>
+    <string name="year_name">Enter the old Year</string>
+    <string name="birthday_date">Birthday Date</string>
+    <string name="years">Total Years : </string>
+    <string name="month">Total Month : </string>
+    <string name="days">Total Days : </string>
+    <string name="to_date">UP-TO</string>
+    <string name="result">Display Your Age</string>
+    <string name="bmi_age">Age (optional)</string>
+    <string name="date">Date</string>
+    <string name="ec_number">EC Number</string>
+    <string name="Ec_type">EC Type</string>
+    <string name="dates">29 dec 2019</string>
+    <string name="ec_numbers">123456</string>
+    <string name="Ec_types">FO</string>
+    <string name="Ec_Off">DayOff</string>
+    <string name="YourRecord">Save Records</string>
+</resources>

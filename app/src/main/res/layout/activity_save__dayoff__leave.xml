@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="6"
+    tools:context=".Save_Dayoff_Leave">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:textColor="#000000"
+        android:background="#fcda02"
+        android:id="@+id/tvdate"/>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-1241237715193709/8672022085">
+    </com.google.android.gms.ads.AdView>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round_edit_text"
+        android:id="@+id/spinner" />
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:text="SAVE"
+        android:background="@drawable/month_buttons"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:id="@+id/btnsave" />
+
+
+
+
+</LinearLayout>

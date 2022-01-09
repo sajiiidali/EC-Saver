@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:elevation="10dp"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+            android:id="@+id/text_ec_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ec_number"
+            android:textColor="#8b008b"
+            android:textStyle="bold|italic"
+            android:typeface="serif"
+            app:layout_constraintEnd_toStartOf="@+id/text_ec_Type"
+            app:layout_constraintStart_toEndOf="@+id/text_ec_Date"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_ec_Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:text="@string/date"
+            android:textColor="#8b008b"
+            android:textStyle="bold|italic"
+            android:typeface="serif"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_dayoff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:text="@string/Ec_Off"
+            android:textColor="#8b008b"
+            android:textStyle="bold|italic"
+            android:typeface="serif"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_ec_Type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Ec_type"
+            android:textColor="#8b008b"
+            android:textStyle="bold|italic"
+            android:typeface="serif"
+            app:layout_constraintEnd_toStartOf="@+id/text_dayoff"
+            app:layout_constraintStart_toEndOf="@+id/text_ec_number"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/edit_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="12 dec 2019"
+            android:maxWidth="55dp"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="@+id/text_ec_Date"
+            app:layout_constraintTop_toBottomOf="@+id/text_ec_Date" />
+
+        <TextView
+            android:id="@+id/edit_ec_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="235677"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="@+id/text_ec_number"
+            app:layout_constraintStart_toStartOf="@+id/text_ec_number"
+            app:layout_constraintTop_toBottomOf="@+id/text_ec_number" />
+
+        <TextView
+            android:id="@+id/edit_ec_Type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="FO"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="@+id/text_ec_Type"
+            app:layout_constraintStart_toStartOf="@+id/text_ec_Type"
+            app:layout_constraintTop_toBottomOf="@+id/text_ec_Type" />
+
+        <TextView
+            android:id="@+id/edit_dayoff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="DayOff"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="@+id/text_dayoff"
+            app:layout_constraintTop_toBottomOf="@+id/text_dayoff" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

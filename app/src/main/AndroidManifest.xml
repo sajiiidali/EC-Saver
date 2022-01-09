@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.myECapplication.sajiiidali.ecsaver">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:backupAgent="MyBackupPlace"
+        android:icon="@mipmap/ec_saver_app_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ec_saver_app_logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1241237715193709~8967418014" />
+        <meta-data
+            android:name="com.google.android.backup.api_key"
+            android:value="AEdPqrEAAAAIBjJ16u4dnexLAiJkAnesn6zFK-CL-jQvaXRmYA" />
+
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Main2Activity" android:label="@string/YourRecord"/>
+        <activity android:name=".SaveDataCurrentDay" />
+        <activity android:name=".SaveOldSelecteddate" />
+        <activity android:name=".DeleteByMonth" />
+        <activity android:name=".ShowDataBySelectedMonth" />
+        <activity
+            android:name=".WELCOM_SCREEN"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.google.android.gms.ads.AdActivity" />
+        <activity android:name=".BMI_Calculator" />
+        <activity android:name=".Save_Dayoff_Leave" />
+        <activity android:name=".AgeCalculator"></activity>
+    </application>
+
+</manifest>

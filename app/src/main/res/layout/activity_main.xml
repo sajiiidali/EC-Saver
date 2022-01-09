@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#b6b3b3"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/mainlayout">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="Filter By Current Date"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textAllCaps="false"
+            android:typeface="serif"
+            android:textColor="@android:color/white"
+            android:textStyle="bold|italic"
+            android:elevation="10dp"
+            android:background="@drawable/round_button"
+            android:id="@+id/itemcurrentdate"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/itemcurrentdate"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Filter by Old Date"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textAllCaps="false"
+            android:typeface="serif"
+            android:textColor="@android:color/white"
+            android:textStyle="bold|italic"
+            android:elevation="10dp"
+            android:id="@+id/itemolddate"
+            android:background="@drawable/round_button"/>
+        <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/itemolddate"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Save Dayoff Leave"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textAllCaps="false"
+            android:typeface="serif"
+            android:textColor="@android:color/white"
+            android:textStyle="bold|italic"
+            android:elevation="10dp"
+            android:background="@drawable/round_button"
+        android:id="@+id/savedayoff"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/savedayoff"
+            android:layout_marginBottom="10dp"
+            android:text="Search By Year"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textAllCaps="false"
+            android:typeface="serif"
+            android:textColor="@android:color/white"
+            android:textStyle="bold|italic"
+            android:elevation="10dp"
+            android:background="@drawable/round_button"
+            android:id="@+id/searchByYear"/>
+
+    </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/mainlayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                <Button
+                    android:id="@+id/btnjanuary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="January"
+                    android:background="@drawable/month_buttons"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                <Button
+                    android:id="@+id/btnfebruary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="February"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/month_buttons"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                <Button
+                    android:id="@+id/btnmarch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="March"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/month_buttons"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+
+                <Button
+                    android:id="@+id/btnapril"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/month_buttons"
+                    android:text="April"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                <Button
+                    android:id="@+id/btnmay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="May"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/month_buttons"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                <Button
+                    android:id="@+id/btnjune"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="June"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/month_buttons"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                <Button
+                    android:id="@+id/btnjuly"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="July"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/month_buttons"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                <Button
+                    android:id="@+id/btnaugust"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="August"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/month_buttons"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                <Button
+                    android:id="@+id/btnseptember"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="September"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/month_buttons"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                <Button
+                    android:id="@+id/btnoctober"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="October"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/month_buttons"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                <Button
+                    android:id="@+id/btnnovember"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="November"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/month_buttons"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                <Button
+                    android:id="@+id/btndecember"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="December"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/month_buttons"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+
+

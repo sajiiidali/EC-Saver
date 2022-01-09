@@ -11,11 +11,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,8 +22,6 @@ public class SaveOldSelecteddate extends AppCompatActivity {
     String thisDate;
     TextView textView_date;
     int date,month,year;
-    private AdView mAdView;
-    private InterstitialAd mInterstitialAd;
 
     @Override
     public void onBackPressed() {
@@ -42,25 +35,8 @@ public class SaveOldSelecteddate extends AppCompatActivity {
         setContentView(R.layout.activity_save_old_selecteddate);
         overridePendingTransition(R.anim.slid_in_left,R.anim.slid_out_right);
 
-        MobileAds.initialize(this, "ca-app-pub-1241237715193709~8967418014");
-
         getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ec_saver_app_logo);// set app icon
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        // orignal add id ca-app-pub-1241237715193709/2049228828
-        // Test Add id ca-app-pub-3940256099942544/1033173712
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-1241237715193709/2049228828");
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-
-        AdSize adSize = new AdSize(300, 100);
-        AdView adView = new AdView(this);
-        adView.setAdSize(adSize);
-        adView.setAdUnitId("ca-app-pub-1241237715193709/5744931254");
-
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-      //  mAdView.loadAd(adRequest);
 
         spin = (Spinner) findViewById(R.id.spinner);
         edttext = (EditText) findViewById(R.id.edttext);
@@ -114,11 +90,7 @@ public class SaveOldSelecteddate extends AppCompatActivity {
                             String rowstring = getrowstring(a3, a2, a1);
                             boolean isInsert = mydb.insertData(a1, a2, a3, a4, a5, a6, rowstring);
 
-                            if (isInsert == true) {
-                                if( ch%2 == 0){
-                                    if (mInterstitialAd.isLoaded())
-                                        mInterstitialAd.show();
-                                }
+                            if (isInsert) {
                                 Toast.makeText(getApplicationContext(), " Data Saved ", Toast.LENGTH_LONG).show();
                             }
                             else

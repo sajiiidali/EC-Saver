@@ -13,14 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -36,8 +29,6 @@ public class SaveDataCurrentDay extends AppCompatActivity {
     String thisDate;
     TextView textView_current_date;
     int date, month, year, currentmonth;
-    private AdView mAdView;
-    private InterstitialAd mInterstitialAd;
 
     @Override
     public void onBackPressed() {
@@ -52,24 +43,9 @@ public class SaveDataCurrentDay extends AppCompatActivity {
         setContentView(R.layout.activity_save_data_current_day);
         overridePendingTransition(R.anim.slid_in_left,R.anim.slid_out_right);
 
-        MobileAds.initialize(this, "ca-app-pub-1241237715193709~8967418014");
 
         getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ec_saver_app_logo);// set app icon
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        /*AdView adView = new AdView(this);
-        adView.setAdSize(AdSize.BANNER);
-        adView.setAdUnitId("ca-app-pub-1241237715193709/5970430028");
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-         mAdView.loadAd(adRequest);*/
-
-        // test interstitial ad    ca-app-pub-3940256099942544/1033173712
-        // Orignal add ca-app-pub-1241237715193709/2049228828
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-1241237715193709/2049228828");
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-
 
         spin = (Spinner) findViewById(R.id.spinner);
         edttext = (EditText) findViewById(R.id.edttext);
@@ -135,10 +111,6 @@ public class SaveDataCurrentDay extends AppCompatActivity {
                         String rowstring = getrowstring(thisDate,a2,a1);//thisDate,a2,a1 = a1, a2, thisDate
                         boolean isInsert = mydb.insertData(a1, a2, thisDate, a4, a5, a6, rowstring);
                         if (isInsert == true) {
-                            if (ch % 2 == 0) {
-                                if (mInterstitialAd.isLoaded())
-                                    mInterstitialAd.show();
-                            }
                             Toast.makeText(getApplicationContext(), " Data Saved ", Toast.LENGTH_SHORT).show();
                         } else
                             Toast.makeText(getApplicationContext(), " Data Not Saved ", Toast.LENGTH_SHORT).show();

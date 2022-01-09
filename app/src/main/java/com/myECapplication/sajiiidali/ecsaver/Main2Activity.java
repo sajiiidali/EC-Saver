@@ -1,6 +1,8 @@
 package com.myECapplication.sajiiidali.ecsaver;
 
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,19 +13,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.myECapplication.sajiiidali.ecsaver.Row_Data.Row_data;
 import com.myECapplication.sajiiidali.ecsaver.listview_adapter.EC_Number_Adapter;
 
@@ -31,10 +26,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-public class Main2Activity extends AppCompatActivity implements RewardedVideoAdListener {
+public class Main2Activity extends AppCompatActivity {
 
-    private RewardedVideoAd mRewardedVideoAd;
-    private InterstitialAd mInterstitialAd;
     AlertDialog.Builder builder,mbuilder;
     ArrayList<Row_data> row_dataArrayList;
     EC_Number_Adapter ECNumber_adapter;
@@ -61,16 +54,6 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
         getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ec_saver_app_logo);// set app icon
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-        MobileAds.initialize(this,"ca-app-pub-1241237715193709~8967418014");
-
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-1241237715193709/2049228828");
-       // mInterstitialAd.loadAd(new AdRequest.Builder().build());
-
-        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
-        mRewardedVideoAd.setRewardedVideoAdListener(this);
-        loadRewardedVideoAd();
 
         tvmonth = (TextView)findViewById(R.id.tvmonth);
         row_dataArrayList = new ArrayList<>();
@@ -135,6 +118,7 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
                 final PopupMenu menu = new PopupMenu(Main2Activity.this, view);
 
                 menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @SuppressLint("NonConstantResourceId")
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
 
@@ -176,10 +160,6 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
                     showdatabymonthlistAdapter(mymonth, year);
                     ECNumber_adapter.notifyDataSetChanged();
                     Toast.makeText(Main2Activity.this, "Deleted", Toast.LENGTH_SHORT).show();
-
-                    if (mRewardedVideoAd.isLoaded()) {
-                        mRewardedVideoAd.show();
-                    }
                 }
             }
         }).setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -198,7 +178,7 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
             LayoutInflater myLayoutInflater;
 
             // Initialized all variables here
-            myLayoutInflater = (LayoutInflater)this.getSystemService(this.LAYOUT_INFLATER_SERVICE);
+            myLayoutInflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View updatView = myLayoutInflater.inflate(R.layout.edit_row_item,null);
 
             final TextView edit_Date = updatView.findViewById(R.id.edit_date);
@@ -220,9 +200,6 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
                    boolean isEdited = mydb.editThisRowItems(edit_Date.getText().toString(),edit_EcNu.getText().toString(),edit_EcTy.getText().toString(),EC_NO);
                    row_dataArrayList.clear();
                     showdatabymonthlistAdapter(mymonth, year);
-                    if (mRewardedVideoAd.isLoaded()) {
-                        mRewardedVideoAd.show();
-                    }
                 }
             }).setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                 @Override
@@ -250,10 +227,6 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
                             row_dataArrayList.clear();
                             showdatabymonthlistAdapter(mymonth, year);
                             ECNumber_adapter.notifyDataSetChanged();
-
-                            if (mRewardedVideoAd.isLoaded()) {
-                                mRewardedVideoAd.show();
-                            }
                         }
 
                     }
@@ -264,12 +237,6 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
             }
         }).show();
 
-    }
-
-    private void loadRewardedVideoAd() {
-        // Orignal rewarded video ads ca-app-pub-1241237715193709/1210866820
-        // tested rewarded video ads id ca-app-pub-3940256099942544/5224354917
-        mRewardedVideoAd.loadAd("ca-app-pub-1241237715193709/1210866820",new AdRequest.Builder().build());
     }
 
     private void showdatabymonthlistAdapter(int month, int year) {
@@ -371,45 +338,4 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
         }).show();
     };
 
-    @Override
-    public void onRewardedVideoAdLoaded() {
-       // Toast.makeText(this, "Video Ad Loaded", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onRewardedVideoAdOpened() {
-       // Toast.makeText(this, "Video Ad Opened", Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    public void onRewardedVideoStarted() {
-      //  Toast.makeText(this, "Video has Started", Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    public void onRewardedVideoAdClosed() {
-        loadRewardedVideoAd();
-    }
-
-    @Override
-    public void onRewarded(RewardItem rewardItem) {
-       // Toast.makeText(this, "There is no any ad", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onRewardedVideoAdLeftApplication() {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdFailedToLoad(int i) {
-        //Toast.makeText(this, "Ad Failed To Load", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onRewardedVideoCompleted() {
-       // Toast.makeText(this, "ad complete watched", Toast.LENGTH_SHORT).show();
-    }
 }

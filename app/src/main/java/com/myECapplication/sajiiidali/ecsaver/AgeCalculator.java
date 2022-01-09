@@ -11,10 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 import java.util.Calendar;
 import java.util.TimeZone;
 
@@ -33,19 +29,10 @@ public class AgeCalculator extends AppCompatActivity {
     int todays = 0 ,tomonth = 0 ,toyears = 0;
     int Tyears=0, Tmonth=0, Tdays=0;
     View view;
-    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_age_calculator);
-        MobileAds.initialize(this, "ca-app-pub-1241237715193709~8967418014");
-
-        AdView adView = new AdView(this);
-        adView.setAdSize(AdSize.SMART_BANNER);
-        adView.setAdUnitId("ca-app-pub-1241237715193709/5970430028");
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-       // mAdView.loadAd(adRequest);
 
         textView_show_current_date = (TextView)findViewById(R.id.date_header);
 

@@ -28,7 +28,6 @@ public class Save_Dayoff_Leave extends AppCompatActivity {
     Intent it;
     int month, date, year;
     Database mydb;
-    private AdView mAdView;
     TextView date_text;
 
     @Override
@@ -42,21 +41,9 @@ public class Save_Dayoff_Leave extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save__dayoff__leave);
         overridePendingTransition(R.anim.slid_in_left,R.anim.slid_out_right);
-        MobileAds.initialize(this, "ca-app-pub-1241237715193709~8967418014");
 
         getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ec_saver_app_logo);// set app icon
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-        //AdSize adSize = new AdSize(300, 100);
-        AdView adView = new AdView(this);
-        adView.setAdSize(AdSize.SMART_BANNER);
-        // test ad id ca-app-pub-3940256099942544/6300978111
-        // orignal ad id ca-app-pub-1241237715193709/8672022085
-        adView.setAdUnitId("ca-app-pub-1241237715193709/8672022085");
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
 
         spinner = (Spinner)findViewById(R.id.spinner);

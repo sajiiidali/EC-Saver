@@ -16,4 +16,9 @@
     <string name="Ec_types">FO</string>
     <string name="Ec_Off">DayOff</string>
     <string name="YourRecord">Save Records</string>
+    <string name="Day">Day</string>
+    <string name="Month">Month</string>
+    <string name="Year">Year</string>
+    <string name="Calculate">Calculate</string>
+    <string name="Clear">Clear</string>
 </resources>

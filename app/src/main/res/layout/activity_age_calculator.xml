@@ -10,13 +10,14 @@
         android:id="@+id/birthday_date"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:paddingTop="5dp"
         android:layout_marginTop="3dp"
+        android:background="#5dcec2"
+        android:paddingTop="5dp"
+        android:gravity="center"
         android:text="@string/birthday_date"
         android:textAlignment="center"
-        android:textStyle="bold"
-        android:background="#5dcec2"
-        android:textColor="#000000"/>
+        android:textColor="#000000"
+        android:textStyle="bold" />
     <LinearLayout
         android:id="@+id/second_layout_wrapper"
         android:layout_width="match_parent"
@@ -25,30 +26,31 @@
         android:padding="8dp"
         android:background="@drawable/border_colour"
         android:orientation="horizontal">
-     <AutoCompleteTextView
-         android:id="@+id/edt_day"
+     <EditText
+         android:id="@+id/birthdayDate"
          android:layout_width="80dp"
          android:layout_height="30dp"
-         android:hint="Day"
-         android:textAlignment="center"
+         android:hint="@string/Day"
+         android:gravity="center"
          android:inputType="number"
          android:digits="1234567890"
-         android:background="@drawable/edit_text_border" />
-        <AutoCompleteTextView
-            android:id="@+id/edt_month"
+         android:background="@drawable/edit_text_border"
+         tools:ignore="TextFields" />
+        <EditText
+            android:id="@+id/birthdayMonth"
             android:layout_width="80dp"
             android:layout_height="30dp"
-            android:hint="Month"
-            android:textAlignment="center"
+            android:hint="@string/Month"
+            android:gravity="center"
             android:inputType="number"
             android:digits="1234567890"
             android:background="@drawable/edit_text_border" />
-        <AutoCompleteTextView
-            android:id="@+id/edt_year"
+        <EditText
+            android:id="@+id/birthdayYear"
             android:layout_width="130dp"
             android:layout_height="30dp"
-            android:hint="Year"
-            android:textAlignment="center"
+            android:hint="@string/Year"
+            android:gravity="center"
             android:inputType="number"
             android:digits="1234567890"
             android:background="@drawable/edit_text_border" />
@@ -60,11 +62,12 @@
         android:paddingTop="5dp"
         android:layout_marginTop="3dp"
         android:text="@string/to_date"
+        android:gravity="center"
         android:layout_below="@+id/second_layout_wrapper"
         android:textAlignment="center"
         android:textStyle="bold"
-        android:background="#5dcec2"
-        android:textColor="#000000"/>
+        android:background="@color/thisColor"
+        android:textColor="@android:color/black"/>
     <LinearLayout
         android:id="@+id/third_layout_wrapper"
         android:layout_width="match_parent"
@@ -74,35 +77,36 @@
         android:background="@drawable/border_colour"
         android:orientation="horizontal">
         <EditText
-            android:id="@+id/edtto_day"
+            android:id="@+id/tooDate"
             android:layout_width="80dp"
             android:layout_height="30dp"
-            android:hint="Day"
-            android:textAlignment="center"
+            android:hint="@string/Day"
+            android:gravity="center"
+            android:inputType="number"
+            android:digits="1234567890"
+            android:background="@drawable/edit_text_border"
+            tools:ignore="TextFields" />
+        <EditText
+            android:id="@+id/tooMonth"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:hint="@string/Month"
+            android:gravity="center"
             android:inputType="number"
             android:digits="1234567890"
             android:background="@drawable/edit_text_border" />
         <EditText
-            android:id="@+id/edtto_month"
-            android:layout_width="80dp"
-            android:layout_height="30dp"
-            android:hint="Month"
-            android:textAlignment="center"
-            android:inputType="number"
-            android:digits="1234567890"
-            android:background="@drawable/edit_text_border" />
-        <EditText
-            android:id="@+id/edtto_year"
+            android:id="@+id/tooYear"
             android:layout_width="130dp"
             android:layout_height="30dp"
-            android:hint="Year"
-            android:textAlignment="center"
+            android:hint="@string/Year"
+            android:gravity="center"
             android:inputType="number"
             android:digits="1234567890"
             android:background="@drawable/edit_text_border" />
     </LinearLayout>
     <TextView
-        android:id="@+id/date_header"
+        android:id="@+id/getCurrentDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12dp"
@@ -111,14 +115,13 @@
         android:textStyle="bold"
         android:typeface="serif"
         android:textSize="18sp"
-        android:textColor="#000000"
-        android:background="@drawable/current_date_designe"
-        android:onClick="set_current_date"/>
+        android:textColor="@android:color/black"
+        android:background="@drawable/current_date_designe" />
     <LinearLayout
         android:id="@+id/button_wrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/date_header"
+        android:layout_below="@+id/getCurrentDate"
         android:layout_marginTop="3dp"
         android:orientation="horizontal">
         <Button
@@ -127,7 +130,7 @@
             android:layout_height="wrap_content"
             android:gravity="center|center_horizontal"
             android:textStyle="bold"
-            android:text="Calculate"
+            android:text="@string/Calculate"
             android:layout_marginRight="1dp"
             android:background="@drawable/round_button"
             android:layout_weight="1"/>
@@ -138,69 +141,60 @@
             android:gravity="center|center_horizontal"
             android:textStyle="bold"
             android:layout_marginLeft="1dp"
-            android:text="Clear"
+            android:text="@string/Clear"
             android:background="@drawable/round_button"
             android:layout_weight="1"/>
     </LinearLayout>
 
-        <TextView
-            android:id="@+id/age_header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/button_wrapper"
-            android:layout_marginTop="3dp"
-            android:text="@string/result"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="#000000"
-            android:background="#5dcec2" />
+    <TextView
+        android:id="@+id/age_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_wrapper"
+        android:layout_marginTop="3dp"
+        android:background="@color/thisColor"
+        android:text="@string/result"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/age_header"
             android:background="@drawable/border_colour">
+
             <TextView
+                android:id="@+id/showYear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="22sp"
-                android:textColor="#000000"
-                android:textStyle="bold"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:id="@+id/text_years" />
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="22sp"
-                android:textColor="#000000"
+                android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/text_years"
-                android:id="@+id/text_month"/>
+                android:layout_toRightOf="@+id/showYear"
+                android:id="@+id/showMonth"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="22sp"
-                android:layout_toRightOf="@id/text_month"
-                android:textColor="#000000"
+                android:layout_toRightOf="@id/showMonth"
+                android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:layout_marginTop="10dp"
-                android:id="@+id/text_days"
+                android:id="@+id/showDays"
                 android:layout_marginLeft="10dp"/>
 
         </RelativeLayout>
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-1241237715193709/5970430028">
-    </com.google.android.gms.ads.AdView>
 
 
 

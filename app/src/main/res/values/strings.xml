@@ -21,4 +21,6 @@
     <string name="Year">Year</string>
     <string name="Calculate">Calculate</string>
     <string name="Clear">Clear</string>
+    <string name="today">ToDay</string>
+    <string name="previousDay">Previous Day</string>
 </resources>

@@ -11,16 +11,15 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.myECapplication.sajiiidali.ecsaver.AgeCalculator
 import com.myECapplication.sajiiidali.ecsaver.R
 import java.util.*
 
-class AgeCalculator : Fragment(R.layout.activity_age_calculator),View.OnClickListener {
+class kotlin_AgeCalculator : Fragment(R.layout.activity_age_calculator),View.OnClickListener {
 
     val FILE_NAME = "my_file"
-    val date = "my_date"
-    val month = "my_month"
-    val year = "my_year"
+    val sharedPreferencesDate       = "my_date"
+    val sharedPreferencesMonth      = "my_month"
+    val sharedPreferencesYear       = "my_year"
     lateinit var birthdayDate       : EditText
     lateinit var birthdayMonth      : EditText
     lateinit var birthdayYear       : EditText
@@ -31,7 +30,7 @@ class AgeCalculator : Fragment(R.layout.activity_age_calculator),View.OnClickLis
     lateinit var buttonCalculate    : Button
     lateinit var getCurrentDate     : TextView
     lateinit var showDays           : TextView
-    lateinit var showMonth           : TextView
+    lateinit var showMonth          : TextView
     lateinit var showYear           : TextView
     var currentDay                  : Int = 0
     var currentMonth                : Int = 0
@@ -63,10 +62,10 @@ class AgeCalculator : Fragment(R.layout.activity_age_calculator),View.OnClickLis
         currentDay      = calendar.get(Calendar.DAY_OF_MONTH)
         currentYear     = calendar.get(Calendar.YEAR)
 
-        val sharedPreferences: SharedPreferences = activity?.getSharedPreferences(AgeCalculator.FILE_NAME, Context.MODE_PRIVATE)!!
-        val lastUserDay = sharedPreferences.getString(AgeCalculator.date, "0")
-        val lastUserMonth = sharedPreferences.getString(AgeCalculator.month, "0")
-        val lastUserYear = sharedPreferences.getString(AgeCalculator.year, "0")
+        val sharedPreferences: SharedPreferences = activity?.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)!!
+        val lastUserDay = sharedPreferences.getString(sharedPreferencesDate, "0")
+        val lastUserMonth = sharedPreferences.getString(sharedPreferencesMonth, "0")
+        val lastUserYear = sharedPreferences.getString(sharedPreferencesYear, "0")
 
         birthdayDate.setText(lastUserDay)
         birthdayMonth.setText(lastUserMonth)
@@ -120,10 +119,10 @@ class AgeCalculator : Fragment(R.layout.activity_age_calculator),View.OnClickLis
             val month = birthdayMonth.text.toString().toInt()
             val day = birthdayYear.text.toString().toInt()
 
-            val editor: SharedPreferences.Editor = activity?.getSharedPreferences(AgeCalculator.FILE_NAME, Context.MODE_PRIVATE)!!.edit()
-            editor.putString(AgeCalculator.date, birthdayDate.text.toString())
-            editor.putString(AgeCalculator.month, birthdayMonth.text.toString())
-            editor.putString(AgeCalculator.year, birthdayYear.text.toString())
+            val editor: SharedPreferences.Editor = activity?.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)!!.edit()
+            editor.putString(sharedPreferencesDate, birthdayDate.text.toString())
+            editor.putString(sharedPreferencesMonth, birthdayMonth.text.toString())
+            editor.putString(sharedPreferencesYear, birthdayYear.text.toString())
             editor.apply()
 
             var todays = tooDate.text.toString().toInt()

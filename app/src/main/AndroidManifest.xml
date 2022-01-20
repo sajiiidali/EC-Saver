@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ec_saver_app_logo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/myAppTheme">
         <activity
             android:name=".kotlin.KotlinMainActivity" android:exported="true" >
             <intent-filter>

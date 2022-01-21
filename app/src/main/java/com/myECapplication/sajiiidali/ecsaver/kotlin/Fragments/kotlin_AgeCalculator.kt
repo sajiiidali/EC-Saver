@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import com.myECapplication.sajiiidali.ecsaver.R
 import java.util.*
 
+
 class kotlin_AgeCalculator : Fragment(R.layout.activity_age_calculator),View.OnClickListener {
 
     val FILE_NAME = "my_file"
@@ -117,7 +118,7 @@ class kotlin_AgeCalculator : Fragment(R.layout.activity_age_calculator),View.OnC
         try {
             val year = birthdayYear.text.toString().toInt()
             val month = birthdayMonth.text.toString().toInt()
-            val day = birthdayYear.text.toString().toInt()
+            val day = birthdayDate.text.toString().toInt()
 
             val editor: SharedPreferences.Editor = activity?.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)!!.edit()
             editor.putString(sharedPreferencesDate, birthdayDate.text.toString())
@@ -155,6 +156,7 @@ class kotlin_AgeCalculator : Fragment(R.layout.activity_age_calculator),View.OnC
                 val Tyears = toyears - year
                 val Tmonth = tomonth - month
                 val Tdays = todays - day
+
                 showYear.setText(" $Tyears Years")
                 showMonth.setText(" $Tmonth Months")
                 showDays.setText(" $Tdays Days")

@@ -23,4 +23,21 @@
     <string name="Clear">Clear</string>
     <string name="today">ToDay</string>
     <string name="previousDay">Previous Day</string>
+    <string name="savedayoff">Save DayOff Leave</string>
+    <string name="getSavedEC">Get EC Number</string>
+    <string name="bmicalculator">bmicalculator</string>
+    <string name="Age_Calculator">Age Calculator</string>
+    <string name="aboutUS">Version App 1.12\nCreation_Date 14-August-2018\nEmail ID: sajiiidali1122@gmail.com\nPhone #0302 329 4411</string>
+    <string name="moreApps">MORE APPS</string>
+    <string name="share">share</string>
+    <string name="rateus">Rate Us</string>
+    <string name="about">About</string>
+    <string name="deleteWholeData">Delete All Saved Data</string>
+    <string name="Weight">Weight</string>
+    <string name="kg">KG</string>
+    <string name="Height">Height</string>
+    <string name="Feet">Feet</string>
+    <string name="inch">inch</string>
+    <string name="Calculate_BMI">Calculate BMI</string>
+    <string name="Your_Age">Your Age</string>
 </resources>

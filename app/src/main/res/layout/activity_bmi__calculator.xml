@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/round_button"
-    tools:context=".BMI_Calculator">
+    android:background="@color/holo_blue_light"
+    tools:context=".kotlin.Fragments.kotlin_BMI_Calculator">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:text="Your Age"
+        android:text="@string/Your_Age"
         android:textColor="#ffffff"
         android:textSize="25sp"
         android:textStyle="bold|italic"
@@ -35,24 +35,25 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Weight"
+        android:text="@string/Weight"
         android:layout_below="@+id/edittext4"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:textColor="#ffffff"
+        android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold|italic"
         android:typeface="serif"
         android:id="@+id/weightinkg"/>
 
-    <AutoCompleteTextView
+    <EditText
         android:id="@+id/edittext1_weight"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:hint="KG"
+        android:hint="@string/kg"
         android:background="@drawable/round_edit_text"
         android:inputType="number"
         android:digits="1234567890."
+        android:gravity="center"
         android:layout_below="@+id/weightinkg"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
@@ -60,10 +61,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Height"
+        android:text="@string/Height"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
-        android:textColor="#ffffff"
+        android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold|italic"
         android:typeface="serif"
@@ -74,27 +75,29 @@
         android:id="@+id/edittext2_feet"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:hint="Feet"
-        android:background="@drawable/round_edit_text"
-        android:inputType="number"
-        android:digits="1234567890"
         android:layout_below="@+id/heightinftandinch"
         android:layout_marginLeft="20dp"
-        android:textAlignment="center"/>
+        android:background="@drawable/round_edit_text"
+        android:digits="1234567890"
+        android:gravity="center"
+        android:hint="@string/Feet"
+        android:inputType="number"
+        android:textAlignment="center" />
 
 
     <AutoCompleteTextView
+        android:id="@+id/edittext3_inch"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_below="@+id/heightinftandinch"
-        android:layout_toRightOf="@+id/edittext2_feet"
         android:layout_marginHorizontal="10dp"
-        android:hint="inch"
+        android:layout_toRightOf="@+id/edittext2_feet"
         android:background="@drawable/round_edit_text"
-        android:inputType="number"
         android:digits="1234567890"
-        android:textAlignment="center"
-        android:id="@+id/edittext3_inch"/>
+        android:hint="@string/inch"
+        android:gravity="center"
+        android:inputType="number"
+        android:textAlignment="center" />
 
     <Button
         android:layout_width="150dp"
@@ -104,8 +107,8 @@
         android:layout_marginLeft="60dp"
         android:textAlignment="center"
         android:layout_marginTop="50dp"
-        android:text="Calculate BMI"
-        android:textColor="#ffffff"
+        android:text="@string/Calculate_BMI"
+        android:textColor="@color/white"
         android:typeface="serif"
         android:textStyle="bold|italic"
         android:id="@+id/btncalculate"/>
@@ -116,7 +119,7 @@
         android:layout_alignTop="@+id/weightinkg"
         android:layout_below="@+id/btncalculate"
         android:layout_toRightOf="@+id/heightinftandinch"
-        android:text="clear"
+        android:text="@string/Clear"
         android:layout_marginLeft="60dp"
         android:background="@drawable/month_buttons"/>
     <TextView
@@ -128,7 +131,7 @@
         android:layout_marginBottom="30dp"
         android:textSize="22sp"
         android:textStyle="bold|italic"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:typeface="serif"/>
 
 

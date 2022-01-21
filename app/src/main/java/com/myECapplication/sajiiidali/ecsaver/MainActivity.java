@@ -342,8 +342,6 @@ public class MainActivity extends AppCompatActivity {
                 deletedata();
                 return true;
             case R.id.age_calculator:
-                it = new Intent(MainActivity.this,AgeCalculator.class);
-                MainActivity.this.startActivity(it);
                 return true;
             case R.id.itemabout:
                 it = new Intent(MainActivity.this,ShowDataBySelectedMonth.class);
@@ -352,15 +350,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.rateus:
                 rateus();
                 return true;
-            case R.id.oldyear:
-                SearchByOldYear();
-            return true;
             case R.id.mshare:
                share();
-                return true;
-            case R.id.bmi_calculator:
-                it = new Intent(MainActivity.this,BMI_Calculator.class);
-                MainActivity.this.startActivity(it);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

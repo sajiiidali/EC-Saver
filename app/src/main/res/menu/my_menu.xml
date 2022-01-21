@@ -2,66 +2,34 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <item
         android:id="@+id/mshare"
-        android:title="share"
+        android:title="@string/share"
         android:icon="@drawable/ic_share"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/bmi_calculator"
-        android:title="bmicalculator"
-        android:icon="@drawable/bcalculator"
+        android:title="@string/bmicalculator"
+        android:icon="@drawable/bmi_calculator"
         app:showAsAction="always" />
     <item
         android:id="@+id/age_calculator"
-        android:title="Age Calculator"
-        android:icon="@drawable/bcalculater"
+        android:title="@string/Age_Calculator"
+        android:icon="@drawable/age_calculator"
         app:showAsAction="always">
-    </item>
-
-    <!--<item
-        android:id="@+id/itemadd"
-        android:title="Add"
-        android:icon="@drawable/ic_icon"
-        app:showAsAction="always">
-
-        <menu>
-            <item
-                android:id="@+id/itemcurrentdate"
-                android:title="Add in Current Date">
-            </item>
-            <item
-                android:title="Add in Old Date"
-                android:id="@+id/itemolddate"></item>
-            <item
-                android:title="Save Dayoff Leave"
-                android:id="@+id/savedayoff"></item>
-        </menu>
-    </item>-->
- <!--   <item
-        android:id="@+id/refresh"
-        android:title="Refresh"
-        android:icon="@drawable/ic_refresh"
-        app:showAsAction="always">
-    </item>-->
-    <item
-        android:id="@+id/oldyear"
-        android:title="Find By Year"
-        app:showAsAction="never">
     </item>
     <item
         android:id="@+id/rateus"
-        android:title="Rate Us"
+        android:title="@string/rateus"
         app:showAsAction="never">
     </item>
     <item
         android:id="@+id/itemabout"
-        android:title="About" />
+        android:title="@string/about" />
     <item
         android:id="@+id/Deletewhole"
-        android:title="Delete All Saved Data"
+        android:title="@string/deleteWholeData"
         app:showAsAction="never">
     </item>
 </menu>

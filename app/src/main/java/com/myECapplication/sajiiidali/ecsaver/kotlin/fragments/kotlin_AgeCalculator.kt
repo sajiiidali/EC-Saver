@@ -1,4 +1,4 @@
-package com.myECapplication.sajiiidali.ecsaver.kotlin.Fragments
+package com.myECapplication.sajiiidali.ecsaver.kotlin.fragments
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.myECapplication.sajiiidali.ecsaver.R
 import java.util.*
@@ -40,6 +41,7 @@ class kotlin_AgeCalculator : Fragment(R.layout.activity_age_calculator),View.OnC
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
 
         birthdayDate        = view.findViewById(R.id.birthdayDate)
         birthdayMonth       = view.findViewById(R.id.birthdayMonth)

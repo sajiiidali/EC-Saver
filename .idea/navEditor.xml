@@ -8,18 +8,57 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
+                  <entry key="ecSaveIntoCurrentDate2">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-2449" />
+                            <option name="y" value="-452" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="ecSaveIntoPreviousDate">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-2445" />
+                            <option name="y" value="-146" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="homeFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-1305" />
-                            <option name="y" value="-131" />
+                            <option name="x" value="-3150" />
+                            <option name="y" value="-135" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_homeFragment_to_ecSaveIntoCurrentDate2">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_homeFragment_to_ecSaveIntoPreviousDate">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_homeFragment_to_kotlin_AgeCalculator">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_homeFragment_to_kotlin_BMI_Calculator">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -34,8 +73,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-950" />
-                            <option name="y" value="-317" />
+                            <option name="x" value="-2795" />
+                            <option name="y" value="-321" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -46,8 +85,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-946" />
-                            <option name="y" value="18" />
+                            <option name="x" value="-2791" />
+                            <option name="y" value="14" />
                           </Point>
                         </option>
                       </LayoutPositions>

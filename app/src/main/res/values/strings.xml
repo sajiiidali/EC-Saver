@@ -21,6 +21,8 @@
     <string name="Year">Year</string>
     <string name="Calculate">Calculate</string>
     <string name="Clear">Clear</string>
+    <string name="Yes">Yes</string>
+    <string name="No">No</string>
     <string name="today">ToDay</string>
     <string name="previousDay">Previous Day</string>
     <string name="savedayoff">Save DayOff Leave</string>
@@ -40,4 +42,8 @@
     <string name="inch">inch</string>
     <string name="Calculate_BMI">Calculate BMI</string>
     <string name="Your_Age">Your Age</string>
+    <string name="confirm">Do You Want to delete All Saved Data in App?</string>
+    <string name="hintName">ENTER EC NUMBER</string>
+    <string name="save">Save</string>
+    <string name="OK">OK</string>
 </resources>

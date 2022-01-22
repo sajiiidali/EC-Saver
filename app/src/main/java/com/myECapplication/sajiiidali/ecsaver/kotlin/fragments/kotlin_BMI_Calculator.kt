@@ -1,4 +1,4 @@
-package com.myECapplication.sajiiidali.ecsaver.kotlin.Fragments
+package com.myECapplication.sajiiidali.ecsaver.kotlin.fragments
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.myECapplication.sajiiidali.ecsaver.R
 import java.lang.NumberFormatException
@@ -29,6 +30,7 @@ class kotlin_BMI_Calculator : Fragment(R.layout.activity_bmi__calculator) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
         getWeight       =     view.findViewById(R.id.edittext1_weight)
         getFeet         =     view.findViewById(R.id.edittext2_feet)
         getInch         =     view.findViewById(R.id.edittext3_inch)

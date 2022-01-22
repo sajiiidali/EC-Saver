@@ -26,5 +26,4 @@
     <style name="PositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
         <item name="android:textColor">@color/holo_blue_light</item>
     </style>
-
 </resources>

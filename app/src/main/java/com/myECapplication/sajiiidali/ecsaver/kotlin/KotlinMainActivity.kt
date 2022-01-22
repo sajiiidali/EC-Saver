@@ -12,7 +12,8 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.myECapplication.sajiiidali.ecsaver.R
-import com.myECapplication.sajiiidali.ecsaver.kotlin.Fragments.HomeFragment
+import com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.HomeFragment
+import com.myECapplication.sajiiidali.ecsaver.kotlin.database.dataBaseClass
 
 class KotlinMainActivity : AppCompatActivity() {
 
@@ -35,7 +36,7 @@ class KotlinMainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.Deletewhole -> {
-//                deletedata()
+                deletedata()
                 true
             }
             R.id.age_calculator -> {
@@ -60,6 +61,25 @@ class KotlinMainActivity : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun deletedata() {
+        val dialog : AlertDialog.Builder = AlertDialog.Builder(this, R.style.AlertDialogButtonColor)
+        dialog.setMessage(R.string.confirm)
+        dialog.setPositiveButton(R.string.Yes)
+        {
+                dialog,
+                btn->yes()
+        }.show()
+        dialog.setNegativeButton(R.string.No){
+            dialog,btn->dialog.dismiss()
+        }
+
+    }
+
+    private fun yes() {
+        val deleteAllData = dataBaseClass(this)
+        deleteAllData.deleteall()
     }
 
     private fun aboutUS() {

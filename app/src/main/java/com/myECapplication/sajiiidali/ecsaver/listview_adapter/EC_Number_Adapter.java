@@ -61,7 +61,6 @@ public class EC_Number_Adapter extends BaseAdapter {
 
                 view.setTag(myViewHolder);
 
-
             }else{
                 myViewHolder = (MyViewHolder) view.getTag();
             }

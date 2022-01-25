@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.DialogFragment
 import com.myECapplication.sajiiidali.ecsaver.R
+import com.myECapplication.sajiiidali.ecsaver.kotlin.database.dataBaseClass
 import java.util.ArrayList
 
 class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecteddate) {
@@ -14,15 +15,17 @@ class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecte
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val args = EcSaveIntoPreviousDateArgs.fromBundle(requireArguments())
-        val day    = args.day
-        val month  = args.month
-        val year   = args.year
+        val byDay    = args.day
+        val byMonth  = args.month
+        val byYear   = args.year
         val textViewDate = view.findViewById<TextView>(R.id.tvdate)
+        val saveButton   = view.findViewById<Button>(R.id.btnsave)
         val clearButton  = view.findViewById<Button>(R.id.button)
-        val editText     = view.findViewById<EditText>(R.id.edttext)
+        val getEcNumber     = view.findViewById<EditText>(R.id.edttext)
         val spin = view.findViewById<Spinner>(R.id.spinner)
-        val date = "$day-$month-$year"
-        textViewDate.text = date
+        val mydb = dataBaseClass(requireActivity())
+        val getOldDate = "$byDay-$byMonth-$byYear"
+        textViewDate.text = getOldDate
         val arrayList = ArrayList<String>()
         arrayList.add("<Select EC Type>")
         arrayList.add("RC")
@@ -36,8 +39,37 @@ class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecte
         array.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spin.adapter = array
 
+        saveButton.setOnClickListener {
+            var isMatch = 0
+            val checkEcNumber = getEcNumber.text.toString().toUInt()
+            val cursor = mydb.checkdata(byMonth,byYear)
+            if (cursor != null) {
+                while (cursor.moveToNext()){
+                    if (cursor.getString(2).toString().toUInt() == checkEcNumber){
+                        isMatch++
+                    }
+                }
+            }
+            if (spin.selectedItem.toString() == "<Select EC Type>"){
+                Toast.makeText(activity, "please first Select EC Type and Type EC_NO", Toast.LENGTH_SHORT).show()
+            }else if (isMatch == 0){
+                val ecType = spin.selectedItem.toString()
+                val ecNumber = getEcNumber.text.toString()
+                val dayOfMonth = byDay.toString()
+                val monthOfYear = byMonth.toString()
+                val yYear       = byYear.toString()
+                val isInsert = mydb.insertData(ecType,ecNumber,getOldDate,monthOfYear,dayOfMonth,yYear,"")
+                if (isInsert){
+                    Toast.makeText(activity, "Saved", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(activity, "not Saved", Toast.LENGTH_SHORT).show()
+                }
+            }else{
+                Toast.makeText(activity, "This Record Already Saved", Toast.LENGTH_SHORT).show()
+            }
+        }
         clearButton.setOnClickListener {
-            editText.setText("")
+            getEcNumber.setText("")
         }
 
 

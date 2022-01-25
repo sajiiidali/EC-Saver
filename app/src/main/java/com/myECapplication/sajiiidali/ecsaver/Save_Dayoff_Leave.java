@@ -97,7 +97,7 @@ public class Save_Dayoff_Leave extends AppCompatActivity {
 
                         boolean isInsert = mydb.insertData(dayoff, keypair, date, month, Date, Year, rowstring);
 
-                        if (isInsert == true)
+                        if (isInsert)
                             Toast.makeText(Save_Dayoff_Leave.this, dayoff+" Saved ", Toast.LENGTH_LONG).show();
                         else
                             Toast.makeText(Save_Dayoff_Leave.this, dayoff+" Not Saved ", Toast.LENGTH_LONG).show();

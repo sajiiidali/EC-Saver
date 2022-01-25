@@ -73,8 +73,8 @@ public class SaveDataCurrentDay extends AppCompatActivity {
         month = currentmonth + 1;
         date = calendar.get(Calendar.DAY_OF_MONTH);
         year = calendar.get(Calendar.YEAR);
-
-        textView_current_date.setText("Current Date " + date + "-" + month + "-" + year);
+        String  setDate = "Current Date " + date + "-" + month + "-" + year;
+        textView_current_date.setText(setDate);
 
         btnclear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,15 +102,15 @@ public class SaveDataCurrentDay extends AppCompatActivity {
                     if (spin.getSelectedItem().toString() == "<Select EC Type>") {
                         Toast.makeText(SaveDataCurrentDay.this, "Please first Select EC Type and Type EC_NO", Toast.LENGTH_LONG).show();
                     } else if (match == 0) {
-                        String a1, a2, a4, a5, a6;
-                        a1 = spin.getSelectedItem().toString();
-                        a2 = String.valueOf(ch);
-                        a4 = String.valueOf(month);
-                        a5 = String.valueOf(date);
-                        a6 = String.valueOf(year);
-                        String rowstring = getrowstring(thisDate,a2,a1);//thisDate,a2,a1 = a1, a2, thisDate
-                        boolean isInsert = mydb.insertData(a1, a2, thisDate, a4, a5, a6, rowstring);
-                        if (isInsert == true) {
+                        String ecType, ecNumber, monthOfYear, dayOfMonth, yYear;
+                        ecType = spin.getSelectedItem().toString();
+                        ecNumber = String.valueOf(ch);
+                        monthOfYear = String.valueOf(month);
+                        dayOfMonth = String.valueOf(date);
+                        yYear = String.valueOf(year);
+                        String rowstring = getrowstring(thisDate,ecNumber,ecType);//thisDate,a2,a1 = a1, a2, thisDate
+                        boolean isInsert = mydb.insertData(ecType, ecNumber, thisDate, monthOfYear, dayOfMonth, yYear, rowstring);
+                        if (isInsert) {
                             Toast.makeText(getApplicationContext(), " Data Saved ", Toast.LENGTH_SHORT).show();
                         } else
                             Toast.makeText(getApplicationContext(), " Data Not Saved ", Toast.LENGTH_SHORT).show();

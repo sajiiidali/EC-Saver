@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_homeFragment_to_ecSaveIntoPreviousDate"
             app:destination="@id/ecSaveIntoPreviousDate" />
+        <action
+            android:id="@+id/action_homeFragment_to_saveDayOffLeave2"
+            app:destination="@id/saveDayOffLeave2" />
     </fragment>
     <fragment
         android:id="@+id/kotlin_AgeCalculator"
@@ -51,6 +54,24 @@
         android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.EcSaveIntoPreviousDate"
         android:label="activity_save_old_selecteddate"
         tools:layout="@layout/activity_save_old_selecteddate" >
+        <argument
+            android:name="day"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="month"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="year"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </dialog>
+    <dialog
+        android:id="@+id/saveDayOffLeave2"
+        android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.saveDayOffLeave"
+        android:label="activity_save__dayoff__leave"
+        tools:layout="@layout/activity_save__dayoff__leave" >
         <argument
             android:name="day"
             app:argType="integer"

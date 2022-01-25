@@ -84,6 +84,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/previousDayLayoutImage" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+<!--
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/saveDayOffLayout"
                 android:layout_width="match_parent"
@@ -116,6 +117,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/dayOffImage" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+-->
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/showSavedDataLayout"
@@ -126,7 +128,7 @@
                 android:elevation="10dp"
                 android:focusable="true"
                 android:layout_margin="20dp"
-                app:layout_constraintTop_toBottomOf="@id/saveDayOffLayout"
+                app:layout_constraintTop_toBottomOf="@id/previousDayLayout"
                 tools:ignore="MissingConstraints">
                 <ImageView
                     android:id="@+id/showSavedECNumber"

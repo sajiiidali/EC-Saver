@@ -33,16 +33,16 @@ class dataBaseClass(context :Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         db!!.execSQL("DROP TABLE IF EXISTS $TABLE_NAME")
         onCreate(db)
     }
-    fun insertData(ECT: String?, ECN: String?, CD: String?, month: String?, date: String?, year: String?, rowstring: String?): Boolean {
+    fun insertData(ecType: String?, ecNumber: String?, currentDate: String?, monthOfYear: String?, dayOfMonth: String?, finalYear: String?, rowstring: String?): Boolean {
 
         db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(Database.COLUMN_1, ECT)
-        contentValues.put(Database.COLUMN_2, ECN)
-        contentValues.put(Database.COLUMN_3, CD)
-        contentValues.put(Database.COLUMN_4, month)
-        contentValues.put(Database.COLUMN_5, date)
-        contentValues.put(Database.COLUMN_6, year)
+        contentValues.put(Database.COLUMN_1, ecType)
+        contentValues.put(Database.COLUMN_2, ecNumber)
+        contentValues.put(Database.COLUMN_3, currentDate)
+        contentValues.put(Database.COLUMN_4, monthOfYear)
+        contentValues.put(Database.COLUMN_5, dayOfMonth)
+        contentValues.put(Database.COLUMN_6, finalYear)
         contentValues.put(Database.COLUMN_7, rowstring)
         val result = db?.insert(TABLE_NAME, null, contentValues)
         return if (result == -1L) false else true

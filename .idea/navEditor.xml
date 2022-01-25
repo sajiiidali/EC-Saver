@@ -92,6 +92,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="saveDayOffLeave2">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-2436" />
+                            <option name="y" value="166" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                 </map>
               </option>
             </LayoutPositions>

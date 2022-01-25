@@ -17,7 +17,7 @@ import com.myECapplication.sajiiidali.ecsaver.R
 class HomeFragment : Fragment(R.layout.home_fragment) {
     lateinit var ToDayLayout             : ConstraintLayout
     lateinit var previousDayLayout       : ConstraintLayout
-    lateinit var saveDayOffLayout        : ConstraintLayout
+//    lateinit var saveDayOffLayout        : ConstraintLayout
     lateinit var showSavedDataLayout     : ConstraintLayout
 
     @SuppressLint("InflateParams")
@@ -29,7 +29,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         homeFragmentView        = view
         ToDayLayout             = view.findViewById(R.id.ToDayLayout)
         previousDayLayout       = view.findViewById(R.id.previousDayLayout)
-        saveDayOffLayout        = view.findViewById(R.id.saveDayOffLayout)
+//        saveDayOffLayout        = view.findViewById(R.id.saveDayOffLayout)
         showSavedDataLayout     = view.findViewById(R.id.showSavedDataLayout)
 
         ToDayLayout.setOnClickListener {
@@ -62,9 +62,27 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
         }
 
-        saveDayOffLayout.setOnClickListener {
+    /*    saveDayOffLayout.setOnClickListener {
+            val layoutInflater = layoutInflater
+            homeFragmentView = layoutInflater.inflate(R.layout.datepicker_layout,null)
+            val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogButtonColor)
+            builder.setView(homeFragmentView)
 
-        }
+            builder.setPositiveButton(R.string.Yes) { dialog, btn->
+                val datePickerDialog = homeFragmentView.findViewById<DatePicker>(R.id.datepicker)
+                val selectedDate = datePickerDialog.dayOfMonth
+                val selectedMonth = datePickerDialog.month + 1
+                val selectedYear = datePickerDialog.year
+
+                try {
+                    val directions = HomeFragmentDirections.actionHomeFragmentToSaveDayOffLeave2(selectedDate,selectedMonth,selectedYear)
+                    findNavController().navigate(directions)
+                    dialog.dismiss()
+                } catch (e: Exception) {
+                    Toast.makeText(activity, ""+e, Toast.LENGTH_LONG).show()
+                }
+            }.show()
+        }*/
 
         showSavedDataLayout.setOnClickListener {
 

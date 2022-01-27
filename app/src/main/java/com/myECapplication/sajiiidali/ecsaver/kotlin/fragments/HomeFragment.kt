@@ -85,8 +85,9 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         }*/
 
         showSavedDataLayout.setOnClickListener {
-
-        }
+         val directions = HomeFragmentDirections.actionHomeFragmentToGetMonthByUser()
+            findNavController().navigate(directions)
+                 }
 
     }
 

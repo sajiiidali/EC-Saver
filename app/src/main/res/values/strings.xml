@@ -46,4 +46,18 @@
     <string name="hintName">ENTER EC NUMBER</string>
     <string name="save">Save</string>
     <string name="OK">OK</string>
+    <string name="hintDate">12 dec 2019</string>
+    <string name="january">January</string>
+    <string name="febuary">February</string>
+    <string name="march">March</string>
+    <string name="april">April</string>
+    <string name="may">May</string>
+    <string name="july">July</string>
+    <string name="june">June</string>
+    <string name="august">August</string>
+    <string name="sptember">September</string>
+    <string name="december">December</string>
+    <string name="november">November</string>
+    <string name="october">October</string>
+    <string name="Cancle">Cancel</string>
 </resources>

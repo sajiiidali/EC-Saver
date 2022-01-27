@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_homeFragment_to_saveDayOffLeave2"
             app:destination="@id/saveDayOffLeave2" />
+        <action
+            android:id="@+id/action_homeFragment_to_getMonthByUser"
+            app:destination="@id/getMonthByUser" />
     </fragment>
     <fragment
         android:id="@+id/kotlin_AgeCalculator"
@@ -85,4 +88,27 @@
             app:argType="integer"
             android:defaultValue="0" />
     </dialog>
+    <dialog
+        android:id="@+id/getMonthByUser"
+        android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.getMonthByUser"
+        android:label="get_monthby_user"
+        tools:layout="@layout/get_monthby_user" >
+        <action
+            android:id="@+id/action_getMonthByUser_to_showSavedData"
+            app:destination="@id/showSavedData"
+            app:enterAnim="@anim/slid_in_right"
+            app:exitAnim="@anim/slid_out_left"
+            app:popEnterAnim="@anim/slid_in_left"
+            app:popExitAnim="@anim/slid_out_right" />
+    </dialog>
+    <fragment
+        android:id="@+id/showSavedData"
+        android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.showSavedData"
+        android:label="activity_main2"
+        tools:layout="@layout/showSavedData" >
+        <argument
+            android:name="getMonth"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>

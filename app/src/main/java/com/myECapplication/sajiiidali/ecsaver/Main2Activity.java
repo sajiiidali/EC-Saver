@@ -34,7 +34,7 @@ public class Main2Activity extends AppCompatActivity {
     int mymonth, year,selected_year;
     ListView listView;
     String string="";
-    TextView tvmonth;
+//    TextView tvmonth;
     Database mydb;
     String text;
     Intent it;
@@ -48,14 +48,14 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.show_saved_data);
         overridePendingTransition(R.anim.slid_in_left,R.anim.slid_out_right);
 
         getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ec_saver_app_logo);// set app icon
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        tvmonth = (TextView)findViewById(R.id.tvmonth);
+//        tvmonth = (TextView)findViewById(R.id.tvmonth);
         row_dataArrayList = new ArrayList<>();
         listView = (ListView) findViewById(R.id.listview);
         mydb = new Database(this);
@@ -268,7 +268,7 @@ public class Main2Activity extends AppCompatActivity {
             string = "November";
         if (month == 12)
             string = "December";
-        tvmonth.setText("Month Of "+string+" "+year);
+//        tvmonth.setText("Month Of "+string+" "+year);
         res = mydb.checkdata(month, year);
         total = res.getCount();
         while (res.moveToNext()){

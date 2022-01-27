@@ -40,32 +40,37 @@ class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecte
         spin.adapter = array
 
         saveButton.setOnClickListener {
-            var isMatch = 0
-            val checkEcNumber = getEcNumber.text.toString().toUInt()
-            val cursor = mydb.checkdata(byMonth,byYear)
-            if (cursor != null) {
-                while (cursor.moveToNext()){
-                    if (cursor.getString(2).toString().toUInt() == checkEcNumber){
-                        isMatch++
+
+            try {
+                var isMatch = 0
+                val checkEcNumber = getEcNumber.text.toString().toUInt()
+                val cursor = mydb.checkdata(byMonth,byYear)
+                if (cursor != null) {
+                    while (cursor.moveToNext()){
+                        if (cursor.getString(2).toString().toUInt() == checkEcNumber){
+                            isMatch++
+                        }
                     }
                 }
-            }
-            if (spin.selectedItem.toString() == "<Select EC Type>"){
-                Toast.makeText(activity, "please first Select EC Type and Type EC_NO", Toast.LENGTH_SHORT).show()
-            }else if (isMatch == 0){
-                val ecType = spin.selectedItem.toString()
-                val ecNumber = getEcNumber.text.toString()
-                val dayOfMonth = byDay.toString()
-                val monthOfYear = byMonth.toString()
-                val yYear       = byYear.toString()
-                val isInsert = mydb.insertData(ecType,ecNumber,getOldDate,monthOfYear,dayOfMonth,yYear,"")
-                if (isInsert){
-                    Toast.makeText(activity, "Saved", Toast.LENGTH_SHORT).show()
+                if (spin.selectedItem.toString() == "<Select EC Type>"){
+                    Toast.makeText(activity, "please first Select EC Type and Type EC_NO", Toast.LENGTH_SHORT).show()
+                }else if (isMatch == 0){
+                    val ecType = spin.selectedItem.toString()
+                    val ecNumber = getEcNumber.text.toString()
+                    val dayOfMonth = byDay.toString()
+                    val monthOfYear = byMonth.toString()
+                    val yYear       = byYear.toString()
+                    val isInsert = mydb.insertData(ecType,ecNumber,getOldDate,monthOfYear,dayOfMonth,yYear,"")
+                    if (isInsert){
+                        Toast.makeText(activity, "Saved", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(activity, "not Saved", Toast.LENGTH_SHORT).show()
+                    }
                 }else{
-                    Toast.makeText(activity, "not Saved", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "This Record Already Saved", Toast.LENGTH_SHORT).show()
                 }
-            }else{
-                Toast.makeText(activity, "This Record Already Saved", Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                Toast.makeText(activity, "please first Select EC Type and Type EC_NO", Toast.LENGTH_SHORT).show()
             }
         }
         clearButton.setOnClickListener {

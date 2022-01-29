@@ -74,14 +74,15 @@ class dataBaseClass(context :Context) : SQLiteOpenHelper(context, DATABASE_NAME,
             arrayOf(m.toString(), year.toString())
         )
     }
-    fun showdatawithoutarguments(): Cursor? {
+    fun showAllData(): Cursor? {
         db = this.readableDatabase
         return db?.rawQuery("SELECT * FROM EC_Table", null)
     }
-    fun showawholedate(m: Int): Cursor? {
+    fun showawholedate(byMonth: Int): Cursor? {
         db = this.readableDatabase
-        return db?.rawQuery("SELECT * FROM EC_Table WHERE Month_No = ?", arrayOf(m.toString()))
+        return db?.rawQuery("SELECT * FROM EC_Table WHERE Month_No = ?", arrayOf(byMonth.toString()))
     }
+
     fun editThisRowItems(Date: String?, EcNumber: String?, EcType: String?, ecnumber: String,primaryKey:String?): Boolean {
         db = this.writableDatabase
         val contentValues = ContentValues(3)

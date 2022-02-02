@@ -23,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$PROJECT_DIR$/../../../Muhammad%20Sajid%20Ali/AppData/Local/Android/Sdk/icons/material/materialicons/save/baseline_save_24.xml" />
+                                      <entry key="url" value="file:/$PROJECT_DIR$/../../../Muhammad%20Sajid%20Ali/AppData/Local/Android/Sdk/icons/material/materialicons/delete_forever/baseline_delete_forever_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -33,8 +33,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="212020" />
-                            <entry key="outputName" value="ic_saved" />
+                            <entry key="color" value="ffffff" />
+                            <entry key="outputName" value="ic_delete_icon" />
                             <entry key="sourceFile" value="C:\Users\Muhammad Sajid Ali\StudioProjects\EC-Saver" />
                           </map>
                         </option>

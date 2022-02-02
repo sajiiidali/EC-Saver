@@ -5,11 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
 import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
 import com.myECapplication.sajiiidali.ecsaver.R
+import java.util.HashMap
 
 class expandAbleListAdapter(
-     var childListMap: Map<String, List<String>>,
-     var parentList: List<String>) : BaseExpandableListAdapter() {
+    var appContext: FragmentActivity?,
+    var childListMap: HashMap<String, List<myRow_data>>,
+    var parentList: List<String>) : BaseExpandableListAdapter() {
 
 
     override fun getGroupCount(): Int {
@@ -53,6 +57,7 @@ class expandAbleListAdapter(
         }
         val setListName = varView?.findViewById<TextView>(R.id.group_title)
         setListName?.setText(titleOfList)
+//        Toast.makeText(appContext, ""+titleOfList, Toast.LENGTH_SHORT).show()
         return varView!!
     }
 
@@ -63,7 +68,11 @@ class expandAbleListAdapter(
         convertView: View?,
         parent: ViewGroup?
     ): View {
-        val EcNumber = getChild(groupPosition,childPosition).toString()
+
+        val myRowData = childListMap[parentList[groupPosition]]!![childPosition]
+        val dDate = myRowData.DATE
+        val EcNumber = myRowData.EC_NUMBER
+        val ecType = myRowData.EC_TYPE
         var varView = convertView
         if (convertView == null){
             varView = LayoutInflater.from(parent?.context).inflate(R.layout.data_row_layout_listview, null as ViewGroup?)
@@ -71,7 +80,10 @@ class expandAbleListAdapter(
         val DATE = varView?.findViewById<TextView>(R.id.edit_date)
         val EC_NUMBER = varView?.findViewById<TextView>(R.id.edit_ec_number)
         val EC_TYPE = varView?.findViewById<TextView>(R.id.edit_ec_Type)
-        val DAYOFF = varView?.findViewById<TextView>(R.id.edit_dayoff)
+        DATE?.setText(dDate)
+        EC_NUMBER?.setText(EcNumber)
+        EC_TYPE?.setText(ecType)
+//        val DAYOFF = varView?.findViewById<TextView>(R.id.edit_dayoff)
         return varView!!
     }
 

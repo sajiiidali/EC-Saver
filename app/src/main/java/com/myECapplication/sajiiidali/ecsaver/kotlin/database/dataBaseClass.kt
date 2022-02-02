@@ -74,6 +74,12 @@ class dataBaseClass(context :Context) : SQLiteOpenHelper(context, DATABASE_NAME,
             arrayOf(m.toString(), year.toString())
         )
     }
+    fun checkDataByMonth(month: Int): Cursor? {
+        db = this.readableDatabase
+        return db?.rawQuery(
+            "SELECT * FROM EC_Table WHERE Month_No = ?", arrayOf(month.toString())
+        )
+    }
     fun showAllData(): Cursor? {
         db = this.readableDatabase
         return db?.rawQuery("SELECT * FROM EC_Table", null)

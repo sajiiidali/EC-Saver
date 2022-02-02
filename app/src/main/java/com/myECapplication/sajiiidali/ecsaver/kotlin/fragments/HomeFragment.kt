@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.myECapplication.sajiiidali.ecsaver.R
@@ -68,7 +69,6 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
          val directions = HomeFragmentDirections.actionHomeFragmentToGetMonthByUser()
             findNavController().navigate(directions)
                  }
-
     }
 
 
@@ -83,7 +83,6 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         val navDirection = HomeFragmentDirections.actionHomeFragmentToKotlinBMICalculator()
         Navigation.findNavController(homeFragmentView).navigate(navDirection)
     }
-
 
         /*    saveDayOffLayout.setOnClickListener {
           val layoutInflater = layoutInflater

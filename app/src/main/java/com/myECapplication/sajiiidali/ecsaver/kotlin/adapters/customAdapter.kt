@@ -35,14 +35,14 @@ class customAdapter(context: Context, rowData: ArrayList<myRow_data>) : BaseAdap
             val DATE = newConvertView.findViewById<TextView>(R.id.edit_date)
             val EC_NUMBER = newConvertView.findViewById<TextView>(R.id.edit_ec_number)
             val EC_TYPE = newConvertView.findViewById<TextView>(R.id.edit_ec_Type)
-            val DAYOFF = newConvertView.findViewById<TextView>(R.id.edit_dayoff)
+//            val DAYOFF = newConvertView.findViewById<TextView>(R.id.edit_dayoff)
 
             val user: myRow_data = rowDatas[position]
 
             DATE.setText(user.DATE)
             EC_NUMBER.setText(user.EC_NUMBER)
             EC_TYPE.setText(user.EC_TYPE)
-            DAYOFF.setText(user.DAYOFF)
+//            DAYOFF.setText(user.DAYOFF)
 
         }
         return newConvertView!!

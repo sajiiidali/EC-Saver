@@ -41,7 +41,7 @@ public class EC_Number_Adapter extends BaseAdapter {
 
         try {
             MyViewHolder myViewHolder = null;
-            if (view == null) {
+         /*   if (view == null) {
                 LayoutInflater layoutInflater = (LayoutInflater) appContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 view = layoutInflater.inflate(R.layout.data_row_layout_listview, null);
 
@@ -63,7 +63,7 @@ public class EC_Number_Adapter extends BaseAdapter {
 
             }else{
                 myViewHolder = (MyViewHolder) view.getTag();
-            }
+            }*/
         } catch (Exception e) {
             e.printStackTrace();
         }

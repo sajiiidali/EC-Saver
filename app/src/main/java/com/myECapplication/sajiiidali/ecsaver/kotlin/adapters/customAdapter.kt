@@ -39,7 +39,7 @@ class customAdapter(context: Context, rowData: ArrayList<myRow_data>) : BaseAdap
 
             val user: myRow_data = rowDatas[position]
 
-            DATE.setText(user.DATE)
+//            DATE.setText(user.DATE)
             EC_NUMBER.setText(user.EC_NUMBER)
             EC_TYPE.setText(user.EC_TYPE)
 //            DAYOFF.setText(user.DAYOFF)

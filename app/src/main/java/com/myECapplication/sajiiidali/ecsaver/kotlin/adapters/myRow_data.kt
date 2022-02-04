@@ -1,7 +1,6 @@
 package com.myECapplication.sajiiidali.ecsaver.kotlin.adapters
 
 class myRow_data(
-     var DATE: String,
      var EC_NUMBER: String,
      var EC_TYPE: String
 ) {

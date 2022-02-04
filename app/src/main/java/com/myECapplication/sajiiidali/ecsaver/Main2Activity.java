@@ -318,20 +318,17 @@ public class Main2Activity extends AppCompatActivity {
 
     public void deletedata() {
         builder.setTitle("Delete Records").setMessage("Really? Do You Want To Delete Records of " + string)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Cursor res = mydb.checkdata(mymonth, year);
-                if (res.getCount() == 0)
-                    Toast.makeText(Main2Activity.this, "There is No any Records of " + string, Toast.LENGTH_LONG).show();
-                else {
-                    mydb.deletebymonth(mymonth);
-                    Toast.makeText(Main2Activity.this, " You Have Deleted Records Month of " + string, Toast.LENGTH_LONG).show();
-                    row_dataArrayList.clear();
-                    ECNumber_adapter.notifyDataSetChanged();
-                }
-            }
-        }).setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                .setPositiveButton(android.R.string.yes, (dialogInterface, i) -> {
+                    Cursor res = mydb.checkdata(mymonth, year);
+                    if (res.getCount() == 0)
+                        Toast.makeText(Main2Activity.this, "There is No any Records of " + string, Toast.LENGTH_LONG).show();
+                    else {
+                        mydb.deletebymonth(mymonth);
+                        Toast.makeText(Main2Activity.this, " You Have Deleted Records Month of " + string, Toast.LENGTH_LONG).show();
+                        row_dataArrayList.clear();
+                        ECNumber_adapter.notifyDataSetChanged();
+                    }
+                }).setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
             }

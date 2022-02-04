@@ -3,6 +3,7 @@ package com.myECapplication.sajiiidali.ecsaver.kotlin.fragments
 import android.os.Bundle
 import android.view.View
 import android.widget.ExpandableListView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.myECapplication.sajiiidali.ecsaver.R
@@ -19,24 +20,39 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
         val args = showSavedDataArgs.fromBundle(requireArguments())
         val expandAbleListview = view.findViewById<ExpandableListView>(R.id.expandAbleListView)
-        val parentGroupName = ArrayList<String>()
-        val listItem = ArrayList<myRow_data>()
+        val parentName = ArrayList<String>()
+        val childList = ArrayList<myRow_data>()
         val hashMap= HashMap<String, List<myRow_data>>()
         val db = dataBaseClass(requireContext())
-        val getCursorByMonth = db.checkDataByMonth(args.getMonth)
-        if (getCursorByMonth != null) {
-            var i = 0
-            while (getCursorByMonth.moveToNext()){
-                parentGroupName.add(getCursorByMonth.getString(3))
-                listItem.add(myRow_data(getCursorByMonth.getString(3),
-                    getCursorByMonth.getString(2),
-                    getCursorByMonth.getString(1)))
-                hashMap.put(parentGroupName.get(i),listItem)
-                i++
-            }
-        }
-        val myExpandableAdapter = expandAbleListAdapter(activity,hashMap,parentGroupName)
-        expandAbleListview.setAdapter(myExpandableAdapter)
+        try {
+            var index = 0
+            for (byDate:Int in 0..30){
+                val getCursorByMonth = db.checkDataByMonth(byDate,args.getMonth)
+                if (getCursorByMonth?.count != 0){
+                    if (parentName.isEmpty())
+                    {
+                        index = 0
+                    }else
+                    {
+                        index++
+                    }
+                    parentName.add(index,"A")
+                      while (getCursorByMonth?.moveToNext()!!)
+                  {
 
+                      if (parentName.get(index).equals("A")) {
+                          parentName.set(index,getCursorByMonth.getString(3))
+                      }
+                      childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                  }
+                    hashMap.put(parentName.get(index), childList)
+                }
+            }
+
+        } catch (e: Exception) {
+            Toast.makeText(activity, ""+e, Toast.LENGTH_LONG).show()
+        }
+        val myExpandableAdapter = expandAbleListAdapter(activity,hashMap,parentName)
+        expandAbleListview.setAdapter(myExpandableAdapter)
     }
 }

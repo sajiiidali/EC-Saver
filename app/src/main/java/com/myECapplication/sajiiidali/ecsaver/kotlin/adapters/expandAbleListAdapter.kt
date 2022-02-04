@@ -28,7 +28,7 @@ class expandAbleListAdapter(
         return parentList.get(groupPosition)
     }
 
-    override fun getChild(groupPosition: Int, childPosition: Int): Any {
+    override fun getChild(groupPosition: Int, childPosition: Int): myRow_data {
         return childListMap[parentList[groupPosition]]!![childPosition]
     }
 
@@ -44,12 +44,8 @@ class expandAbleListAdapter(
         return false
     }
 
-    override fun getGroupView(
-        groupPosition: Int,
-        isExpanded: Boolean,
-        convertView: View?,
-        parent: ViewGroup?
-    ): View {
+    override fun getGroupView(groupPosition: Int, isExpanded: Boolean, convertView: View?, parent: ViewGroup?): View {
+
         val titleOfList = getGroup(groupPosition).toString()
         var varView = convertView
         if (convertView == null){
@@ -57,8 +53,8 @@ class expandAbleListAdapter(
         }
         val setListName = varView?.findViewById<TextView>(R.id.group_title)
         setListName?.setText(titleOfList)
-//        Toast.makeText(appContext, ""+titleOfList, Toast.LENGTH_SHORT).show()
         return varView!!
+
     }
 
     override fun getChildView(
@@ -68,19 +64,14 @@ class expandAbleListAdapter(
         convertView: View?,
         parent: ViewGroup?
     ): View {
-
-        val myRowData = childListMap[parentList[groupPosition]]!![childPosition]
-        val dDate = myRowData.DATE
-        val EcNumber = myRowData.EC_NUMBER
-        val ecType = myRowData.EC_TYPE
+        val EcNumber = getChild(groupPosition,childPosition).EC_NUMBER
+        val ecType = getChild(groupPosition,childPosition).EC_TYPE
         var varView = convertView
         if (convertView == null){
             varView = LayoutInflater.from(parent?.context).inflate(R.layout.data_row_layout_listview, null as ViewGroup?)
         }
-        val DATE = varView?.findViewById<TextView>(R.id.edit_date)
         val EC_NUMBER = varView?.findViewById<TextView>(R.id.edit_ec_number)
         val EC_TYPE = varView?.findViewById<TextView>(R.id.edit_ec_Type)
-        DATE?.setText(dDate)
         EC_NUMBER?.setText(EcNumber)
         EC_TYPE?.setText(ecType)
 //        val DAYOFF = varView?.findViewById<TextView>(R.id.edit_dayoff)

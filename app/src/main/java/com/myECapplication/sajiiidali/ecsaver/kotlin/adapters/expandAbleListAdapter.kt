@@ -6,12 +6,13 @@ import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.fragment.app.FragmentActivity
 import com.myECapplication.sajiiidali.ecsaver.R
 import java.util.HashMap
 
 class expandAbleListAdapter(
-    var appContext: FragmentActivity?,
+    var activity: FragmentActivity?,
     var childListMap: HashMap<String, List<myRow_data>>,
     var parentList: List<String>) : BaseExpandableListAdapter() {
 
@@ -57,11 +58,8 @@ class expandAbleListAdapter(
 
     }
 
-    override fun getChildView(
-        groupPosition: Int,
-        childPosition: Int,
-        isLastChild: Boolean,
-        convertView: View?,
+    override fun getChildView(groupPosition: Int, childPosition: Int,
+        isLastChild: Boolean,convertView: View?,
         parent: ViewGroup?
     ): View {
         val EcNumber = getChild(groupPosition,childPosition).EC_NUMBER
@@ -72,8 +70,16 @@ class expandAbleListAdapter(
         }
         val EC_NUMBER = varView?.findViewById<TextView>(R.id.edit_ec_number)
         val EC_TYPE = varView?.findViewById<TextView>(R.id.edit_ec_Type)
+        val deleteList = varView?.findViewById<AppCompatImageButton>(R.id.deleteList)
+        val editList = varView?.findViewById<AppCompatImageButton>(R.id.edit_listName)
         EC_NUMBER?.setText(EcNumber)
         EC_TYPE?.setText(ecType)
+        deleteList?.setOnClickListener {
+            Toast.makeText(activity, "Working", Toast.LENGTH_SHORT).show()
+        }
+        editList?.setOnClickListener {
+            Toast.makeText(activity, "Working", Toast.LENGTH_SHORT).show()
+        }
 //        val DAYOFF = varView?.findViewById<TextView>(R.id.edit_dayoff)
         return varView!!
     }

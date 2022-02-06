@@ -110,5 +110,9 @@
             android:name="getMonth"
             app:argType="integer"
             android:defaultValue="0" />
+        <argument
+            android:name="getCurrentYear"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 </navigation>

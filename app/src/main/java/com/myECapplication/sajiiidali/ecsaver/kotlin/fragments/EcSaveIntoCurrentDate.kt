@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.DialogFragment
-import com.myECapplication.sajiiidali.ecsaver.Database
 import com.myECapplication.sajiiidali.ecsaver.R
 import com.myECapplication.sajiiidali.ecsaver.kotlin.database.dataBaseClass
 import java.util.*

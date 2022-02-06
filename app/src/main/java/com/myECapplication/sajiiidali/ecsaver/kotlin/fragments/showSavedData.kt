@@ -23,10 +23,12 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
         val parentName = ArrayList<String>()
         val hashMap= HashMap<String, List<myRow_data>>()
         val db = dataBaseClass(requireContext())
+        var isYearExist = args.getCurrentYear
         try {
             var index = 0
-                for (byDate:Int in 1..31){
-                    val getCursorByMonth = db.checkDataByMonth(byDate,args.getMonth)
+            var byDate = 0
+            while (byDate <= 32){
+                    val getCursorByMonth = db.checkDataByMonthAndYear(byDate,args.getMonth,isYearExist)
                     if (getCursorByMonth?.count != 0){
                         if (parentName.isEmpty())
                         {
@@ -349,6 +351,14 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             hashMap.put(parentName.get(index), childList)
                         }
                     }
+                    if(byDate == 32){
+                        isYearExist -= 1
+                        val getCursorOfYear = db.checkByYear(isYearExist)
+                        if (getCursorOfYear?.count != 0){
+                            byDate = 0
+                        }
+                    }
+                byDate++
             }
             val myExpandableAdapter = expandAbleListAdapter(activity,hashMap,parentName)
             expandAbleListview.setAdapter(myExpandableAdapter)

@@ -5,9 +5,12 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.myECapplication.sajiiidali.ecsaver.Database
 
-class dataBaseClass(context :Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class dataBaseClass(context :Context) : SQLiteOpenHelper(
+    context,
+    DATABASE_NAME,
+    null,
+    DATABASE_VERSION) {
 
     companion object{
         var db: SQLiteDatabase? = null
@@ -26,24 +29,39 @@ class dataBaseClass(context :Context) : SQLiteOpenHelper(context, DATABASE_NAME,
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
-        db!!.execSQL("create table $TABLE_NAME(primaryKey INTEGER PRIMARY KEY AUTOINCREMENT,Type_of_EC TEXT, EC_Number TEXT, C_Date TEXT, Month_No TEXT, Date_No TEXT, Year_No TEXT, Row_string TEXT )")
+        db!!.execSQL("create table $TABLE_NAME(" +
+                "primaryKey INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "Type_of_EC TEXT, EC_Number TEXT, C_Date TEXT, " +
+                "Month_No TEXT, Date_No TEXT, " +
+                "Year_No TEXT, " +
+                "Row_string TEXT )")
     }
 
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+    override fun onUpgrade(
+        db: SQLiteDatabase?,
+        oldVersion: Int,
+        newVersion: Int) {
         db!!.execSQL("DROP TABLE IF EXISTS $TABLE_NAME")
         onCreate(db)
     }
-    fun insertData(ecType: String?, ecNumber: String?, currentDate: String?, monthOfYear: String?, dayOfMonth: String?, finalYear: String?, rowstring: String?): Boolean {
+    fun insertData(
+        ecType: String?,
+        ecNumber: String?,
+        currentDate: String?,
+        monthOfYear: String?,
+        dayOfMonth: String?,
+        finalYear: String?,
+        rowstring: String?): Boolean {
 
         db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(Database.COLUMN_1, ecType)
-        contentValues.put(Database.COLUMN_2, ecNumber)
-        contentValues.put(Database.COLUMN_3, currentDate)
-        contentValues.put(Database.COLUMN_4, monthOfYear)
-        contentValues.put(Database.COLUMN_5, dayOfMonth)
-        contentValues.put(Database.COLUMN_6, finalYear)
-        contentValues.put(Database.COLUMN_7, rowstring)
+        contentValues.put(COLUMN_1, ecType)
+        contentValues.put(COLUMN_2, ecNumber)
+        contentValues.put(COLUMN_3, currentDate)
+        contentValues.put(COLUMN_4, monthOfYear)
+        contentValues.put(COLUMN_5, dayOfMonth)
+        contentValues.put(COLUMN_6, finalYear)
+        contentValues.put(COLUMN_7, rowstring)
         val result = db?.insert(TABLE_NAME, null, contentValues)
         return if (result == -1L) false else true
     }
@@ -59,12 +77,25 @@ class dataBaseClass(context :Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         db = this.writableDatabase
         db?.delete(TABLE_NAME, "Month_No =?", arrayOf(month.toString()))
     }
-    fun show_data_by_selected_month_and_year(i: Int, datepic_month: Int, year: Int): Cursor? {
+    fun checkDataByMonthAndYear(
+        date: Int,
+        month: Int,
+        year: Int): Cursor? {
+
         db = this.readableDatabase
 
         return db?.rawQuery(
             "SELECT * FROM EC_Table WHERE Date_No = ? AND Month_No = ? AND Year_No = ?",
-            arrayOf(i.toString(), datepic_month.toString(), year.toString())
+            arrayOf(date.toString(), month.toString(), year.toString())
+        )
+    }
+    fun checkByYear(
+        year: Int): Cursor? {
+
+        db = this.readableDatabase
+
+        return db?.rawQuery(
+            "SELECT * FROM EC_Table WHERE Year_No = ?", arrayOf(year.toString())
         )
     }
     fun checkdata(m: Int, year: Int): Cursor? {
@@ -74,12 +105,7 @@ class dataBaseClass(context :Context) : SQLiteOpenHelper(context, DATABASE_NAME,
             arrayOf(m.toString(), year.toString())
         )
     }
-    fun checkDataByMonth(byDayOfMonth: Int,month: Int): Cursor? {
-        db = this.readableDatabase
-        return db?.rawQuery(
-            "SELECT * FROM EC_Table WHERE Date_No = ? AND Month_No = ?", arrayOf(byDayOfMonth.toString(),month.toString())
-        )
-    }
+
     fun showAllData(): Cursor? {
         db = this.readableDatabase
         return db?.rawQuery("SELECT * FROM EC_Table", null)
@@ -89,12 +115,18 @@ class dataBaseClass(context :Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         return db?.rawQuery("SELECT * FROM EC_Table WHERE Month_No = ?", arrayOf(byMonth.toString()))
     }
 
-    fun editThisRowItems(Date: String?, EcNumber: String?, EcType: String?, ecnumber: String,primaryKey:String?): Boolean {
+    fun editThisRowItems(
+        Date: String?,
+        EcNumber: String?,
+        EcType: String?,
+        ecnumber: String,
+        primaryKey:String? ): Boolean {
+
         db = this.writableDatabase
         val contentValues = ContentValues(3)
-        contentValues.put(Database.COLUMN_1, EcType)
-        contentValues.put(Database.COLUMN_2, EcNumber)
-        contentValues.put(Database.COLUMN_3, Date)
+        contentValues.put(COLUMN_1, EcType)
+        contentValues.put(COLUMN_2, EcNumber)
+        contentValues.put(COLUMN_3, Date)
         val result = db?.update(TABLE_NAME, contentValues, " EC_Number=? || primaryKey=?", arrayOf(ecnumber,primaryKey))?.toLong()
         return if (result == -1L) false else true
     }

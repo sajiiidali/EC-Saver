@@ -1,11 +1,13 @@
 package com.myECapplication.sajiiidali.ecsaver.kotlin.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.ExpandableListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.myECapplication.sajiiidali.ecsaver.R
 import com.myECapplication.sajiiidali.ecsaver.kotlin.adapters.expandAbleListAdapter
 import com.myECapplication.sajiiidali.ecsaver.kotlin.adapters.myRow_data
@@ -17,10 +19,10 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        showSavedView = view
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
         val args = showSavedDataArgs.fromBundle(requireArguments())
         val expandAbleListview = view.findViewById<ExpandableListView>(R.id.expandAbleListView)
-        val parentName = ArrayList<String>()
         val hashMap= HashMap<String, List<myRow_data>>()
         val db = dataBaseClass(requireContext())
         var isYearExist = args.getCurrentYear
@@ -44,9 +46,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 2){
@@ -54,9 +56,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 3){
@@ -64,9 +66,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 4){
@@ -74,9 +76,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 5){
@@ -84,9 +86,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 6){
@@ -94,9 +96,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 7){
@@ -104,9 +106,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 8){
@@ -114,9 +116,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 9){
@@ -124,9 +126,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 10){
@@ -134,9 +136,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 11){
@@ -144,9 +146,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 12){
@@ -154,9 +156,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 13){
@@ -164,9 +166,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 14){
@@ -174,9 +176,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 15){
@@ -184,9 +186,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 16){
@@ -194,9 +196,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 17){
@@ -204,9 +206,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 18){
@@ -214,9 +216,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 19){
@@ -224,9 +226,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 20){
@@ -234,9 +236,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 21){
@@ -244,9 +246,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 22){
@@ -254,9 +256,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 23){
@@ -264,9 +266,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 24){
@@ -274,9 +276,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 25){
@@ -284,9 +286,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 26){
@@ -294,9 +296,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 27){
@@ -304,9 +306,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 28){
@@ -314,9 +316,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 29){
@@ -324,9 +326,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 30){
@@ -334,9 +336,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }else if (byDate == 31){
@@ -344,9 +346,9 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                             while (getCursorByMonth?.moveToNext()!!)
                             {
                                 if (parentName.get(index).equals("A")) {
-                                    parentName.set(index,getCursorByMonth.getString(3))
+                                    parentName.set(index,getCursorByMonth.getString(2))
                                 }
-                                childList.add(myRow_data(getCursorByMonth.getString(2), getCursorByMonth.getString(1)))
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                             }
                             hashMap.put(parentName.get(index), childList)
                         }
@@ -360,13 +362,27 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                     }
                 byDate++
             }
-            val myExpandableAdapter = expandAbleListAdapter(activity,hashMap,parentName)
+            myExpandableAdapter = expandAbleListAdapter(activity,hashMap,parentName)
             expandAbleListview.setAdapter(myExpandableAdapter)
         } catch (e: Exception) {
             Toast.makeText(activity, ""+e, Toast.LENGTH_LONG).show()
         }
     }
-    fun refreshList(){
 
+    companion object
+    {
+        @SuppressLint("StaticFieldLeak")
+        lateinit var showSavedView:View
+        lateinit var myExpandableAdapter :expandAbleListAdapter
+        var parentName = ArrayList<String>()
+
+        fun getEditLayout(ecNumber: String, ecType: String) {
+            val directions = showSavedDataDirections.actionShowSavedDataToEditECNumber2(ecNumber,ecType)
+            Navigation.findNavController(showSavedView).navigate(directions)
+        }
+        fun refereshList(){
+            parentName.clear()
+            myExpandableAdapter.notifyDataSetChanged()
+        }
     }
 }

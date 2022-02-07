@@ -32,6 +32,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="edit_EC_Number2">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-1645" />
+                            <option name="y" value="-446" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="getMonthByUser">
                     <value>
                       <LayoutPositions>
@@ -40,6 +52,15 @@
                             <option name="x" value="-2185" />
                             <option name="y" value="-164" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_getMonthByUser_to_showSavedData">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -80,11 +101,6 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_homeFragment_to_saveDayOffLeave2">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
                           </map>
                         </option>
                       </LayoutPositions>
@@ -114,18 +130,6 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="saveDayOffLeave2">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-2436" />
-                            <option name="y" value="166" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
                   <entry key="showSavedData">
                     <value>
                       <LayoutPositions>
@@ -134,6 +138,15 @@
                             <option name="x" value="-1821" />
                             <option name="y" value="-169" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_showSavedData_to_edit_EC_Number2">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>

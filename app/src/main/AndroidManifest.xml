@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ec_saver_app_logo"
         android:supportsRtl="true"
         android:theme="@style/myAppTheme"
-        android:fullBackupContent="true">
+        android:fullBackupContent="true"
+        android:allowBackup="true">
         <activity
             android:name=".kotlin.KotlinMainActivity" android:exported="true" >
             <intent-filter>

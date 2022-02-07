@@ -31,9 +31,6 @@
             android:id="@+id/action_homeFragment_to_ecSaveIntoPreviousDate"
             app:destination="@id/ecSaveIntoPreviousDate" />
         <action
-            android:id="@+id/action_homeFragment_to_saveDayOffLeave2"
-            app:destination="@id/saveDayOffLeave2" />
-        <action
             android:id="@+id/action_homeFragment_to_getMonthByUser"
             app:destination="@id/getMonthByUser" />
     </fragment>
@@ -71,24 +68,6 @@
             android:defaultValue="0" />
     </dialog>
     <dialog
-        android:id="@+id/saveDayOffLeave2"
-        android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.saveDayOffLeave"
-        android:label="activity_save__dayoff__leave"
-        tools:layout="@layout/activity_save__dayoff__leave" >
-        <argument
-            android:name="day"
-            app:argType="integer"
-            android:defaultValue="0" />
-        <argument
-            android:name="month"
-            app:argType="integer"
-            android:defaultValue="0" />
-        <argument
-            android:name="year"
-            app:argType="integer"
-            android:defaultValue="0" />
-    </dialog>
-    <dialog
         android:id="@+id/getMonthByUser"
         android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.getMonthByUser"
         android:label="get_monthby_user"
@@ -105,7 +84,7 @@
         android:id="@+id/showSavedData"
         android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.showSavedData"
         android:label="activity_main2"
-        tools:layout="@layout/showSavedData" >
+        tools:layout="@layout/show_saved_data" >
         <argument
             android:name="getMonth"
             app:argType="integer"
@@ -114,5 +93,22 @@
             android:name="getCurrentYear"
             app:argType="integer"
             android:defaultValue="0" />
+        <action
+            android:id="@+id/action_showSavedData_to_edit_EC_Number2"
+            app:destination="@id/edit_EC_Number2" />
     </fragment>
+    <dialog
+        android:id="@+id/edit_EC_Number2"
+        android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.EditEcNumber"
+        android:label="edit_row_item"
+        tools:layout="@layout/edit_row_item" >
+        <argument
+            android:name="getEcNumber"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="getEcType"
+            app:argType="string"
+            app:nullable="true" />
+    </dialog>
 </navigation>

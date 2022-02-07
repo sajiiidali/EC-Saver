@@ -15,22 +15,20 @@ class dataBaseClass(context :Context) : SQLiteOpenHelper(
     companion object{
         var db: SQLiteDatabase? = null
 
-        private const val DATABASE_NAME = "EC_DataBase"
-        private const val DATABASE_VERSION = 2
-        private const val TABLE_NAME = "EC_Table"
-        const val primaryKey = 0
-        const val COLUMN_1 = "Type_of_EC"
-        const val COLUMN_2 = "EC_Number"
-        const val COLUMN_3 = "C_Date"
-        const val COLUMN_4 = "Month_No"
-        const val COLUMN_5 = "Date_No"
-        const val COLUMN_6 = "Year_No"
-        const val COLUMN_7 = "Row_string"
+        private const val DATABASE_NAME             = "EC_DataBase"
+        private const val DATABASE_VERSION          = 2
+        private const val TABLE_NAME                = "EC_Table"
+        const val TypeOfEcNumber                    = "Type_of_EC"
+        const val EcNumber                          = "EC_Number"
+        const val CurrentDate                       = "C_Date"
+        const val MonthOfYear                       = "Month_No"
+        const val DayOfMonth                        = "Date_No"
+        const val YearNo                            = "Year_No"
+        const val WholeString                       = "Row_string"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
         db!!.execSQL("create table $TABLE_NAME(" +
-                "primaryKey INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "Type_of_EC TEXT, EC_Number TEXT, C_Date TEXT, " +
                 "Month_No TEXT, Date_No TEXT, " +
                 "Year_No TEXT, " +
@@ -44,6 +42,7 @@ class dataBaseClass(context :Context) : SQLiteOpenHelper(
         db!!.execSQL("DROP TABLE IF EXISTS $TABLE_NAME")
         onCreate(db)
     }
+
     fun insertData(
         ecType: String?,
         ecNumber: String?,
@@ -55,28 +54,22 @@ class dataBaseClass(context :Context) : SQLiteOpenHelper(
 
         db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(COLUMN_1, ecType)
-        contentValues.put(COLUMN_2, ecNumber)
-        contentValues.put(COLUMN_3, currentDate)
-        contentValues.put(COLUMN_4, monthOfYear)
-        contentValues.put(COLUMN_5, dayOfMonth)
-        contentValues.put(COLUMN_6, finalYear)
-        contentValues.put(COLUMN_7, rowstring)
+        contentValues.put(TypeOfEcNumber, ecType)
+        contentValues.put(EcNumber, ecNumber)
+        contentValues.put(CurrentDate, currentDate)
+        contentValues.put(MonthOfYear, monthOfYear)
+        contentValues.put(DayOfMonth, dayOfMonth)
+        contentValues.put(YearNo, finalYear)
+        contentValues.put(WholeString, rowstring)
         val result = db?.insert(TABLE_NAME, null, contentValues)
         return if (result == -1L) false else true
     }
-    fun delete(EC_Number: String,primaryKey:String?) {
-        db = this.writableDatabase
-        db?.delete(TABLE_NAME, "EC_Number=? || primaryKey=?", arrayOf(EC_Number,primaryKey))
-    }
+
     fun deleteall() {
         db = this.writableDatabase
         db?.delete(TABLE_NAME, null, null)
     }
-    fun deletebymonth(month: Int) {
-        db = this.writableDatabase
-        db?.delete(TABLE_NAME, "Month_No =?", arrayOf(month.toString()))
-    }
+
     fun checkDataByMonthAndYear(
         date: Int,
         month: Int,
@@ -106,42 +99,19 @@ class dataBaseClass(context :Context) : SQLiteOpenHelper(
         )
     }
 
-    fun showAllData(): Cursor? {
-        db = this.readableDatabase
-        return db?.rawQuery("SELECT * FROM EC_Table", null)
-    }
-    fun showawholedate(byMonth: Int): Cursor? {
-        db = this.readableDatabase
-        return db?.rawQuery("SELECT * FROM EC_Table WHERE Month_No = ?", arrayOf(byMonth.toString()))
-    }
-
-    fun editThisRowItems(
-        Date: String?,
-        EcNumber: String?,
+    fun updateRowData(
+        EC_Number: String,
         EcType: String?,
-        ecnumber: String,
-        primaryKey:String? ): Boolean {
+        checkEcNumber:String?,
+        checkEcType :String?
+         ): Boolean {
 
         db = this.writableDatabase
-        val contentValues = ContentValues(3)
-        contentValues.put(COLUMN_1, EcType)
-        contentValues.put(COLUMN_2, EcNumber)
-        contentValues.put(COLUMN_3, Date)
-        val result = db?.update(TABLE_NAME, contentValues, " EC_Number=? || primaryKey=?", arrayOf(ecnumber,primaryKey))?.toLong()
-        return if (result == -1L) false else true
+        val contentValues = ContentValues(2)
+        contentValues.put(TypeOfEcNumber, EcType)
+        contentValues.put(EcNumber, EC_Number)
+        val result = db?.update(TABLE_NAME, contentValues, " EC_Number=? AND Type_of_EC=?", arrayOf(checkEcNumber,checkEcType))?.toLong()
+        return result != -1L
     }
-    fun deleteDayoff(date: String) {
-        db = this.writableDatabase
-        db?.delete(TABLE_NAME, "C_Date =?", arrayOf(date))
-    }
-
-
-
-
-
-
-
-
-
 
 }

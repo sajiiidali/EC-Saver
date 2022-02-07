@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.fragment.app.FragmentActivity
 import com.myECapplication.sajiiidali.ecsaver.R
+import com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.showSavedData
 import java.util.HashMap
 
 class expandAbleListAdapter(
@@ -78,7 +79,7 @@ class expandAbleListAdapter(
             Toast.makeText(activity, "Working", Toast.LENGTH_SHORT).show()
         }
         editList?.setOnClickListener {
-            Toast.makeText(activity, "Working", Toast.LENGTH_SHORT).show()
+            showSavedData.getEditLayout(getChild(groupPosition,childPosition).EC_NUMBER,getChild(groupPosition,childPosition).EC_TYPE)
         }
 //        val DAYOFF = varView?.findViewById<TextView>(R.id.edit_dayoff)
         return varView!!

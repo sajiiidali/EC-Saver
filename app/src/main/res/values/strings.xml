@@ -60,4 +60,7 @@
     <string name="november">November</string>
     <string name="october">October</string>
     <string name="Cancle">Cancel</string>
+    <string name="editECNumber">Edit your date</string>
+    <string name="editECNumberr">Edit your EC Number</string>
+    <string name="editEctype">Edit your EC type</string>
 </resources>

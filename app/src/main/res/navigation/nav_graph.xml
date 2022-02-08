@@ -96,12 +96,29 @@
         <action
             android:id="@+id/action_showSavedData_to_edit_EC_Number2"
             app:destination="@id/edit_EC_Number2" />
+        <action
+            android:id="@+id/action_showSavedData_to_deleteEcNumber"
+            app:destination="@id/deleteEcNumber" />
     </fragment>
     <dialog
         android:id="@+id/edit_EC_Number2"
         android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.EditEcNumber"
         android:label="edit_row_item"
         tools:layout="@layout/edit_row_item" >
+        <argument
+            android:name="getEcNumber"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="getEcType"
+            app:argType="string"
+            app:nullable="true" />
+    </dialog>
+    <dialog
+        android:id="@+id/deleteEcNumber"
+        android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.DeleteEcNumber"
+        android:label="delete_ec_number_layout"
+        tools:layout="@layout/delete_ec_number_layout" >
         <argument
             android:name="getEcNumber"
             app:argType="string"

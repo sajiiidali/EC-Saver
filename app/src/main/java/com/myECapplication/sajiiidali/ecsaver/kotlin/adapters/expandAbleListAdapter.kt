@@ -13,7 +13,6 @@ import com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.showSavedData
 import java.util.HashMap
 
 class expandAbleListAdapter(
-    var activity: FragmentActivity?,
     var childListMap: HashMap<String, List<myRow_data>>,
     var parentList: List<String>) : BaseExpandableListAdapter() {
 
@@ -76,12 +75,11 @@ class expandAbleListAdapter(
         EC_NUMBER?.setText(EcNumber)
         EC_TYPE?.setText(ecType)
         deleteList?.setOnClickListener {
-            Toast.makeText(activity, "Working", Toast.LENGTH_SHORT).show()
+            showSavedData.getDeleteData(getChild(groupPosition,childPosition).EC_NUMBER,getChild(groupPosition,childPosition).EC_TYPE)
         }
         editList?.setOnClickListener {
             showSavedData.getEditLayout(getChild(groupPosition,childPosition).EC_NUMBER,getChild(groupPosition,childPosition).EC_TYPE)
         }
-//        val DAYOFF = varView?.findViewById<TextView>(R.id.edit_dayoff)
         return varView!!
     }
 

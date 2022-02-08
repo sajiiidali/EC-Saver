@@ -114,4 +114,10 @@ class dataBaseClass(context :Context) : SQLiteOpenHelper(
         return result != -1L
     }
 
+    fun deleteData(ecNumber: String?, ecType: String?): Boolean {
+        db = this.writableDatabase
+        val result = db?.delete(TABLE_NAME, " EC_Number=? AND Type_of_EC=?", arrayOf(ecNumber,ecType))?.toLong()
+        return result != -1L
+    }
+
 }

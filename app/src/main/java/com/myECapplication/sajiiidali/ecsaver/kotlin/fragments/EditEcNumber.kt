@@ -8,7 +8,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.fragment.app.DialogFragment
 import com.myECapplication.sajiiidali.ecsaver.R
-import com.myECapplication.sajiiidali.ecsaver.kotlin.database.dataBaseClass
+import com.myECapplication.sajiiidali.ecsaver.kotlin.database.Database
 
 class EditEcNumber : DialogFragment(R.layout.edit_row_item) {
 
@@ -18,7 +18,7 @@ class EditEcNumber : DialogFragment(R.layout.edit_row_item) {
         val editEcType = view.findViewById<AppCompatEditText>(R.id.edit_ec_Type)
         val saveButtonAfterEdit = view.findViewById<AppCompatButton>(R.id.saveButtonAfterEdit)
         val cancelButton = view.findViewById<AppCompatButton>(R.id.cancel_button)
-        val db = dataBaseClass(requireContext())
+        val db = Database(requireContext())
         val args = EditEcNumberArgs.fromBundle(requireArguments())
 
         editEcNumber.setText(args.getEcNumber)

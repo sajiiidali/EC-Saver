@@ -13,7 +13,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.myECapplication.sajiiidali.ecsaver.R
 import com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.HomeFragment
-import com.myECapplication.sajiiidali.ecsaver.kotlin.database.dataBaseClass
+import com.myECapplication.sajiiidali.ecsaver.kotlin.database.Database
 
 class KotlinMainActivity : AppCompatActivity() {
 
@@ -37,6 +37,10 @@ class KotlinMainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.Deletewhole -> {
                 deletedata()
+                true
+            }
+            R.id.backup -> {
+                showBackupDialog()
                 true
             }
             R.id.age_calculator -> {
@@ -63,6 +67,16 @@ class KotlinMainActivity : AppCompatActivity() {
         }
     }
 
+    private fun showBackupDialog() {
+        val dialog : AlertDialog.Builder = AlertDialog.Builder(this, R.style.AlertDialogButtonColor)
+        dialog.setMessage(R.string.backup)
+        dialog.setPositiveButton(R.string.checkThisVideo)
+        {
+                dialog,
+                btn->dialog.dismiss()
+        }.show()
+    }
+
     private fun deletedata() {
         val dialog : AlertDialog.Builder = AlertDialog.Builder(this, R.style.AlertDialogButtonColor)
         dialog.setMessage(R.string.confirm)
@@ -78,7 +92,7 @@ class KotlinMainActivity : AppCompatActivity() {
     }
 
     private fun yes() {
-        val deleteAllData = dataBaseClass(this)
+        val deleteAllData = Database(this)
         deleteAllData.deleteall()
     }
 

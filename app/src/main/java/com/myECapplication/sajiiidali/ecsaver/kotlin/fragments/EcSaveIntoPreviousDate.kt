@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.DialogFragment
 import com.myECapplication.sajiiidali.ecsaver.R
-import com.myECapplication.sajiiidali.ecsaver.kotlin.database.dataBaseClass
+import com.myECapplication.sajiiidali.ecsaver.kotlin.database.Database
 import java.util.ArrayList
 
 class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecteddate) {
@@ -23,7 +23,7 @@ class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecte
         val clearButton  = view.findViewById<Button>(R.id.button)
         val getEcNumber     = view.findViewById<EditText>(R.id.edttext)
         val spin = view.findViewById<Spinner>(R.id.spinner)
-        val mydb = dataBaseClass(requireActivity())
+        val mydb = Database(requireActivity())
         val getOldDate = "$byDay-$byMonth-$byYear"
         textViewDate.text = getOldDate
         val arrayList = ArrayList<String>()
@@ -45,13 +45,14 @@ class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecte
                 var isMatch = 0
                 val checkEcNumber = getEcNumber.text.toString().toUInt()
                 val cursor = mydb.checkdata(byMonth,byYear)
-                if (cursor != null) {
+                if (cursor.count != 0){
                     while (cursor.moveToNext()){
-                        if (cursor.getString(2).toString().toUInt() == checkEcNumber){
+                        if (cursor.getString(1).toString().toUInt() == checkEcNumber){
                             isMatch++
                         }
                     }
                 }
+
                 if (spin.selectedItem.toString() == "<Select EC Type>"){
                     Toast.makeText(activity, "please first Select EC Type and Type EC_NO", Toast.LENGTH_SHORT).show()
                 }else if (isMatch == 0){

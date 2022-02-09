@@ -8,7 +8,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.DialogFragment
 import com.myECapplication.sajiiidali.ecsaver.R
-import com.myECapplication.sajiiidali.ecsaver.kotlin.database.dataBaseClass
+import com.myECapplication.sajiiidali.ecsaver.kotlin.database.Database
 
 class DeleteEcNumber :DialogFragment(R.layout.delete_ec_number_layout) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -17,7 +17,7 @@ class DeleteEcNumber :DialogFragment(R.layout.delete_ec_number_layout) {
         val No  = view.findViewById<AppCompatButton>(R.id.btnNo)
         val Message = view.findViewById<AppCompatTextView>(R.id.deleteMessage)
         val dialogTitle = "Do You Want To Delete This Record"
-        val db = dataBaseClass(requireContext())
+        val db = Database(requireContext())
         val args = DeleteEcNumberArgs.fromBundle(requireArguments())
 
         Message.setText(dialogTitle)

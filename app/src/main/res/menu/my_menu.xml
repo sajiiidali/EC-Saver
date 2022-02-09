@@ -8,6 +8,10 @@
         android:icon="@drawable/ic_share"
         app:showAsAction="always" />
 
+    <item android:id="@+id/backup"
+        android:title="@string/Backup"
+        app:showAsAction="never"/>
+
     <item
         android:id="@+id/bmi_calculator"
         android:title="@string/bmicalculator"

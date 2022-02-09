@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.DialogFragment
 import com.myECapplication.sajiiidali.ecsaver.R
-import com.myECapplication.sajiiidali.ecsaver.kotlin.database.dataBaseClass
+import com.myECapplication.sajiiidali.ecsaver.kotlin.database.Database
 import java.util.*
 
 class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_day) {
@@ -18,7 +18,7 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
         val getEcNumber = view.findViewById<EditText>(R.id.edttext)
         val saveButton  = view.findViewById<Button>(R.id.btnsave)
         val clearButton = view.findViewById<Button>(R.id.btnclear)
-        val mydb = dataBaseClass(requireActivity())
+        val mydb = Database(requireActivity())
 
 
         val spin = view.findViewById<Spinner>(R.id.spinner)
@@ -46,13 +46,14 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
             var isMatch = 0
             val checkEcNumber = getEcNumber.text.toString().toUInt()
             val cursor = mydb.checkdata(byMonth,byYear)
-            if (cursor != null) {
+            if (cursor.count != 0){
                 while (cursor.moveToNext()){
-                        if (cursor.getString(2).toString().toUInt() == checkEcNumber){
-                            isMatch++
-                        }
+                    if (cursor.getString(1).toString().toUInt() == checkEcNumber){
+                        isMatch++
+                    }
                 }
             }
+
             if (spin.selectedItem.toString() == "<Select EC Type>"){
                 Toast.makeText(activity, "please first Select EC Type and Type EC_NO", Toast.LENGTH_SHORT).show()
             }else if (isMatch == 0){
@@ -70,7 +71,7 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
             }else{
                 Toast.makeText(activity, "This Record Already Saved", Toast.LENGTH_SHORT).show()
             }
-            
+
         }
         clearButton.setOnClickListener {
             getEcNumber.setText("")

@@ -7,14 +7,5 @@
             <stroke android:width="0.1dp" android:color="@color/black"/>
         </shape>
     </item>
-<!--
-    <item android:state_pressed="true">
-        <shape>
-            <stroke android:width="0.1dp" android:color="@color/black"/>
-            <corners android:radius="10dp"/>
-            <solid android:color="@color/holo_blue_light"/>
-        </shape>
-    </item>
--->
 
 </selector>

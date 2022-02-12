@@ -72,9 +72,16 @@ class KotlinMainActivity : AppCompatActivity() {
         dialog.setMessage(R.string.backup)
         dialog.setPositiveButton(R.string.checkThisVideo)
         {
-                dialog,
-                btn->dialog.dismiss()
+                thisdialog,
+                btn->showBackupVideo()
+            thisdialog.dismiss()
         }.show()
+    }
+
+    private fun showBackupVideo() {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse("https://www.youtube.com/watch?v=cGaebK-Nfkc&t=17s&ab_channel=SajidAli")
+        startActivity(intent)
     }
 
     private fun deletedata() {
@@ -82,11 +89,11 @@ class KotlinMainActivity : AppCompatActivity() {
         dialog.setMessage(R.string.confirm)
         dialog.setPositiveButton(R.string.Yes)
         {
-                dialog,
+                thisdialog,
                 btn->yes()
         }.show()
         dialog.setNegativeButton(R.string.No){
-            dialog,btn->dialog.dismiss()
+            thisdialog,btn->thisdialog.dismiss()
         }
 
     }

@@ -1,7 +1,5 @@
 EC Saver App Keystore Name "EC Saver.jks" 8/16/2018
 
-KeyAlias Name "myapp" or "ecsaverkey"
+KeyAlias Name myfirstapplication
 
-last time iss keyalias se app update ho gai thi "myfirstapplication" and password "cout1122"
-
-password "cout1122"
+password cout1122

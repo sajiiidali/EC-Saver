@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.DialogFragment
 import com.myECapplication.sajiiidali.ecsaver.R
-import com.myECapplication.sajiiidali.ecsaver.kotlin.database.Database
+import com.myECapplication.sajiiidali.ecsaver.Database
 import java.util.*
 
 class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_day) {
@@ -45,7 +45,7 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
         saveButton.setOnClickListener {
             var isMatch = 0
             val checkEcNumber = getEcNumber.text.toString().toUInt()
-            val cursor = mydb.checkdata(byMonth,byYear)
+            val cursor = mydb.checkData(byMonth,byYear)
             if (cursor.count != 0){
                 while (cursor.moveToNext()){
                     if (cursor.getString(1).toString().toUInt() == checkEcNumber){

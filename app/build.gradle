@@ -11,8 +11,8 @@ android {
         applicationId "com.myECapplication.sajiiidali.ecsaver"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 13
-        versionName "1.12"
+        versionCode 15
+        versionName "1.14"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

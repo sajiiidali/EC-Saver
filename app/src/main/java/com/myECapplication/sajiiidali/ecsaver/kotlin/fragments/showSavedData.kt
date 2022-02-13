@@ -11,7 +11,7 @@ import androidx.navigation.Navigation
 import com.myECapplication.sajiiidali.ecsaver.R
 import com.myECapplication.sajiiidali.ecsaver.kotlin.adapters.expandAbleListAdapter
 import com.myECapplication.sajiiidali.ecsaver.kotlin.adapters.myRow_data
-import com.myECapplication.sajiiidali.ecsaver.kotlin.database.Database
+import com.myECapplication.sajiiidali.ecsaver.Database
 import java.util.ArrayList
 import java.util.HashMap
 
@@ -72,7 +72,7 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
         @SuppressLint("StaticFieldLeak")
         lateinit var showSavedView:View
         lateinit var myExpandableAdapter :expandAbleListAdapter
-        lateinit var db:Database
+        lateinit var db: Database
         var parentName = ArrayList<String>()
         var month:Int = 0
         var refreshYear:Int = 0

@@ -13,7 +13,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.myECapplication.sajiiidali.ecsaver.R
 import com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.HomeFragment
-import com.myECapplication.sajiiidali.ecsaver.kotlin.database.Database
+import com.myECapplication.sajiiidali.ecsaver.Database
 
 class KotlinMainActivity : AppCompatActivity() {
 
@@ -100,7 +100,7 @@ class KotlinMainActivity : AppCompatActivity() {
 
     private fun yes() {
         val deleteAllData = Database(this)
-        deleteAllData.deleteall()
+        deleteAllData.deleteAll()
     }
 
     private fun aboutUS() {

@@ -8,7 +8,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.fragment.app.DialogFragment
 import com.myECapplication.sajiiidali.ecsaver.R
-import com.myECapplication.sajiiidali.ecsaver.kotlin.database.Database
+import com.myECapplication.sajiiidali.ecsaver.Database
 
 class EditEcNumber : DialogFragment(R.layout.edit_row_item) {
 

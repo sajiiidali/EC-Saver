@@ -8,7 +8,6 @@ import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.myECapplication.sajiiidali.ecsaver.R
 import java.util.*
-import kotlin.properties.Delegates
 
 class getMonthByUser : DialogFragment(R.layout.get_monthby_user),View.OnClickListener {
 

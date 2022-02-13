@@ -8,7 +8,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.DialogFragment
 import com.myECapplication.sajiiidali.ecsaver.R
-import com.myECapplication.sajiiidali.ecsaver.kotlin.database.Database
+import com.myECapplication.sajiiidali.ecsaver.Database
 
 class DeleteEcNumber :DialogFragment(R.layout.delete_ec_number_layout) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

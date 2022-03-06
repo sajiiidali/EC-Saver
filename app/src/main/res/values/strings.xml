@@ -26,10 +26,10 @@
     <string name="today">ToDay</string>
     <string name="previousDay">Previous Day</string>
     <string name="savedayoff">Save DayOff Leave</string>
-    <string name="getSavedEC">Get EC Number</string>
+    <string name="getSavedEC">Get EC Numbers</string>
     <string name="bmicalculator">bmicalculator</string>
     <string name="Age_Calculator">Age Calculator</string>
-    <string name="aboutUS">Version App 1.12\nCreation_Date 14-August-2018\nEmail ID: sajiiidali1122@gmail.com\nPhone #0302 329 4411</string>
+    <string name="aboutUS">Version App 1.15\nCreation_Date 14-August-2018\nEmail ID: sajiiidali1122@gmail.com\nPhone #0302 329 4411</string>
     <string name="moreApps">MORE APPS</string>
     <string name="share">share</string>
     <string name="rateus">Rate Us</string>
@@ -66,4 +66,5 @@
     <string name="Backup">Backup to GDrive</string>
     <string name="backup">For Backup Go to Your mobile //Settings//Account and Backup//GoogleDriveBackup</string>
     <string name="checkThisVideo">Check This Video How To</string>
+    <string name="dayOff">DayOFF LEAVE</string>
 </resources>

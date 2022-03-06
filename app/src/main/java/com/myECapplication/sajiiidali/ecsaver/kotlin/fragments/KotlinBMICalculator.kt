@@ -15,18 +15,18 @@ import com.myECapplication.sajiiidali.ecsaver.R
 import java.lang.NumberFormatException
 import java.text.DecimalFormat
 
-class kotlin_BMI_Calculator : Fragment(R.layout.activity_bmi__calculator) {
+class KotlinBMICalculator : Fragment(R.layout.activity_bmi__calculator) {
 
-    val MFILE_NAME                        = "Bmi_file"
-    val sharePrefWeight                   = "my_weight"
-    val sharePrefFeet                     = "my_feet"
-    val sharePrefInch                     = "my_inch"
-    lateinit var getWeight               :EditText
-    lateinit var getFeet                 :EditText
-    lateinit var getInch                 :EditText
-    lateinit var btnCalculate            :Button
-    lateinit var btnClear                :Button
-    lateinit var showResult              :TextView
+    private val myFileName                        = "Bmi_file"
+    private val sharePrefWeight                   = "my_weight"
+    private val sharePrefFeet                     = "my_feet"
+    private val sharePrefInch                     = "my_inch"
+    private lateinit var getWeight               :EditText
+    private lateinit var getFeet                 :EditText
+    private lateinit var getInch                 :EditText
+    private lateinit var btnCalculate            :Button
+    private lateinit var btnClear                :Button
+    private lateinit var showResult              :TextView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,41 +39,41 @@ class kotlin_BMI_Calculator : Fragment(R.layout.activity_bmi__calculator) {
         showResult      =     view.findViewById(R.id.showresult)
 
         val sharedPreferences: SharedPreferences =
-            activity?.getSharedPreferences(MFILE_NAME, Context.MODE_PRIVATE)!!
-        val save_preference1 = sharedPreferences.getString(sharePrefWeight, "80")
-        val save_preference2 = sharedPreferences.getString(sharePrefFeet, "5")
-        val save_preference3 = sharedPreferences.getString(sharePrefInch, "10")
+            activity?.getSharedPreferences(myFileName, Context.MODE_PRIVATE)!!
+        val savePreference1 = sharedPreferences.getString(sharePrefWeight, "80")
+        val savePreference2 = sharedPreferences.getString(sharePrefFeet, "5")
+        val savePreference3 = sharedPreferences.getString(sharePrefInch, "10")
 
-        getWeight.setText(save_preference1)
-        getFeet.setText(save_preference2)
-        getInch.setText(save_preference3)
+        getWeight.setText(savePreference1)
+        getFeet.setText(savePreference2)
+        getInch.setText(savePreference3)
 
         btnCalculate.setOnClickListener {
             val editor: SharedPreferences.Editor =
-                activity?.getSharedPreferences(MFILE_NAME, Context.MODE_PRIVATE)!!.edit()
-            editor.putString(sharePrefWeight, getWeight.getText().toString())
-            editor.putString(sharePrefFeet, getFeet.getText().toString())
-            editor.putString(sharePrefInch, getInch.getText().toString())
+                activity?.getSharedPreferences(myFileName, Context.MODE_PRIVATE)!!.edit()
+            editor.putString(sharePrefWeight, getWeight.text.toString())
+            editor.putString(sharePrefFeet, getFeet.text.toString())
+            editor.putString(sharePrefInch, getInch.text.toString())
             editor.apply()
 
-            closekeyboard()
+            closeKeyBoard()
             var category = ""
-            var total_weight = 0
+            var totalWeight = 0
             var wait = 0
             try {
-                val a: Float = getFeet.getText().toString().toFloat()
-                val convert_ft_into_meter = (a / 3.28).toFloat()
-                val b: Float = getInch.getText().toString().toFloat()
-                val inch_into_ft = (b * 0.0833).toFloat()
-                val convert_inch_into_meter = (inch_into_ft / 3.28).toFloat()
-                val total_hieght_in_meter = convert_ft_into_meter + convert_inch_into_meter
-                val weight: Float = getWeight.getText().toString().toFloat()
-                val BMI = (weight / (total_hieght_in_meter * total_hieght_in_meter)).toDouble()
+                val a: Float = getFeet.text.toString().toFloat()
+                val convertFtIntoMeter = (a / 3.28).toFloat()
+                val b: Float = getInch.text.toString().toFloat()
+                val inchIntoFt = (b * 0.0833).toFloat()
+                val convertInchIntoMeter = (inchIntoFt / 3.28).toFloat()
+                val totalHieghtInMeter = convertFtIntoMeter + convertInchIntoMeter
+                val weight: Float = getWeight.text.toString().toFloat()
+                val bmi = (weight / (totalHieghtInMeter * totalHieghtInMeter)).toDouble()
                 val df = DecimalFormat("##.#")
-                val bmiValue: Float = df.format(BMI).toFloat()
-                val w: Int = Integer.valueOf(getWeight.getText().toString())
-                val f: Int = Integer.valueOf(getFeet.getText().toString())
-                val i: Int = Integer.valueOf(getInch.getText().toString())
+                val bmiValue: Float = df.format(bmi).toFloat()
+                val w: Int = Integer.valueOf(getWeight.text.toString())
+                val f: Int = Integer.valueOf(getFeet.text.toString())
+                val i: Int = Integer.valueOf(getInch.text.toString())
                 if (f == 4 && i == 9) {
                     wait = 52
                 }
@@ -149,24 +149,20 @@ class kotlin_BMI_Calculator : Fragment(R.layout.activity_bmi__calculator) {
                 if (f == 6 && i == 7) {
                     wait = 101
                 }
-                if (java.lang.Float.compare(bmiValue, 18.5.toFloat()) <= 0) category =
-                    "underweight" else if (java.lang.Float.compare(
-                        bmiValue,
-                        18.6.toFloat()
-                    ) >= 0 && java.lang.Float.compare(bmiValue, 24.9.toFloat()) <= 0
-                ) category = "Normal" else if (java.lang.Float.compare(
-                        bmiValue,
-                        25.0.toFloat()
-                    ) >= 0 && java.lang.Float.compare(bmiValue, 29.9.toFloat()) <= 0
+                if (bmiValue.compareTo(18.5.toFloat()) <= 0) category =
+                    "underweight" else if (bmiValue.compareTo(18.6.toFloat()) >= 0 && bmiValue.compareTo(
+                        24.9.toFloat()
+                    ) <= 0
+                ) category = "Normal" else if (bmiValue.compareTo(25.0.toFloat()) >= 0 && bmiValue.compareTo(29.9.toFloat()) <= 0
                 ) {
                     category = "Overweight"
-                    total_weight = w - wait
-                } else if (java.lang.Float.compare(bmiValue, 30.toFloat()) >= 0) {
+                    totalWeight = w - wait
+                } else if (bmiValue.compareTo(30.toFloat()) >= 0) {
                     category = "Obese"
-                    total_weight = w - wait
+                    totalWeight = w - wait
                 }
-                val showResultt = "Your BMI is $bmiValue\n\nYou are $category\n\nYour Over-Weight is $total_weight KG"
-                showResult.setText(showResultt)
+                val showResultt = "Your BMI is $bmiValue\n\nYou are $category\n\nYour Over-Weight is $totalWeight KG"
+                showResult.text = showResultt
             } catch (e: NumberFormatException) {
                 Toast.makeText(activity, "Please First Put Weight and Height ", Toast.LENGTH_LONG).show()
             }
@@ -179,8 +175,8 @@ class kotlin_BMI_Calculator : Fragment(R.layout.activity_bmi__calculator) {
 
     }
 
-    private fun closekeyboard() {
-        val view = activity?.getCurrentFocus()
+    private fun closeKeyBoard() {
+        val view = activity?.currentFocus
         if (view != null) {
             val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view.windowToken, 0)

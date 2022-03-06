@@ -16,27 +16,27 @@ import com.myECapplication.sajiiidali.ecsaver.R
 import java.util.*
 
 
-class kotlin_AgeCalculator : Fragment(R.layout.activity_age_calculator),View.OnClickListener {
+class KotlinAgeCalculator : Fragment(R.layout.activity_age_calculator),View.OnClickListener {
 
-    val FILE_NAME = "my_file"
-    val sharedPreferencesDate       = "my_date"
-    val sharedPreferencesMonth      = "my_month"
-    val sharedPreferencesYear       = "my_year"
-    lateinit var birthdayDate       : EditText
-    lateinit var birthdayMonth      : EditText
-    lateinit var birthdayYear       : EditText
-    lateinit var tooDate            : EditText
-    lateinit var tooMonth           : EditText
-    lateinit var tooYear            : EditText
-    lateinit var buttonClear        : Button
-    lateinit var buttonCalculate    : Button
-    lateinit var getCurrentDate     : TextView
-    lateinit var showDays           : TextView
-    lateinit var showMonth          : TextView
-    lateinit var showYear           : TextView
-    var currentDay                  : Int = 0
-    var currentMonth                : Int = 0
-    var currentYear                 : Int = 0
+    private val fileName = "my_file"
+    private val sharedPreferencesDate       = "my_date"
+    private val sharedPreferencesMonth      = "my_month"
+    private val sharedPreferencesYear       = "my_year"
+    private lateinit var birthdayDate       : EditText
+    private lateinit var birthdayMonth      : EditText
+    private lateinit var birthdayYear       : EditText
+    private lateinit var tooDate            : EditText
+    private lateinit var tooMonth           : EditText
+    private lateinit var tooYear            : EditText
+    private lateinit var buttonClear        : Button
+    private lateinit var buttonCalculate    : Button
+    private lateinit var getCurrentDate     : TextView
+    private lateinit var showDays           : TextView
+    private lateinit var showMonth          : TextView
+    private lateinit var showYear           : TextView
+    private var currentDay                  : Int = 0
+    private var currentMonth                : Int = 0
+    private var currentYear                 : Int = 0
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -65,7 +65,7 @@ class kotlin_AgeCalculator : Fragment(R.layout.activity_age_calculator),View.OnC
         currentDay      = calendar.get(Calendar.DAY_OF_MONTH)
         currentYear     = calendar.get(Calendar.YEAR)
 
-        val sharedPreferences: SharedPreferences = activity?.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)!!
+        val sharedPreferences: SharedPreferences = activity?.getSharedPreferences(fileName, Context.MODE_PRIVATE)!!
         val lastUserDay = sharedPreferences.getString(sharedPreferencesDate, "0")
         val lastUserMonth = sharedPreferences.getString(sharedPreferencesMonth, "0")
         val lastUserYear = sharedPreferences.getString(sharedPreferencesYear, "0")
@@ -74,12 +74,12 @@ class kotlin_AgeCalculator : Fragment(R.layout.activity_age_calculator),View.OnC
         birthdayMonth.setText(lastUserMonth)
         birthdayYear.setText(lastUserYear)
         val currentDate = "Current Date Is :-    $currentDay-$currentMonth-$currentYear"
-        getCurrentDate.setText(currentDate)
+        getCurrentDate.text = currentDate
 
     }
 
-    private fun closekeyboard() {
-        val view = activity?.getCurrentFocus()
+    private fun closeKeyBoard() {
+        val view = activity?.currentFocus
         if (view != null) {
             val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view.windowToken, 0)
@@ -89,9 +89,9 @@ class kotlin_AgeCalculator : Fragment(R.layout.activity_age_calculator),View.OnC
     override fun onClick(view: View?) {
         when(view?.id){
             R.id.button_calculate
-                -> { Calculate() }
+                -> { calculate() }
             R.id.button_clear
-                    -> { ClearAll()}
+                    -> { clearAll()}
             R.id.getCurrentDate
                     ->{ setDate()}
 
@@ -104,7 +104,7 @@ class kotlin_AgeCalculator : Fragment(R.layout.activity_age_calculator),View.OnC
         tooYear.setText(currentYear.toString())
     }
 
-    private fun ClearAll() {
+    private fun clearAll() {
         birthdayDate.setText("")
         birthdayMonth.setText("")
         birthdayYear.setText("")
@@ -114,57 +114,65 @@ class kotlin_AgeCalculator : Fragment(R.layout.activity_age_calculator),View.OnC
     }
 
     @SuppressLint("SetTextI18n")
-    private fun Calculate() {
+    private fun calculate() {
         var a = 0
-        closekeyboard()
+        closeKeyBoard()
         try {
             val year = birthdayYear.text.toString().toInt()
             val month = birthdayMonth.text.toString().toInt()
             val day = birthdayDate.text.toString().toInt()
 
-            val editor: SharedPreferences.Editor = activity?.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)!!.edit()
+            val editor: SharedPreferences.Editor = activity?.getSharedPreferences(fileName, Context.MODE_PRIVATE)!!.edit()
             editor.putString(sharedPreferencesDate, birthdayDate.text.toString())
             editor.putString(sharedPreferencesMonth, birthdayMonth.text.toString())
             editor.putString(sharedPreferencesYear, birthdayYear.text.toString())
             editor.apply()
 
-            var todays = tooDate.text.toString().toInt()
-            var tomonth = tooMonth.text.toString().toInt()
-            var toyears = tooYear.text.toString().toInt()
-            if (birthdayDate.text.toString().toInt() > 31) {
-                birthdayDate.setError("Only 31 days in month")
-            } else if (birthdayMonth.text.toString().toInt() > 12) {
-                birthdayMonth.setError("Only 12 month in year")
-            } else if (birthdayYear.text.toString().length != 4) {
-                birthdayYear.setError("Enter Correct year")
-            } else if (tooDate.text.toString().toInt() > 31) {
-                tooDate.setError("Only 31 days in month")
-            } else if (tooMonth.text.toString().toInt() > 12) {
-                tooMonth.setError("Only 12 month in year")
-            } else if (tooYear.text.toString().length != 4) {
-                tooYear.setError("Enter correct year")
-            } else {
-                a = a + 1
+            var toDays = tooDate.text.toString().toInt()
+            var toMonth = tooMonth.text.toString().toInt()
+            var toYears = tooYear.text.toString().toInt()
+            when {
+                birthdayDate.text.toString().toInt() > 31 -> {
+                    birthdayDate.error = "Only 31 days in month"
+                }
+                birthdayMonth.text.toString().toInt() > 12 -> {
+                    birthdayMonth.error = "Only 12 month in year"
+                }
+                birthdayYear.text.toString().length != 4 -> {
+                    birthdayYear.error = "Enter Correct year"
+                }
+                tooDate.text.toString().toInt() > 31 -> {
+                    tooDate.error = "Only 31 days in month"
+                }
+                tooMonth.text.toString().toInt() > 12 -> {
+                    tooMonth.error = "Only 12 month in year"
+                }
+                tooYear.text.toString().length != 4 -> {
+                    tooYear.error = "Enter correct year"
+                }
+                else -> {
+                    a += 1
+                }
             }
             if (a == 1) {
-                if (todays < day) {
-                    todays = todays + 30
-                    tomonth--
+                if (toDays < day) {
+                    toDays += 30
+                    toMonth--
                 }
-                if (tomonth < month) {
-                    tomonth = tomonth + 12
-                    toyears--
+                if (toMonth < month) {
+                    toMonth += 12
+                    toYears--
                 }
-                val Tyears = toyears - year
-                val Tmonth = tomonth - month
-                val Tdays = todays - day
+                val tYears = toYears - year
+                val tMonth = toMonth - month
+                val tDays = toDays - day
 
-                showYear.setText(" $Tyears Years")
-                showMonth.setText(" $Tmonth Months")
-                showDays.setText(" $Tdays Days")
+                showYear.text = " $tYears Years"
+                showMonth.text = " $tMonth Months"
+                showDays.text = " $tDays Days"
             }
         }catch (e:NumberFormatException){
-            Toast.makeText(context,"write your Birthday date",Toast.LENGTH_SHORT)
+            Toast.makeText(activity, "write your Birthday date", Toast.LENGTH_SHORT).show()
         }
     }
 

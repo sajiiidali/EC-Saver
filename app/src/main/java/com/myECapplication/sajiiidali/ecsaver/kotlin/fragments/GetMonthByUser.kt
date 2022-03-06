@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.myECapplication.sajiiidali.ecsaver.R
 import java.util.*
 
-class getMonthByUser : DialogFragment(R.layout.get_monthby_user),View.OnClickListener {
+class GetMonthByUser : DialogFragment(R.layout.get_monthby_user),View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -18,7 +18,7 @@ class getMonthByUser : DialogFragment(R.layout.get_monthby_user),View.OnClickLis
         val march        = view.findViewById<Button>(R.id.btnmarch)
         val april        = view.findViewById<Button>(R.id.btnapril)
         val may          = view.findViewById<Button>(R.id.btnmay)
-        val June         = view.findViewById<Button>(R.id.btnjune)
+        val june         = view.findViewById<Button>(R.id.btnjune)
         val july         = view.findViewById<Button>(R.id.btnjuly)
         val august       = view.findViewById<Button>(R.id.btnaugust)
         val september    = view.findViewById<Button>(R.id.btnseptember)
@@ -31,7 +31,7 @@ class getMonthByUser : DialogFragment(R.layout.get_monthby_user),View.OnClickLis
         march.setOnClickListener(this)
         april.setOnClickListener(this)
         may.setOnClickListener(this)
-        June.setOnClickListener(this)
+        june.setOnClickListener(this)
         july.setOnClickListener(this)
         august.setOnClickListener(this)
         september.setOnClickListener(this)
@@ -45,71 +45,71 @@ class getMonthByUser : DialogFragment(R.layout.get_monthby_user),View.OnClickLis
             R.id.btnjanuary->{
                 val calendar    = Calendar.getInstance(TimeZone.getDefault())
                 val getCurrentYear     = calendar.get(Calendar.YEAR)
-                val directions = getMonthByUserDirections.actionGetMonthByUserToShowSavedData(1,getCurrentYear)
+                val directions = GetMonthByUserDirections.actionGetMonthByUserToShowSavedData(1,getCurrentYear)
                 findNavController().navigate(directions)
             }
             R.id.btnfebruary->{
                 val calendar    = Calendar.getInstance(TimeZone.getDefault())
                 val getCurrentYear     = calendar.get(Calendar.YEAR)
-                val directions = getMonthByUserDirections.actionGetMonthByUserToShowSavedData(2,getCurrentYear)
+                val directions = GetMonthByUserDirections.actionGetMonthByUserToShowSavedData(2,getCurrentYear)
                 findNavController().navigate(directions)            }
             R.id.btnmarch->{
                 val calendar    = Calendar.getInstance(TimeZone.getDefault())
                 val getCurrentYear     = calendar.get(Calendar.YEAR)
-                val directions = getMonthByUserDirections.actionGetMonthByUserToShowSavedData(3,getCurrentYear)
+                val directions = GetMonthByUserDirections.actionGetMonthByUserToShowSavedData(3,getCurrentYear)
                 findNavController().navigate(directions)            }
             R.id.btnapril->{
                 val calendar    = Calendar.getInstance(TimeZone.getDefault())
                 val getCurrentYear     = calendar.get(Calendar.YEAR)
-                val directions = getMonthByUserDirections.actionGetMonthByUserToShowSavedData(4,getCurrentYear)
+                val directions = GetMonthByUserDirections.actionGetMonthByUserToShowSavedData(4,getCurrentYear)
                 findNavController().navigate(directions)
             }
             R.id.btnmay->{
                 val calendar    = Calendar.getInstance(TimeZone.getDefault())
                 val getCurrentYear     = calendar.get(Calendar.YEAR)
-                val directions = getMonthByUserDirections.actionGetMonthByUserToShowSavedData(5,getCurrentYear)
+                val directions = GetMonthByUserDirections.actionGetMonthByUserToShowSavedData(5,getCurrentYear)
                 findNavController().navigate(directions)
             }
             R.id.btnjune->{
                 val calendar    = Calendar.getInstance(TimeZone.getDefault())
                 val getCurrentYear     = calendar.get(Calendar.YEAR)
-                val directions = getMonthByUserDirections.actionGetMonthByUserToShowSavedData(6,getCurrentYear)
+                val directions = GetMonthByUserDirections.actionGetMonthByUserToShowSavedData(6,getCurrentYear)
                 findNavController().navigate(directions)
             }
             R.id.btnjuly->{
                 val calendar    = Calendar.getInstance(TimeZone.getDefault())
                 val getCurrentYear     = calendar.get(Calendar.YEAR)
-                val directions = getMonthByUserDirections.actionGetMonthByUserToShowSavedData(7,getCurrentYear)
+                val directions = GetMonthByUserDirections.actionGetMonthByUserToShowSavedData(7,getCurrentYear)
                 findNavController().navigate(directions)
             }
             R.id.btnaugust->{
                 val calendar    = Calendar.getInstance(TimeZone.getDefault())
                 val getCurrentYear     = calendar.get(Calendar.YEAR)
-                val directions = getMonthByUserDirections.actionGetMonthByUserToShowSavedData(8,getCurrentYear)
+                val directions = GetMonthByUserDirections.actionGetMonthByUserToShowSavedData(8,getCurrentYear)
                 findNavController().navigate(directions)
             }
             R.id.btnseptember->{
                 val calendar    = Calendar.getInstance(TimeZone.getDefault())
                 val getCurrentYear     = calendar.get(Calendar.YEAR)
-                val directions = getMonthByUserDirections.actionGetMonthByUserToShowSavedData(9,getCurrentYear)
+                val directions = GetMonthByUserDirections.actionGetMonthByUserToShowSavedData(9,getCurrentYear)
                 findNavController().navigate(directions)
             }
             R.id.btnoctober->{
                 val calendar    = Calendar.getInstance(TimeZone.getDefault())
                 val getCurrentYear     = calendar.get(Calendar.YEAR)
-                val directions = getMonthByUserDirections.actionGetMonthByUserToShowSavedData(10,getCurrentYear)
+                val directions = GetMonthByUserDirections.actionGetMonthByUserToShowSavedData(10,getCurrentYear)
                 findNavController().navigate(directions)
             }
             R.id.btnnovember->{
                 val calendar    = Calendar.getInstance(TimeZone.getDefault())
                 val getCurrentYear     = calendar.get(Calendar.YEAR)
-                val directions = getMonthByUserDirections.actionGetMonthByUserToShowSavedData(11,getCurrentYear)
+                val directions = GetMonthByUserDirections.actionGetMonthByUserToShowSavedData(11,getCurrentYear)
                 findNavController().navigate(directions)
             }
             R.id.btndecember->{
                 val calendar    = Calendar.getInstance(TimeZone.getDefault())
                 val getCurrentYear     = calendar.get(Calendar.YEAR)
-                val directions = getMonthByUserDirections.actionGetMonthByUserToShowSavedData(12,getCurrentYear)
+                val directions = GetMonthByUserDirections.actionGetMonthByUserToShowSavedData(12,getCurrentYear)
                 findNavController().navigate(directions)
             }
         }

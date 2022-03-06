@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/holo_blue_light"
-    tools:context=".kotlin.fragments.kotlin_BMI_Calculator">
+    tools:context=".kotlin.fragments.KotlinBMICalculator">
 
     <TextView
         android:layout_width="wrap_content"

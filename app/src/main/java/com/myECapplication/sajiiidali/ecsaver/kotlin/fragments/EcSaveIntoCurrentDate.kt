@@ -1,6 +1,5 @@
 package com.myECapplication.sajiiidali.ecsaver.kotlin.fragments
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +17,7 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
         val getEcNumber = view.findViewById<EditText>(R.id.edttext)
         val saveButton  = view.findViewById<Button>(R.id.btnsave)
         val clearButton = view.findViewById<Button>(R.id.btnclear)
-        val mydb = Database(requireActivity())
+        val database = Database(requireActivity())
 
 
         val spin = view.findViewById<Spinner>(R.id.spinner)
@@ -40,18 +39,22 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
         val byDay      = calendar.get(Calendar.DAY_OF_MONTH)
         val byYear     = calendar.get(Calendar.YEAR)
         val getCurrentDate = "$byDay-$byMonth-$byYear"
-        currentDate.setText(getCurrentDate)
+        currentDate.text = getCurrentDate
 
         saveButton.setOnClickListener {
             var isMatch = 0
-            val checkEcNumber = getEcNumber.text.toString().toUInt()
-            val cursor = mydb.checkData(byMonth,byYear)
-            if (cursor.count != 0){
-                while (cursor.moveToNext()){
-                    if (cursor.getString(1).toString().toUInt() == checkEcNumber){
-                        isMatch++
+            try {
+                val checkEcNumber = getEcNumber.text.toString()
+                val cursor = database.checkData(byMonth,byYear)
+                if (cursor.count != 0){
+                    while (cursor.moveToNext()){
+                        if (cursor.getString(1).toString() == checkEcNumber){
+                            isMatch++
+                        }
                     }
                 }
+            } catch (e: Exception) {
+                Toast.makeText(activity, ""+e, Toast.LENGTH_LONG).show()
             }
 
             if (spin.selectedItem.toString() == "<Select EC Type>"){
@@ -62,7 +65,7 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
                 val dayOfMonth = byDay.toString()
                 val monthOfYear = byMonth.toString()
                 val yYear       = byYear.toString()
-                val isInsert = mydb.insertData(ecType,ecNumber,getCurrentDate,monthOfYear,dayOfMonth,yYear,"")
+                val isInsert = database.insertData(ecType,ecNumber,getCurrentDate,monthOfYear,dayOfMonth,yYear,"")
                 if (isInsert){
                     Toast.makeText(activity, "Saved", Toast.LENGTH_SHORT).show()
                 }else{
@@ -78,11 +81,6 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
         }
     }
 
-
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = super.onCreateDialog(savedInstanceState)
-        return dialog
-    }
 
     override fun onStart() {
         super.onStart()

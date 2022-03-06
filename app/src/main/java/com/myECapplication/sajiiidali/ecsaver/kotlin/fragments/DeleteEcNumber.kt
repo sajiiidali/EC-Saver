@@ -14,13 +14,13 @@ class DeleteEcNumber :DialogFragment(R.layout.delete_ec_number_layout) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val yes = view.findViewById<AppCompatButton>(R.id.btnYes)
-        val No  = view.findViewById<AppCompatButton>(R.id.btnNo)
-        val Message = view.findViewById<AppCompatTextView>(R.id.deleteMessage)
+        val no  = view.findViewById<AppCompatButton>(R.id.btnNo)
+        val message = view.findViewById<AppCompatTextView>(R.id.deleteMessage)
         val dialogTitle = "Do You Want To Delete This Record"
         val db = Database(requireContext())
         val args = DeleteEcNumberArgs.fromBundle(requireArguments())
 
-        Message.setText(dialogTitle)
+        message.text = dialogTitle
 
         yes.setOnClickListener {
             val isDeleted = db.deleteData(args.getEcNumber,args.getEcType)
@@ -28,11 +28,11 @@ class DeleteEcNumber :DialogFragment(R.layout.delete_ec_number_layout) {
                 Toast.makeText(activity, "Deleted", Toast.LENGTH_SHORT).show()
             else
                 Toast.makeText(activity, "Please Try Again", Toast.LENGTH_SHORT).show()
-            showSavedData.refereshList()
+            ShowSavedData.refreshList()
             dialog?.dismiss()
 
         }
-        No.setOnClickListener {
+        no.setOnClickListener {
             dialog?.dismiss()
         }
     }

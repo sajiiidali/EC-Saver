@@ -5,11 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageButton
-import androidx.fragment.app.FragmentActivity
 import com.myECapplication.sajiiidali.ecsaver.R
-import com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.showSavedData
+import com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.ShowSavedData
 import java.util.HashMap
 
 class expandAbleListAdapter(
@@ -75,10 +73,10 @@ class expandAbleListAdapter(
         EC_NUMBER?.setText(EcNumber)
         EC_TYPE?.setText(ecType)
         deleteList?.setOnClickListener {
-            showSavedData.getDeleteData(getChild(groupPosition,childPosition).EC_NUMBER,getChild(groupPosition,childPosition).EC_TYPE)
+            ShowSavedData.getDeleteData(getChild(groupPosition,childPosition).EC_NUMBER,getChild(groupPosition,childPosition).EC_TYPE)
         }
         editList?.setOnClickListener {
-            showSavedData.getEditLayout(getChild(groupPosition,childPosition).EC_NUMBER,getChild(groupPosition,childPosition).EC_TYPE)
+            ShowSavedData.getEditLayout(getChild(groupPosition,childPosition).EC_NUMBER,getChild(groupPosition,childPosition).EC_TYPE)
         }
         return varView!!
     }

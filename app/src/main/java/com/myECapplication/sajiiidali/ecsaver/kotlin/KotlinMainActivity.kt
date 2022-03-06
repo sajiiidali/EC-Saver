@@ -16,13 +16,13 @@ import com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.HomeFragment
 import com.myECapplication.sajiiidali.ecsaver.Database
 
 class KotlinMainActivity : AppCompatActivity() {
-
+    lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kotlin_main)
 
         val navHost : NavHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHostFragment
-        val navController: NavController = navHost.navController
+        navController = navHost.navController
         NavigationUI.setupActionBarWithNavController(this,navController)
 
     }
@@ -36,7 +36,7 @@ class KotlinMainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.Deletewhole -> {
-                deletedata()
+                deleteData()
                 true
             }
             R.id.backup -> {
@@ -44,7 +44,7 @@ class KotlinMainActivity : AppCompatActivity() {
                 true
             }
             R.id.age_calculator -> {
-            HomeFragment.jumpToAgeCalculator()
+                navController.navigate(R.id.kotlin_AgeCalculator)
                 true
             }
             R.id.itemabout -> {
@@ -52,7 +52,7 @@ class KotlinMainActivity : AppCompatActivity() {
                 true
             }
             R.id.rateus -> {
-                rateus()
+                rateUs()
                 true
             }
             R.id.mshare -> {
@@ -60,7 +60,7 @@ class KotlinMainActivity : AppCompatActivity() {
                 true
             }
             R.id.bmi_calculator -> {
-            HomeFragment.jumpToBMICalculator()
+                navController.navigate(R.id.kotlin_BMI_Calculator)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -84,7 +84,7 @@ class KotlinMainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun deletedata() {
+    private fun deleteData() {
         val dialog : AlertDialog.Builder = AlertDialog.Builder(this, R.style.AlertDialogButtonColor)
         dialog.setMessage(R.string.confirm)
         dialog.setPositiveButton(R.string.Yes)
@@ -108,20 +108,20 @@ class KotlinMainActivity : AppCompatActivity() {
         dialog.setMessage(R.string.aboutUS)
         dialog.setPositiveButton(R.string.moreApps)
         { 
-                dialog,
-                btn-> moreapps()
+                myDialog,
+                btn-> moreApps()
         }.show()
     }
 
-    private fun moreapps() {
+    private fun moreApps() {
         val intent = Intent(Intent.ACTION_VIEW)
-        intent.data = Uri.parse("market://search?q=pub:Andreno Group")
+        intent.data = Uri.parse("market://search?q=pub:Digital Finger Apps")
         startActivity(intent)
     }
 
     private fun share() {
         val shareIntent = Intent(Intent.ACTION_SEND)
-        shareIntent.setType("text/plain")
+        shareIntent.type = "text/plain"
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject Here")
         shareIntent.putExtra(
             Intent.EXTRA_TEXT,
@@ -130,7 +130,7 @@ class KotlinMainActivity : AppCompatActivity() {
         startActivity(Intent.createChooser(shareIntent, "Share Via"))
     }
 
-    private fun rateus() {
+    private fun rateUs() {
         try {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")))
         } catch (e: ActivityNotFoundException) {

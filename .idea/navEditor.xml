@@ -103,12 +103,7 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_homeFragment_to_kotlin_AgeCalculator">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                            <entry key="action_homeFragment_to_kotlin_BMI_Calculator">
+                            <entry key="action_homeFragment_to_saveDayOffLeave2">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -123,8 +118,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-2795" />
-                            <option name="y" value="-321" />
+                            <option name="x" value="-2847" />
+                            <option name="y" value="-556" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -135,8 +130,20 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-2791" />
-                            <option name="y" value="14" />
+                            <option name="x" value="-2820" />
+                            <option name="y" value="191" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="saveDayOffLeave2">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-2432" />
+                            <option name="y" value="160" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -153,6 +160,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_showSavedData_to_deleteEcNumber">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_showSavedData_to_edit_EC_Number2">
                               <value>
                                 <LayoutPositions />

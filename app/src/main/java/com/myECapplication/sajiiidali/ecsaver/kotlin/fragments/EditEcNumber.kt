@@ -31,7 +31,7 @@ class EditEcNumber : DialogFragment(R.layout.edit_row_item) {
                 Toast.makeText(activity, " List Updated ", Toast.LENGTH_SHORT).show()
             else
                 Toast.makeText(activity, "List Not Updated ", Toast.LENGTH_SHORT).show()
-            showSavedData.refereshList()
+            ShowSavedData.refreshList()
             dialog?.dismiss()
         } catch (e: Exception) {
             Toast.makeText(activity, ""+e, Toast.LENGTH_LONG).show()

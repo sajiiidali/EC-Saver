@@ -15,13 +15,13 @@ import com.myECapplication.sajiiidali.ecsaver.Database
 import java.util.ArrayList
 import java.util.HashMap
 
-class showSavedData : Fragment(R.layout.show_saved_data) {
+class ShowSavedData : Fragment(R.layout.show_saved_data) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showSavedView = view
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
-        val args = showSavedDataArgs.fromBundle(requireArguments())
+        val args = ShowSavedDataArgs.fromBundle(requireArguments())
         val expandAbleListview = view.findViewById<ExpandableListView>(R.id.expandAbleListView)
         db = Database(requireContext())
         month = args.getMonth
@@ -44,12 +44,12 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                         val childList = ArrayList<myRow_data>()
                         while (getCursorByMonth?.moveToNext()!!)
                         {
-                            if (parentName.get(index).equals("A")) {
-                                parentName.set(index,getCursorByMonth.getString(2))
+                            if (parentName[index] == "A") {
+                                parentName[index] = getCursorByMonth.getString(2)
                             }
                             childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                         }
-                        hashMap.put(parentName.get(index), childList)
+                        hashMap[parentName[index]] = childList
                     }
                     if(byDate == 32){
                         isYearExist -= 1
@@ -75,20 +75,20 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
         lateinit var db: Database
         var parentName = ArrayList<String>()
         var month:Int = 0
-        var refreshYear:Int = 0
+        private var refreshYear:Int = 0
         var alwaysMaintainYearValue = 0
         val hashMap= HashMap<String, List<myRow_data>>()
 
 
         fun getEditLayout(ecNumber: String, ecType: String) {
-            val directions = showSavedDataDirections.actionShowSavedDataToEditECNumber2(ecNumber,ecType)
+            val directions = ShowSavedDataDirections.actionShowSavedDataToEditECNumber2(ecNumber,ecType)
             Navigation.findNavController(showSavedView).navigate(directions)
         }
         fun getDeleteData(ecNumber: String, ecType: String){
-            val directions = showSavedDataDirections.actionShowSavedDataToDeleteEcNumber(ecNumber,ecType)
+            val directions = ShowSavedDataDirections.actionShowSavedDataToDeleteEcNumber(ecNumber,ecType)
             Navigation.findNavController(showSavedView).navigate(directions)
         }
-        fun refereshList(){
+        fun refreshList(){
             parentName.clear()
             myExpandableAdapter.notifyDataSetChanged()
             refreshYear = alwaysMaintainYearValue
@@ -110,12 +110,12 @@ class showSavedData : Fragment(R.layout.show_saved_data) {
                         val childList = ArrayList<myRow_data>()
                         while (getCursorByMonth?.moveToNext()!!)
                         {
-                            if (parentName.get(index).equals("A")) {
-                                parentName.set(index,getCursorByMonth.getString(2))
+                            if (parentName[index] == "A") {
+                                parentName[index] = getCursorByMonth.getString(2)
                             }
                             childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                         }
-                        hashMap.put(parentName.get(index), childList)
+                        hashMap[parentName[index]] = childList
                     }
                     if(byDate == 32){
                         refreshYear -= 1

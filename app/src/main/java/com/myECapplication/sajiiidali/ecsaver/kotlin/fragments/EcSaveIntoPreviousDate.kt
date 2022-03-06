@@ -1,6 +1,5 @@
 package com.myECapplication.sajiiidali.ecsaver.kotlin.fragments
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +22,7 @@ class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecte
         val clearButton  = view.findViewById<Button>(R.id.button)
         val getEcNumber     = view.findViewById<EditText>(R.id.edttext)
         val spin = view.findViewById<Spinner>(R.id.spinner)
-        val mydb = Database(requireActivity())
+        val database = Database(requireActivity())
         val getOldDate = "$byDay-$byMonth-$byYear"
         textViewDate.text = getOldDate
         val arrayList = ArrayList<String>()
@@ -43,11 +42,11 @@ class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecte
 
             try {
                 var isMatch = 0
-                val checkEcNumber = getEcNumber.text.toString().toUInt()
-                val cursor = mydb.checkData(byMonth,byYear)
+                val checkEcNumber = getEcNumber.text.toString()
+                val cursor = database.checkData(byMonth,byYear)
                 if (cursor.count != 0){
                     while (cursor.moveToNext()){
-                        if (cursor.getString(1).toString().toUInt() == checkEcNumber){
+                        if (cursor.getString(1).toString() == checkEcNumber){
                             isMatch++
                         }
                     }
@@ -61,7 +60,7 @@ class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecte
                     val dayOfMonth = byDay.toString()
                     val monthOfYear = byMonth.toString()
                     val yYear       = byYear.toString()
-                    val isInsert = mydb.insertData(ecType,ecNumber,getOldDate,monthOfYear,dayOfMonth,yYear,"")
+                    val isInsert = database.insertData(ecType,ecNumber,getOldDate,monthOfYear,dayOfMonth,yYear,"")
                     if (isInsert){
                         Toast.makeText(activity, "Saved", Toast.LENGTH_SHORT).show()
                     }else{
@@ -81,11 +80,6 @@ class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecte
 
 
 
-    }
-
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = super.onCreateDialog(savedInstanceState)
-        return dialog!!
     }
 
     override fun onStart() {

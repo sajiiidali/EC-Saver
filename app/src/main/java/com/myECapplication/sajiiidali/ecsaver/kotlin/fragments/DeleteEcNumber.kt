@@ -19,17 +19,31 @@ class DeleteEcNumber :DialogFragment(R.layout.delete_ec_number_layout) {
         val dialogTitle = "Do You Want To Delete This Record"
         val db = Database(requireContext())
         val args = DeleteEcNumberArgs.fromBundle(requireArguments())
-
         message.text = dialogTitle
 
         yes.setOnClickListener {
-            val isDeleted = db.deleteData(args.getEcNumber,args.getEcType)
-            if (isDeleted)
-                Toast.makeText(activity, "Deleted", Toast.LENGTH_SHORT).show()
-            else
-                Toast.makeText(activity, "Please Try Again", Toast.LENGTH_SHORT).show()
-            ShowSavedData.refreshList()
-            dialog?.dismiss()
+            val getCursorOffLeave = db.checkDayOffLeave(args.getEcNumber,args.getEcType)
+            val getCursorOfEcNumber = db.checkByEcNumber(args.getEcNumber,args.getEcType)
+
+            if (getCursorOffLeave.count != 0){
+                val isDeleted = db.deleteDayOffLeave(args.getEcNumber,args.getEcType)
+                if (isDeleted)
+                    Toast.makeText(activity, "Deleted", Toast.LENGTH_SHORT).show()
+                else
+                    Toast.makeText(activity, "Please Try Again", Toast.LENGTH_SHORT).show()
+                ShowSavedData.refreshList()
+                dialog?.dismiss()
+            }
+            if (getCursorOfEcNumber.count != 0){
+                val isDeleted = db.deleteData(args.getEcNumber,args.getEcType)
+                if (isDeleted)
+                    Toast.makeText(activity, "Deleted", Toast.LENGTH_SHORT).show()
+                else
+                    Toast.makeText(activity, "Please Try Again", Toast.LENGTH_SHORT).show()
+                ShowSavedData.refreshList()
+                dialog?.dismiss()
+            }
+
 
         }
         no.setOnClickListener {

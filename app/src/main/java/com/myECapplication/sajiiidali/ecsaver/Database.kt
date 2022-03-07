@@ -93,6 +93,37 @@ class Database(context: Context?) :
         return result != -1L
     }
 
+    fun checkDayOffLeave(ecNumber: String?, ecType: String?): Cursor {
+        db = this.readableDatabase
+        return db.rawQuery(
+            "SELECT * FROM EC_Table WHERE C_Date = ? AND Type_of_EC = ?", arrayOf(ecNumber, ecType))
+    }
+
+    fun deleteDayOffLeave(dateofDayOff : String?, dayOff: String?): Boolean {
+        db = this.writableDatabase
+        val result = db.delete(TABLE_NAME, " C_Date=? AND Type_of_EC=?", arrayOf(dateofDayOff,dayOff)).toLong()
+        return result != -1L
+    }
+
+    fun checkByEcNumber(ecNumber: String?, ecType: String?): Cursor {
+        db = this.readableDatabase
+        return db.rawQuery(
+            "SELECT * FROM EC_Table WHERE EC_Number = ? AND Type_of_EC = ?", arrayOf(ecNumber, ecType))    }
+
+    fun updateDayOff(
+        updateDate: String,
+        updateDayOff: String,
+        date: String?,
+        dayOff: String?
+    ): Boolean {
+        db = this.writableDatabase
+        val contentValues = ContentValues(2)
+        contentValues.put(COLUMN_1, updateDayOff)
+        contentValues.put(COLUMN_3, updateDate)
+        val result = db.update(TABLE_NAME, contentValues, " C_Date=? AND Type_of_EC=?", arrayOf(date,dayOff)).toLong()
+        return result != -1L
+    }
+
     companion object {
         private const val DATABASE_NAME = "EC_DataBase"
         private const val DATABASE_VERSION = 1

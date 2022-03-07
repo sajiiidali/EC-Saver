@@ -47,7 +47,10 @@ class ShowSavedData : Fragment(R.layout.show_saved_data) {
                             if (parentName[index] == "A") {
                                 parentName[index] = getCursorByMonth.getString(2)
                             }
-                            childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
+                            if (getCursorByMonth.getString(1) == "")
+                                    childList.add(myRow_data(getCursorByMonth.getString(2),getCursorByMonth.getString(0)))
+                                else
+                                    childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                         }
                         hashMap[parentName[index]] = childList
                     }
@@ -113,7 +116,10 @@ class ShowSavedData : Fragment(R.layout.show_saved_data) {
                             if (parentName[index] == "A") {
                                 parentName[index] = getCursorByMonth.getString(2)
                             }
-                            childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
+                            if (getCursorByMonth.getString(1) == "")
+                                childList.add(myRow_data(getCursorByMonth.getString(2),getCursorByMonth.getString(0)))
+                            else
+                                childList.add(myRow_data(getCursorByMonth.getString(1), getCursorByMonth.getString(0)))
                         }
                         hashMap[parentName[index]] = childList
                     }

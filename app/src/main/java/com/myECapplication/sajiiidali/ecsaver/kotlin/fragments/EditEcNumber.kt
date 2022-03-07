@@ -26,13 +26,27 @@ class EditEcNumber : DialogFragment(R.layout.edit_row_item) {
 
         saveButtonAfterEdit.setOnClickListener {
         try {
-            val isEdited = db.updateRowData(editEcNumber.text.toString(),editEcType.text.toString(),args.getEcNumber,args.getEcType)
-            if (isEdited)
-                Toast.makeText(activity, " List Updated ", Toast.LENGTH_SHORT).show()
-            else
-                Toast.makeText(activity, "List Not Updated ", Toast.LENGTH_SHORT).show()
-            ShowSavedData.refreshList()
-            dialog?.dismiss()
+            val getCursorOffLeave = db.checkDayOffLeave(args.getEcNumber,args.getEcType)
+            val getCursorOfEcNumber = db.checkByEcNumber(args.getEcNumber,args.getEcType)
+            if (getCursorOffLeave.count != 0){
+                val isEdited = db.updateDayOff(editEcNumber.text.toString(),editEcType.text.toString(),args.getEcNumber,args.getEcType)
+                if (isEdited)
+                    Toast.makeText(activity, " List Updated ", Toast.LENGTH_SHORT).show()
+                else
+                    Toast.makeText(activity, "List Not Updated ", Toast.LENGTH_SHORT).show()
+                ShowSavedData.refreshList()
+                dialog?.dismiss()
+            }
+            if (getCursorOfEcNumber.count != 0){
+                val isEdited = db.updateRowData(editEcNumber.text.toString(),editEcType.text.toString(),args.getEcNumber,args.getEcType)
+                if (isEdited)
+                    Toast.makeText(activity, " List Updated ", Toast.LENGTH_SHORT).show()
+                else
+                    Toast.makeText(activity, "List Not Updated ", Toast.LENGTH_SHORT).show()
+                ShowSavedData.refreshList()
+                dialog?.dismiss()
+            }
+
         } catch (e: Exception) {
             Toast.makeText(activity, ""+e, Toast.LENGTH_LONG).show()
         }

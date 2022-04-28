@@ -9,95 +9,72 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.myECapplication.sajiiidali.ecsaver.R
+import com.myECapplication.sajiiidali.ecsaver.databinding.HomeFragmentBinding
 
 class HomeFragment : Fragment(R.layout.home_fragment) {
-  private  lateinit var toDayLayout             : ConstraintLayout
-  private  lateinit var dayOffLeave             : ConstraintLayout
-  private  lateinit var previousDayLayout       : ConstraintLayout
-  private  lateinit var showSavedDataLayout     : ConstraintLayout
 
     @SuppressLint("InflateParams")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val binding = HomeFragmentBinding.bind(view)
+        var homeView = view
         (activity as AppCompatActivity?)!!.supportActionBar!!.setTitle(R.string.app_name)
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
 
-        homeFragmentView        = view
-        toDayLayout             = view.findViewById(R.id.ToDayLayout)
-        previousDayLayout       = view.findViewById(R.id.previousDayLayout)
-        dayOffLeave             = view.findViewById(R.id.saveDayOff)
-        showSavedDataLayout     = view.findViewById(R.id.showSavedDataLayout)
-
-        toDayLayout.setOnClickListener {
-            val navigation = HomeFragmentDirections.actionHomeFragmentToEcSaveIntoCurrentDate2()
-            findNavController().navigate(navigation)
+        with(binding){
+            ToDayLayout.setOnClickListener {
+                val navigation = HomeFragmentDirections.actionHomeFragmentToEcSaveIntoCurrentDate2()
+                Navigation.findNavController(view).navigate(navigation)
             }
+            saveDayOff.setOnClickListener {
+                val layoutInflater = layoutInflater
+                homeView = layoutInflater.inflate(R.layout.datepicker_layout,null)
+                val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogButtonColor)
+                builder.setView(homeView)
 
-        dayOffLeave.setOnClickListener {
-            val layoutInflater = layoutInflater
-            homeFragmentView = layoutInflater.inflate(R.layout.datepicker_layout,null)
-            val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogButtonColor)
-            builder.setView(homeFragmentView)
+                builder.setPositiveButton(R.string.Yes) { dialog, btn->
+                    val datePickerDialog = homeView.findViewById<DatePicker>(R.id.datepicker)
+                    val selectedDate = datePickerDialog.dayOfMonth
+                    val selectedMonth = datePickerDialog.month + 1
+                    val selectedYear = datePickerDialog.year
 
-            builder.setPositiveButton(R.string.Yes) { dialog, btn->
-                val datePickerDialog = homeFragmentView.findViewById<DatePicker>(R.id.datepicker)
-                val selectedDate = datePickerDialog.dayOfMonth
-                val selectedMonth = datePickerDialog.month + 1
-                val selectedYear = datePickerDialog.year
+                    try {
+                        val directions = HomeFragmentDirections.actionHomeFragmentToSaveDayOffLeave2(selectedDate,selectedMonth,selectedYear)
+                        Navigation.findNavController(view).navigate(directions)
+                        dialog.dismiss()
+                    } catch (e: Exception) {
+                        Toast.makeText(activity, ""+e, Toast.LENGTH_LONG).show()
+                    }
+                }.show()
+            }
+            previousDayLayout.setOnClickListener {
+                val layoutInflater = layoutInflater
+                homeView = layoutInflater.inflate(R.layout.datepicker_layout,null)
+                val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogButtonColor)
+                builder.setView(homeView)
 
-                try {
-                    val directions = HomeFragmentDirections.actionHomeFragmentToSaveDayOffLeave2(selectedDate,selectedMonth,selectedYear)
-                    findNavController().navigate(directions)
-                    dialog.dismiss()
-                } catch (e: Exception) {
-                    Toast.makeText(activity, ""+e, Toast.LENGTH_LONG).show()
-                }
-            }.show()
+                builder.setPositiveButton(R.string.Yes) { dialog, btn->
+                    val datePickerDialog = homeView.findViewById<DatePicker>(R.id.datepicker)
+                    val selectedDate = datePickerDialog.dayOfMonth
+                    val selectedMonth = datePickerDialog.month + 1
+                    val selectedYear = datePickerDialog.year
+
+                    try {
+                        val directions = HomeFragmentDirections.actionHomeFragmentToEcSaveIntoPreviousDate(selectedDate,selectedMonth,selectedYear)
+                        Navigation.findNavController(view).navigate(directions)
+                        dialog.dismiss()
+                    } catch (e: Exception) {
+                        Toast.makeText(activity, ""+e, Toast.LENGTH_LONG).show()
+                    }
+                }.show()
+            }
+            showSavedDataLayout.setOnClickListener {
+                val directions = HomeFragmentDirections.actionHomeFragmentToGetMonthByUser()
+                Navigation.findNavController(view).navigate(directions)
+            }
         }
-        previousDayLayout.setOnClickListener {
-            val layoutInflater = layoutInflater
-            homeFragmentView = layoutInflater.inflate(R.layout.datepicker_layout,null)
-            val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogButtonColor)
-            builder.setView(homeFragmentView)
-
-            builder.setPositiveButton(R.string.Yes) { dialog, btn->
-            val datePickerDialog = homeFragmentView.findViewById<DatePicker>(R.id.datepicker)
-            val selectedDate = datePickerDialog.dayOfMonth
-            val selectedMonth = datePickerDialog.month + 1
-            val selectedYear = datePickerDialog.year
-
-                try {
-                    val directions = HomeFragmentDirections.actionHomeFragmentToEcSaveIntoPreviousDate(selectedDate,selectedMonth,selectedYear)
-                    findNavController().navigate(directions)
-                    dialog.dismiss()
-                } catch (e: Exception) {
-                    Toast.makeText(activity, ""+e, Toast.LENGTH_LONG).show()
-                }
-            }.show()
-
-
-
-        }
-
-
-
-        showSavedDataLayout.setOnClickListener {
-         val directions = HomeFragmentDirections.actionHomeFragmentToGetMonthByUser()
-            findNavController().navigate(directions)
-                 }
     }
-
-
-    companion object{
-    @SuppressLint("StaticFieldLeak")
-    lateinit var homeFragmentView:View
-}
-
-    override fun onStart() {
-        super.onStart()
-        homeFragmentView= requireView()
-    }
-
 }

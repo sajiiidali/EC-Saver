@@ -53,7 +53,9 @@ class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecte
                 }
 
                 if (spin.selectedItem.toString() == "<Select EC Type>"){
-                    Toast.makeText(activity, "please first Select EC Type and Type EC_NO", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Select EC Type", Toast.LENGTH_SHORT).show()
+                }else if (getEcNumber.text.toString().isEmpty()) {
+                    getEcNumber.error = "Type EC Number"
                 }else if (isMatch == 0){
                     val ecType = spin.selectedItem.toString()
                     val ecNumber = getEcNumber.text.toString()

@@ -6,22 +6,31 @@
         android:id="@+id/mshare"
         android:title="@string/share"
         android:icon="@drawable/ic_share"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/saveToGDrive"
+        android:title="@string/saveToGDrive"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/downloadFromGDrive"
+        android:title="@string/downloadData"
+        app:showAsAction="never" />
 
     <item android:id="@+id/backup"
+        android:icon="@drawable/ic_google_sign_in"
         android:title="@string/Backup"
-        app:showAsAction="never"/>
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/bmi_calculator"
         android:title="@string/bmicalculator"
         android:icon="@drawable/bmi_calculator"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
     <item
         android:id="@+id/age_calculator"
         android:title="@string/Age_Calculator"
         android:icon="@drawable/age_calculator"
-        app:showAsAction="always">
+        app:showAsAction="never">
     </item>
     <item
         android:id="@+id/rateus"

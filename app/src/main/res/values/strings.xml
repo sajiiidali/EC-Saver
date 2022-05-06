@@ -67,4 +67,8 @@
     <string name="backup">For Backup Go to Your mobile //Settings//Account and Backup//GoogleDriveBackup</string>
     <string name="checkThisVideo">Check This Video How To</string>
     <string name="dayOff">DayOFF LEAVE</string>
+    <string name="signOut">SignOut</string>
+    <string name="saveToGDrive">upload to GDrive</string>
+    <string name="downloadData">Download From GDrive</string>
+    <string name="message_google_sign_in_failed">Google Sign In failed</string>
 </resources>

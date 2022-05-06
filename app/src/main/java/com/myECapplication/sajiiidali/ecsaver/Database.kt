@@ -5,10 +5,12 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.myECapplication.sajiiidali.ecsaver.kotlin.GoogleDriveBackup.app.App
 
 
 class Database(context: Context?) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+
     lateinit var db: SQLiteDatabase
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL("create table $TABLE_NAME(Type_of_EC TEXT, EC_Number TEXT, C_Date TEXT, Month_No TEXT, Date_No TEXT, Year_No TEXT, Row_string TEXT )")
@@ -125,6 +127,7 @@ class Database(context: Context?) :
     }
 
     companion object {
+
         private const val DATABASE_NAME = "EC_DataBase"
         private const val DATABASE_VERSION = 1
         private const val TABLE_NAME = "EC_Table"
@@ -135,5 +138,6 @@ class Database(context: Context?) :
         const val COLUMN_5 = "Date_No"
         const val COLUMN_6 = "Year_No"
         const val COLUMN_7 = "Row_string"
+        val DB_LOCATION = "/data/data/com.myECapplication.sajiiidali.ecsaver/databases/$DATABASE_NAME"
     }
 }

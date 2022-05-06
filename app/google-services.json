@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "118807028719",
+    "project_id": "ec-saver-42f1c",
+    "storage_bucket": "ec-saver-42f1c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118807028719:android:03a1793b3cda456ee3cc1a",
+        "android_client_info": {
+          "package_name": "com.myECapplication.sajiiidali.ecsaver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118807028719-sieospve5tjh9pph874rqp6q4fkr3p09.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX31FdF-5JhPGEgOblanDE23-TCdD5GA8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118807028719-sieospve5tjh9pph874rqp6q4fkr3p09.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

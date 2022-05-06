@@ -52,10 +52,6 @@ class KotlinMainActivity : GoogleDriveActivity() {
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.Deletewhole -> {
-                deleteData()
-                true
-            }
             R.id.backup -> {
                 startGoogleDriveSignIn()
                 true
@@ -93,10 +89,11 @@ class KotlinMainActivity : GoogleDriveActivity() {
     }
 
     private fun downloadFromGDrive() {
-        myProgressBar.visibility = View.VISIBLE
         if (repository == null) {
             showMessage(R.string.message_google_sign_in_failed)
             return
+        }else{
+            myProgressBar.visibility = View.VISIBLE
         }
         val file = File(Database.DB_LOCATION)
         file.getParentFile()?.mkdirs()
@@ -113,11 +110,12 @@ class KotlinMainActivity : GoogleDriveActivity() {
     }
 
     private fun saveToGDrive() {
-        myProgressBar.visibility = View.VISIBLE
         val file = File(Database.DB_LOCATION)
         if (repository == null) {
             showMessage(R.string.message_google_sign_in_failed)
             return
+        }else{
+            myProgressBar.visibility = View.VISIBLE
         }
         repository!!.uploadFile(file, GOOGLE_DRIVE_DB_LOCATION)
             .addOnSuccessListener { _ -> showMessage("Upload success")
@@ -129,7 +127,7 @@ class KotlinMainActivity : GoogleDriveActivity() {
             }
     }
 
-    private fun deleteData() {
+/*    private fun deleteData() {
         val dialog : AlertDialog.Builder = AlertDialog.Builder(this, R.style.AlertDialogButtonColor)
         dialog.setMessage(R.string.confirm)
         dialog.setPositiveButton(R.string.Yes)
@@ -141,7 +139,7 @@ class KotlinMainActivity : GoogleDriveActivity() {
             thisdialog,btn->thisdialog.dismiss()
         }
 
-    }
+    }*/
 
     private fun yes() {
         val deleteAllData = Database(this)

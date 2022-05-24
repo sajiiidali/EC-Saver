@@ -11,14 +11,24 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.myECapplication.sajiiidali.ecsaver.R
 import com.myECapplication.sajiiidali.ecsaver.databinding.HomeFragmentBinding
 
 class HomeFragment : Fragment(R.layout.home_fragment) {
+    lateinit var mAdView : AdView
 
     @SuppressLint("InflateParams")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        MobileAds.initialize(requireActivity()) {}
+
+        mAdView = view.findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
         val binding = HomeFragmentBinding.bind(view)
         var homeView = view
         (activity as AppCompatActivity?)!!.supportActionBar!!.setTitle(R.string.app_name)

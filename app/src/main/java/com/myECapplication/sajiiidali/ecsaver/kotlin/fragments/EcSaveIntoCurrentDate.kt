@@ -5,14 +5,30 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.DialogFragment
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.myECapplication.sajiiidali.ecsaver.R
 import com.myECapplication.sajiiidali.ecsaver.Database
 import java.util.*
 
 class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_day) {
+    private var mInterstitialAd: InterstitialAd? = null
+    lateinit var mAdView : AdView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        showInterstitialAd()
+        MobileAds.initialize(requireActivity()) {}
+
+        mAdView = view.findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
+
         val currentDate = view.findViewById<TextView>(R.id.tvdate)
         val getEcNumber = view.findViewById<EditText>(R.id.edttext)
         val saveButton  = view.findViewById<Button>(R.id.btnsave)
@@ -50,6 +66,9 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
                     while (cursor.moveToNext()){
                         if (cursor.getString(1).toString() == checkEcNumber){
                             isMatch++
+                            if (mInterstitialAd != null) {
+                                mInterstitialAd?.show(requireActivity())
+                            }
                         }
                     }
                 }
@@ -80,7 +99,24 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
         }
         clearButton.setOnClickListener {
             getEcNumber.setText("")
+            if (mInterstitialAd != null) {
+                mInterstitialAd?.show(requireActivity())
+            }
         }
+    }
+    private fun showInterstitialAd() {
+        val adRequest = AdRequest.Builder().build()
+        InterstitialAd.load(requireActivity(),
+            resources.getString(R.string.Interstitial_ad),
+            adRequest,
+            object : InterstitialAdLoadCallback() {
+                override fun onAdFailedToLoad(p0: LoadAdError) {
+                    mInterstitialAd = null
+                }
+                override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                    mInterstitialAd = interstitialAd
+                }
+            })
     }
 
 

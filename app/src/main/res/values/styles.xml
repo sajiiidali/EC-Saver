@@ -19,11 +19,15 @@
         <item name="android:itemBackground">@color/holo_blue_light</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
-
+    <style name="myToolbarPopupTheme" parent="Theme.MaterialComponents.Light">
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
     <style name="AlertDialogButtonColor" parent="ThemeOverlay.AppCompat.Dialog.Alert">
         <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
     </style>
     <style name="PositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
         <item name="android:textColor">@color/holo_blue_light</item>
     </style>
+
 </resources>

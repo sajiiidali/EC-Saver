@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/holo_blue_light">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,19 +24,7 @@
             android:typeface="serif"
             android:id="@+id/weightinkg"/>
 
-        <EditText
-            android:id="@+id/edittext1_weight"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:autofillHints="yes"
-            android:background="@drawable/round_edit_text"
-            android:digits="1234567890."
-            android:gravity="center"
-            android:hint="@string/kg"
-            android:inputType="number"
-            android:textAlignment="center" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,6 +43,18 @@
             android:layout_marginEnd="20dp"
             android:layout_marginStart="20dp"
             android:orientation="horizontal">
+            <EditText
+                android:id="@+id/edittext1_weight"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="0.5"
+                android:autofillHints="yes"
+                android:background="@drawable/round_edit_text"
+                android:digits="1234567890."
+                android:gravity="center"
+                android:hint="@string/kg"
+                android:inputType="number"
+                android:textAlignment="center" />
 
             <AutoCompleteTextView
                 android:id="@+id/edittext2_feet"
@@ -133,7 +134,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="15dp"
-        ads:adSize="LARGE_BANNER"
+        ads:adSize="BANNER"
         ads:adUnitId="@string/Banner_ad">
     </com.google.android.gms.ads.AdView>
 

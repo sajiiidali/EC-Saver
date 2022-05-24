@@ -37,6 +37,7 @@ class KotlinMainActivity : GoogleDriveActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kotlin_main)
+
         myProgressBar = findViewById(R.id.myProgressBar)
 
         val navHost : NavHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHostFragment

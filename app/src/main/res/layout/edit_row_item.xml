@@ -19,6 +19,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:inputType="number"
             android:background="@drawable/round_edit_text"
             android:drawableStart="@mipmap/ec_number_icon"
             android:hint="@string/editECNumberr"

@@ -19,19 +19,6 @@
         android:background="@drawable/pressed_state"
         android:elevation="5dp">
 
-        <!-- <TextView
-            android:id="@+id/text_dayoff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:text="@string/Ec_Off"
-            android:textColor="@color/jamani"
-            android:textStyle="bold|italic"
-            android:typeface="serif"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />-->
-
         <TextView
             android:id="@+id/edit_ec_number"
             android:layout_width="wrap_content"
@@ -86,17 +73,6 @@
             app:layout_constraintEnd_toStartOf="@+id/edit_listName"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
-
-        <!-- <TextView
-            android:id="@+id/edit_dayoff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/Day"
-            android:textColor="@android:color/black"
-            app:layout_constraintStart_toStartOf="@+id/text_dayoff"
-            app:layout_constraintTop_toBottomOf="@+id/text_dayoff" />-->
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

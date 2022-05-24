@@ -21,12 +21,17 @@
             </intent-filter>
         </activity>
 
+        <service android:name=".kotlin.fcm.FirebaseMessageReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-1241237715193709~8967418014" />
-        <meta-data
-            android:name="com.google.android.backup.api_key"
-            android:value="AEdPqrEAAAAIBjJ16u4dnexLAiJkAnesn6zFK-CL-jQvaXRmYA" />
 
         <activity android:name="com.google.android.gms.ads.AdActivity" />
     </application>

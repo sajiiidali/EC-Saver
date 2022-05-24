@@ -1,0 +1,58 @@
+
+Banner ad
+ca-app-pub-1241237715193709/5970430028
+
+
+Interstitial ad:
+ca-app-pub-1241237715193709/2049228828
+
+
+1st Rewarded ad:
+ca-app-pub-1241237715193709/9353003773
+
+ in manifest file declare the application id like this.
+<meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1241237715193709~8967418014" />
+
+
+// Banner ads in:
+banner ad in HomeFragment // done
+
+banner ad in EcSaveIntoCurrentDate       DialogFragment // done
+
+banner ad in EcSaveIntoPreviousDate      DialogFragment // done
+
+banner ad in SaveDayOffLeave	         DialogFragment // done
+
+banner ad in KotlinBMICalculator                        // done
+
+banner ad in KotlinAgeCalculator                        // done
+
+banner ad in ShowSavedData                              // done
+
+// Interstitial ads
+Interstitial Ad in EditEcNumber             DialogFragment  //done
+
+Interstitial Ad in DeleteEcNumber           DialogFragment  //done
+
+Interstitial Ad in KotlinAgeCalculator      Fragment        //done
+
+Interstitial Ad in KotlinBMICalculator      Fragment        //done
+
+Interstitial Ad in SaveDayOffLeave          Fragment        //done
+
+Interstitial Ad in EcSaveIntoCurrentDate    DialogFragment  //done
+
+Interstitial Ad in EcSaveIntoPreviousDate   DialogFragment  //done
+
+Interstitial ad in ShowSavedData            Fragment        //done
+
+
+
+
+
+
+
+
+

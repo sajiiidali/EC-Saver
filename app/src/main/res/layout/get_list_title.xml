@@ -6,23 +6,27 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rowItemLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/holo_blue_light">
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/shape"
+        android:elevation="5dp">
 
         <TextView
             android:id="@+id/group_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="2dp"
-            android:text="@string/Year"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/dateOfMonth"
             android:textSize="28sp"
             android:textStyle="normal|bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -30,4 +34,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</RelativeLayout>
+
+
+    </RelativeLayout>

@@ -18,7 +18,7 @@
     <string name="YourRecord">Save Records</string>
     <string name="Day">Day</string>
     <string name="Month">Month</string>
-    <string name="Year">Year</string>
+    <string name="dateOfMonth">DateOfMonth</string>
     <string name="Calculate">Calculate</string>
     <string name="Clear">Clear</string>
     <string name="Yes">Yes</string>
@@ -27,17 +27,17 @@
     <string name="previousDay">Previous Day</string>
     <string name="savedayoff">Save DayOff Leave</string>
     <string name="getSavedEC">Get EC Numbers</string>
-    <string name="bmicalculator">bmicalculator</string>
+    <string name="bmicalculator">BMI calculator</string>
     <string name="Age_Calculator">Age Calculator</string>
-    <string name="aboutUS">Version App 1.15\nCreation_Date 14-August-2018\nEmail ID: sajiiidali1122@gmail.com\nPhone #0302 329 4411</string>
+    <string name="aboutUS">Version App 1.19\nCreation_Date 14-August-2018\nEmail ID: sajiiidali1122@gmail.com\nPhone #0302 329 4411</string>
     <string name="moreApps">MORE APPS</string>
-    <string name="share">share</string>
+    <string name="share">Share</string>
     <string name="rateus">Rate Us</string>
     <string name="about">About</string>
     <string name="deleteWholeData">Delete All Saved Data</string>
     <string name="Weight">Weight</string>
     <string name="kg">KG</string>
-    <string name="Height">Height</string>
+    <string name="Height">Height (ft and inch)</string>
     <string name="Feet">Feet</string>
     <string name="inch">inch</string>
     <string name="Calculate_BMI">Calculate BMI</string>
@@ -68,7 +68,19 @@
     <string name="checkThisVideo">Check This Video How To</string>
     <string name="dayOff">DayOFF LEAVE</string>
     <string name="signOut">SignOut</string>
-    <string name="saveToGDrive">upload to GDrive</string>
+    <string name="saveToGDrive">Upload to GDrive</string>
     <string name="downloadData">Download From GDrive</string>
     <string name="message_google_sign_in_failed">Google Sign In failed</string>
+    <string name="message">fcm message</string>
+    <string name="notification">Alert !!!</string>
+    <string name="zero_Value">0</string>
+    <string name="totalEmergency">Total Emergency Of This Month</string>
+    <string name="year">Year</string>
+
+    // test ads
+    <string name="Test_banner_ad">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="Test_Interstitial_ad">ca-app-pub-3940256099942544/1033173712</string>
+
+    <string name="Interstitial_ad">ca-app-pub-1241237715193709/2049228828</string>
+    <string name="Banner_ad">ca-app-pub-1241237715193709/5970430028</string>
 </resources>

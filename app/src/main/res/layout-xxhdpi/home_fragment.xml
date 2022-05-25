@@ -4,12 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".kotlin.fragments.HomeFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/holo_blue_light">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/adView"
+        android:layout_marginBottom="10dp"
         android:background="@color/white">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -180,8 +181,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="15dp"
-        ads:adSize="BANNER"
+        android:layout_marginBottom="10dp"
+        ads:adSize="LARGE_BANNER"
         ads:adUnitId="@string/Banner_ad">
     </com.google.android.gms.ads.AdView>
 

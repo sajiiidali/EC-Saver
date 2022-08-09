@@ -4,20 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/holo_blue_light"
     tools:context=".kotlin.fragments.KotlinBMICalculator">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/holo_blue_light">
+        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Weight"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold|italic"
             android:typeface="serif"
@@ -42,7 +39,6 @@
             android:text="@string/Height"
             android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
-            android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold|italic"
             android:typeface="serif"
@@ -84,33 +80,33 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/btncalculate"
                 android:layout_width="match_parent"
+                android:layout_marginStart="5dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/month_buttons"
                 android:text="@string/Calculate_BMI"
-                android:textAlignment="center"
+                android:elevation="10dp"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
                 android:textStyle="bold|italic"
                 android:typeface="serif" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
+                android:layout_marginStart="5dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/month_buttons"
                 android:text="@string/Clear"
-                android:textAllCaps="false" />
+                android:elevation="10dp"
+                android:layout_marginTop="10dp"
+                android:textAllCaps="false"
+                android:textStyle="bold|italic"
+                android:typeface="serif"/>
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
@@ -121,7 +117,6 @@
             android:layout_marginBottom="30dp"
             android:textSize="22sp"
             android:textStyle="bold|italic"
-            android:textColor="@color/black"
             android:typeface="serif"/>
 
     </LinearLayout>
@@ -132,8 +127,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="15dp"
-        ads:adSize="LARGE_BANNER"
+        ads:adSize="BANNER"
         ads:adUnitId="@string/Banner_ad">
     </com.google.android.gms.ads.AdView>
 

@@ -26,12 +26,12 @@
     <fragment
         android:id="@+id/kotlin_AgeCalculator"
         android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.KotlinAgeCalculator"
-        android:label="activity_age_calculator"
+        android:label="@string/Age_Calculator"
         tools:layout="@layout/activity_age_calculator" />
     <fragment
         android:id="@+id/kotlin_BMI_Calculator"
         android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.KotlinBMICalculator"
-        android:label="activity_bmi__calculator"
+        android:label="@string/bmicalculator"
         tools:layout="@layout/activity_bmi__calculator" />
     <dialog
         android:id="@+id/ecSaveIntoCurrentDate2"
@@ -134,5 +134,47 @@
             android:name="year"
             app:argType="integer"
             android:defaultValue="0" />
-    </dialog><action android:id="@+id/action_global_kotlin_AgeCalculator" app:destination="@id/kotlin_AgeCalculator"/><action android:id="@+id/action_global_kotlin_BMI_Calculator" app:destination="@id/kotlin_BMI_Calculator"/>
+    </dialog>
+    <fragment
+        android:id="@+id/moreFragment"
+        android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.MoreFragment"
+        android:label="more_layout"
+        tools:layout="@layout/more_layout" >
+        <action
+            android:id="@+id/action_moreFragment_to_kotlin_AgeCalculator"
+            app:destination="@id/kotlin_AgeCalculator"
+            app:enterAnim="@anim/slid_in_right"
+            app:exitAnim="@anim/slid_out_left"
+            app:popEnterAnim="@anim/slid_in_left"
+            app:popExitAnim="@anim/slid_out_right"/>
+        <action
+            android:id="@+id/action_moreFragment_to_kotlin_BMI_Calculator"
+            app:destination="@id/kotlin_BMI_Calculator"
+            app:enterAnim="@anim/slid_in_right"
+            app:exitAnim="@anim/slid_out_left"
+            app:popEnterAnim="@anim/slid_in_left"
+            app:popExitAnim="@anim/slid_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/rescueDashBoard"
+        android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.RescueDashBoard"
+        android:label="@string/rescueDashBoard"
+        tools:layout="@layout/rescue_dashboard_layout" >
+        <action
+            android:id="@+id/action_rescueDashBoard_to_rescueAsWebview"
+            app:destination="@id/rescueAsWebview"
+            app:enterAnim="@anim/slid_in_right"
+            app:exitAnim="@anim/slid_out_left"
+            app:popEnterAnim="@anim/slid_in_left"
+            app:popExitAnim="@anim/slid_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/rescueAsWebview"
+        android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.RescueAsWebview"
+        tools:layout="@layout/show_webview_layout" >
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 </navigation>

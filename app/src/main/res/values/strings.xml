@@ -29,7 +29,7 @@
     <string name="getSavedEC">Get EC Numbers</string>
     <string name="bmicalculator">BMI calculator</string>
     <string name="Age_Calculator">Age Calculator</string>
-    <string name="aboutUS">Version App 21.1.20\nCreation_Date 14-August-2018\nEmail ID: sajiiidali1122@gmail.com\nPhone #0302 329 4411</string>
+    <string name="aboutUS">Version App 22.1.21\nCreation_Date 14-August-2018\nEmail ID: sajiiidali1122@gmail.com\nPhone #0302 329 4411</string>
     <string name="moreApps">MORE APPS</string>
     <string name="share">Share</string>
     <string name="rateus">Rate Us</string>
@@ -76,11 +76,27 @@
     <string name="zero_Value">0</string>
     <string name="totalEmergency">Total Emergency Of This Month</string>
     <string name="year">Year</string>
+    <string name="home">Home</string>
+    <string name="rescueDashBoard">DashBoard</string>
+    <string name="more">More</string>
+    <string name="companyName">Digital Finger Apps</string>
+    <string name="privacyPolicy">Privacy Policy</string>
+    <string name="checkUpdate">Check Updates</string>
+    <string name="MainPage">Main Page</string>
+    <string name="ActiveJobs">Active Jobs</string>
+    <string name="FinalResults">Final Results</string>
+
 
     // test ads
-    <string name="Test_banner_ad">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="Test_Interstitial_ad">ca-app-pub-3940256099942544/1033173712</string>
+   <!-- <string name="Interstitial_ad">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="Banner_ad">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="Rewarded_ad">ca-app-pub-3940256099942544/5224354917</string>-->
 
+
+
+
+    // Orignal Ads
     <string name="Interstitial_ad">ca-app-pub-1241237715193709/2049228828</string>
     <string name="Banner_ad">ca-app-pub-1241237715193709/5970430028</string>
+    <string name="Rewarded_ad">ca-app-pub-1241237715193709/8142455884</string>
 </resources>

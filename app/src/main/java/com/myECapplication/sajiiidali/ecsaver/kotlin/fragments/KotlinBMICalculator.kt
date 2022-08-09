@@ -9,12 +9,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.myECapplication.sajiiidali.ecsaver.R
@@ -38,14 +36,13 @@ class KotlinBMICalculator : Fragment(R.layout.activity_bmi__calculator) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+
         getWeight       =     view.findViewById(R.id.edittext1_weight)
         getFeet         =     view.findViewById(R.id.edittext2_feet)
         getInch         =     view.findViewById(R.id.edittext3_inch)
         btnCalculate    =     view.findViewById(R.id.btncalculate)
         btnClear        =     view.findViewById(R.id.button2)
         showResult      =     view.findViewById(R.id.showresult)
-        MobileAds.initialize(requireActivity()) {}
 
         mAdView = view.findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()

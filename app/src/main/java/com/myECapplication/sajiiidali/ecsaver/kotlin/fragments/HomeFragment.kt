@@ -6,14 +6,10 @@ import android.view.View
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
 import com.myECapplication.sajiiidali.ecsaver.R
 import com.myECapplication.sajiiidali.ecsaver.databinding.HomeFragmentBinding
 
@@ -23,7 +19,6 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     @SuppressLint("InflateParams")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        MobileAds.initialize(requireActivity()) {}
 
         mAdView = view.findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
@@ -31,8 +26,6 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
         val binding = HomeFragmentBinding.bind(view)
         var homeView = view
-        (activity as AppCompatActivity?)!!.supportActionBar!!.setTitle(R.string.app_name)
-        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
 
         with(binding){
             ToDayLayout.setOnClickListener {

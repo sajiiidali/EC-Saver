@@ -11,8 +11,8 @@ android {
         applicationId "com.myECapplication.sajiiidali.ecsaver"
         minSdkVersion 21
         targetSdkVersion 32
-        versionCode 21
-        versionName "1.20"
+        versionCode 22
+        versionName "1.21"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -54,7 +54,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.6.0'
     implementation 'com.google.firebase:firebase-messaging-ktx:23.0.5'
 
-    implementation 'com.google.android.gms:play-services-ads:20.6.0'
+    implementation 'com.google.android.gms:play-services-ads:21.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'com.google.android.material:material:1.7.0-alpha01'
 

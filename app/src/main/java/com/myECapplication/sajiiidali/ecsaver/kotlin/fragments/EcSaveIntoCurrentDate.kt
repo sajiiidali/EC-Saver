@@ -8,7 +8,6 @@ import androidx.fragment.app.DialogFragment
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.myECapplication.sajiiidali.ecsaver.R
@@ -22,7 +21,6 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showInterstitialAd()
-        MobileAds.initialize(requireActivity()) {}
 
         mAdView = view.findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()

@@ -29,6 +29,7 @@
             android:text="@string/dateOfMonth"
             android:textSize="28sp"
             android:textStyle="normal|bold"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

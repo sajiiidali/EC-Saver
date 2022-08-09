@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.myECapplication.sajiiidali.ecsaver">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
 
     <application
         android:icon="@mipmap/ec_saver_app_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ec_saver_app_logo"
         android:supportsRtl="true"
-        android:theme="@style/myAppTheme"
+        android:theme="@style/AppTheme.noActionBar"
         android:fullBackupContent="true"
-        android:allowBackup="true">
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        tools:targetApi="s">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1241237715193709~8967418014" />
+
+
         <activity
             android:name=".kotlin.KotlinMainActivity" android:exported="true" >
             <intent-filter>
@@ -28,10 +40,8 @@
             </intent-filter>
         </service>
 
+        <receiver android:name=".kotlin.BroadCastReceiver.OnDownloadComplete"/>
 
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-1241237715193709~8967418014" />
 
         <activity android:name="com.google.android.gms.ads.AdActivity" />
     </application>

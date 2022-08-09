@@ -6,9 +6,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
-import com.google.android.gms.ads.AdView
 import com.myECapplication.sajiiidali.ecsaver.R
-import com.myECapplication.sajiiidali.ecsaver.databinding.GetMonthbyUserBinding
 import java.util.*
 
 class GetMonthByUser : DialogFragment(R.layout.get_monthby_user),View.OnClickListener {

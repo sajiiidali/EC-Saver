@@ -10,7 +10,6 @@ import androidx.navigation.Navigation
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.myECapplication.sajiiidali.ecsaver.R
@@ -31,7 +30,6 @@ class ShowSavedData : Fragment(R.layout.show_saved_data) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        MobileAds.initialize(requireActivity()) {}
         showInterstitialAd()
 
         mAdView = view.findViewById(R.id.adView)
@@ -40,7 +38,6 @@ class ShowSavedData : Fragment(R.layout.show_saved_data) {
 
 
         showSavedView = view
-        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
         val args = ShowSavedDataArgs.fromBundle(requireArguments())
         spinner = view.findViewById(R.id.spinnerToolbar)
         val expandAbleListview = view.findViewById<ExpandableListView>(R.id.expandAbleListView)

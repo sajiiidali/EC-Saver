@@ -1,24 +1,22 @@
 package com.myECapplication.sajiiidali.ecsaver.kotlin
 
-import android.content.ActivityNotFoundException
-import android.content.Intent
-import android.net.Uri
+
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.api.ApiException
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.api.services.drive.Drive
 import com.myECapplication.sajiiidali.ecsaver.R
 import com.myECapplication.sajiiidali.ecsaver.Database
+import com.myECapplication.sajiiidali.ecsaver.databinding.ActivityKotlinMainBinding
 import com.myECapplication.sajiiidali.ecsaver.kotlin.GoogleDriveBackup.google.GoogleDriveActivity
 import com.myECapplication.sajiiidali.ecsaver.kotlin.GoogleDriveBackup.google.GoogleDriveApiDataRepository
 import java.io.File
@@ -33,61 +31,108 @@ class KotlinMainActivity : GoogleDriveActivity() {
     private val LOG_TAG = "MainActivity"
     private val GOOGLE_DRIVE_DB_LOCATION = "db"
     private lateinit var myProgressBar:ProgressBar
+    private lateinit var binding: ActivityKotlinMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_kotlin_main)
+        MobileAds.initialize(this) {}
+
+        binding = ActivityKotlinMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         myProgressBar = findViewById(R.id.myProgressBar)
 
+        val bottomNavigation : BottomNavigationView = findViewById(R.id.bottom_navigation_id)
         val navHost : NavHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHostFragment
         navController = navHost.navController
-        NavigationUI.setupActionBarWithNavController(this,navController)
 
+        NavigationUI.setupWithNavController(bottomNavigation, navController)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val menuInflater = menuInflater
-        menuInflater.inflate(R.menu.my_menu, menu)
-        return true
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.backup -> {
-                startGoogleDriveSignIn()
-                true
-            }
-            R.id.saveToGDrive -> {
-                saveToGDrive()
-                true
-            }
-            R.id.downloadFromGDrive -> {
-                downloadFromGDrive()
-                true
-            }
-            R.id.age_calculator -> {
-                navController.navigate(R.id.kotlin_AgeCalculator)
-                true
-            }
-            R.id.itemabout -> {
-                aboutUS()
-                true
-            }
-            R.id.rateus -> {
-                rateUs()
-                true
-            }
-            R.id.mshare -> {
-                share()
-                true
-            }
-            R.id.bmi_calculator -> {
-                navController.navigate(R.id.kotlin_BMI_Calculator)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private fun downloadFromGDrive() {
         if (repository == null) {
@@ -97,7 +142,7 @@ class KotlinMainActivity : GoogleDriveActivity() {
             myProgressBar.visibility = View.VISIBLE
         }
         val file = File(Database.DB_LOCATION)
-        file.getParentFile()?.mkdirs()
+        file.parentFile?.mkdirs()
         file.delete()
         repository!!.downloadFile(file, GOOGLE_DRIVE_DB_LOCATION)
             .addOnSuccessListener { _ ->
@@ -142,50 +187,11 @@ class KotlinMainActivity : GoogleDriveActivity() {
 
     }*/
 
-    private fun yes() {
+  /*  private fun yes() {
         val deleteAllData = Database(this)
         deleteAllData.deleteAll()
-    }
+    }*/
 
-    private fun aboutUS() {
-        val dialog : AlertDialog.Builder = AlertDialog.Builder(this,R.style.AlertDialogButtonColor)
-        dialog.setMessage(R.string.aboutUS)
-        dialog.setPositiveButton(R.string.moreApps)
-        { 
-                myDialog,
-                btn-> moreApps()
-        }.show()
-    }
-
-    private fun moreApps() {
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.data = Uri.parse("market://search?q=pub:Digital Finger Apps")
-        startActivity(intent)
-    }
-
-    private fun share() {
-        val shareIntent = Intent(Intent.ACTION_SEND)
-        shareIntent.type = "text/plain"
-        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject Here")
-        shareIntent.putExtra(
-            Intent.EXTRA_TEXT,
-            "https://play.google.com/store/apps/details?id=com.myECapplication.sajiiidali.ecsaver"
-        )
-        startActivity(Intent.createChooser(shareIntent, "Share Via"))
-    }
-
-    private fun rateUs() {
-        try {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")))
-        } catch (e: ActivityNotFoundException) {
-            startActivity(
-                Intent(
-                    Intent.ACTION_VIEW,
-                    Uri.parse("http://play.google.com/store/apps/details?id=$packageName")
-                )
-            )
-        }
-    }
     override fun onGoogleDriveSignedInSuccess(driveApi: Drive?) {
         repository = GoogleDriveApiDataRepository(driveApi)
         Toast.makeText(this, "Google Drive SignedIn Success", Toast.LENGTH_LONG).show()

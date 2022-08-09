@@ -118,18 +118,22 @@
             android:background="@drawable/edit_text_border"
             tools:ignore="Autofill" />
     </LinearLayout>
+
     <TextView
         android:id="@+id/getCurrentDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:layout_marginTop="3dp"
         android:layout_below="@+id/third_layout_wrapper"
-        android:textStyle="bold"
-        android:typeface="serif"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/shape"
+        android:elevation="10dp"
+        android:padding="12dp"
+        android:textColor="@color/white"
         android:textSize="18sp"
-        android:textColor="@android:color/black"
-        android:background="@drawable/current_date_designe" />
+        android:textStyle="bold"
+        android:typeface="serif" />
     <LinearLayout
         android:id="@+id/button_wrapper"
         android:layout_width="match_parent"
@@ -142,20 +146,30 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:gravity="center|center_horizontal"
             android:textStyle="bold"
+            android:elevation="10dp"
+            android:clickable="true"
+            android:focusable="true"
             android:text="@string/Calculate"
-            android:background="@drawable/round_button"
+            android:background="@drawable/shape"
             tools:ignore="ButtonStyle" />
+
         <Button
             android:id="@+id/button_clear"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center|center_horizontal"
-            android:textStyle="bold"
-            android:text="@string/Clear"
-            android:background="@drawable/round_button"
             android:layout_weight="0.5"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/shape"
+            android:gravity="center|center_horizontal"
+            android:text="@string/Clear"
+            android:clickable="true"
+            android:focusable="true"
+            android:elevation="10dp"
+            android:textStyle="bold"
             tools:ignore="ButtonStyle" />
     </LinearLayout>
 

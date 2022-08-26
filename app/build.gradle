@@ -11,13 +11,13 @@ android {
         applicationId "com.myECapplication.sajiiidali.ecsaver"
         minSdkVersion 21
         targetSdkVersion 32
-        versionCode 22
-        versionName "1.21"
+        versionCode 23
+        versionName "1.22"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

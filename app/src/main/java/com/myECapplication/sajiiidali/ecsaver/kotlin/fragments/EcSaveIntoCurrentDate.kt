@@ -10,22 +10,24 @@ import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.google.android.gms.ads.rewarded.RewardItem
+import com.google.android.gms.ads.rewarded.RewardedAd
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import com.myECapplication.sajiiidali.ecsaver.R
 import com.myECapplication.sajiiidali.ecsaver.Database
 import java.util.*
 
 class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_day) {
-    private var mInterstitialAd: InterstitialAd? = null
     lateinit var mAdView : AdView
+    private var mRewardedAd: RewardedAd? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        showInterstitialAd()
 
         mAdView = view.findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
-
+        loadRewardedAds()
 
         val currentDate = view.findViewById<TextView>(R.id.tvdate)
         val getEcNumber = view.findViewById<EditText>(R.id.edttext)
@@ -64,9 +66,6 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
                     while (cursor.moveToNext()){
                         if (cursor.getString(1).toString() == checkEcNumber){
                             isMatch++
-                            if (mInterstitialAd != null) {
-                                mInterstitialAd?.show(requireActivity())
-                            }
                         }
                     }
                 }
@@ -87,6 +86,7 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
                 val isInsert = database.insertData(ecType,ecNumber,getCurrentDate,monthOfYear,dayOfMonth,yYear,"")
                 if (isInsert){
                     Toast.makeText(activity, "Saved", Toast.LENGTH_SHORT).show()
+                    showRewardAds()
                 }else{
                     Toast.makeText(activity, "not Saved", Toast.LENGTH_SHORT).show()
                 }
@@ -97,25 +97,33 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
         }
         clearButton.setOnClickListener {
             getEcNumber.setText("")
-            if (mInterstitialAd != null) {
-                mInterstitialAd?.show(requireActivity())
+
+        }
+    }
+
+    private fun loadRewardedAds() {
+        val adRequest = AdRequest.Builder().build()
+        RewardedAd.load(requireContext(),resources.getString(R.string.Rewarded_ad), adRequest, object : RewardedAdLoadCallback() {
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                mRewardedAd = null
+            }
+
+            override fun onAdLoaded(rewardedAd: RewardedAd) {
+                mRewardedAd = rewardedAd
+            }
+        })
+    }
+    private fun showRewardAds() {
+        if (mRewardedAd != null) {
+            mRewardedAd?.show(requireActivity()) {
+                fun onUserEarnedReward(rewardItem: RewardItem) {
+                    var rewardAmount = rewardItem.amount
+                    var rewardType = rewardItem.type
+                }
             }
         }
     }
-    private fun showInterstitialAd() {
-        val adRequest = AdRequest.Builder().build()
-        InterstitialAd.load(requireActivity(),
-            resources.getString(R.string.Interstitial_ad),
-            adRequest,
-            object : InterstitialAdLoadCallback() {
-                override fun onAdFailedToLoad(p0: LoadAdError) {
-                    mInterstitialAd = null
-                }
-                override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                    mInterstitialAd = interstitialAd
-                }
-            })
-    }
+
 
 
     override fun onStart() {

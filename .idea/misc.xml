@@ -92,11 +92,18 @@
         <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/drawable-mdpi/ic_rateus.xml" value="0.1235" />
         <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/drawable-xxhdpi/shape.xml" value="0.1235" />
         <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/drawable/border_colour.xml" value="0.1235" />
+        <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/layout-hdpi/rescue_dashboard_layout.xml" value="0.153125" />
+        <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/layout-ldpi/rescue_dashboard_layout.xml" value="0.9074074074074074" />
+        <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/layout-mdpi/rescue_dashboard_layout.xml" value="0.8166666666666667" />
+        <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/layout-xhdpi/rescue_dashboard_layout.xml" value="0.30625" />
+        <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/layout-xxhdpi/rescue_dashboard_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/layout-xxxhdpi/rescue_dashboard_layout.xml" value="0.153125" />
         <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/layout/activity_save_data_current_day.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/layout/data_row_layout_listview.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/layout/edit_row_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/layout/get_list_title.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/layout/more_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/layout/rescue_dashboard_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/layout/show_saved_data.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MuhammadSajid/StudioProjects/EC-Saver/app/src/main/res/layout/show_webview_layout.xml" value="0.20416666666666666" />
       </map>

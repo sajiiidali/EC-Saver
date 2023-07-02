@@ -12,11 +12,13 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.myECapplication.sajiiidali.ecsaver.R
 import com.myECapplication.sajiiidali.ecsaver.Database
+import com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.HomeFragment.Companion.updateUI
 import java.util.ArrayList
 
 class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecteddate) {
     private var mInterstitialAd: InterstitialAd? = null
     lateinit var mAdView : AdView
+    private var ecType :String? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,6 +28,14 @@ class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecte
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
 
+        val autoCT = view.findViewById<AutoCompleteTextView>(R.id.previousAutoText)
+        val reSources = resources.getStringArray(R.array.spinnerItem)
+        val resourcesArrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, reSources)
+        autoCT.setAdapter(resourcesArrayAdapter)
+        autoCT.setOnItemClickListener { _, _, position, _ ->
+            ecType = resourcesArrayAdapter.getItem(position)
+        }
+
         val args = EcSaveIntoPreviousDateArgs.fromBundle(requireArguments())
         val byDay    = args.day
         val byMonth  = args.month
@@ -34,22 +44,9 @@ class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecte
         val saveButton   = view.findViewById<Button>(R.id.btnsave)
         val clearButton  = view.findViewById<Button>(R.id.button)
         val getEcNumber     = view.findViewById<EditText>(R.id.edttext)
-        val spin = view.findViewById<Spinner>(R.id.spinner)
         val database = Database(requireActivity())
         val getOldDate = "$byDay-$byMonth-$byYear"
         textViewDate.text = getOldDate
-        val arrayList = ArrayList<String>()
-        arrayList.add("<Select EC Type>")
-        arrayList.add("RC")
-        arrayList.add("ME")
-        arrayList.add("FO")
-        arrayList.add("WR")
-        arrayList.add("RO")
-        arrayList.add("OO")
-        arrayList.add("REF")
-        val array = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, arrayList)
-        array.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spin.adapter = array
 
         saveButton.setOnClickListener {
 
@@ -61,19 +58,15 @@ class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecte
                     while (cursor.moveToNext()){
                         if (cursor.getString(1).toString() == checkEcNumber){
                             isMatch++
-                            if (mInterstitialAd != null) {
-                                mInterstitialAd?.show(requireActivity())
-                            }
                         }
                     }
                 }
 
-                if (spin.selectedItem.toString() == "<Select EC Type>"){
-                    Toast.makeText(activity, "Select EC Type", Toast.LENGTH_SHORT).show()
+                if (ecType == null) {
+                    Toast.makeText(requireContext(), "Select Type Of EC", Toast.LENGTH_SHORT).show()
                 }else if (getEcNumber.text.toString().isEmpty()) {
                     getEcNumber.error = "Type EC Number"
                 }else if (isMatch == 0){
-                    val ecType = spin.selectedItem.toString()
                     val ecNumber = getEcNumber.text.toString()
                     val dayOfMonth = byDay.toString()
                     val monthOfYear = byMonth.toString()
@@ -81,6 +74,7 @@ class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecte
                     val isInsert = database.insertData(ecType,ecNumber,getOldDate,monthOfYear,dayOfMonth,yYear,"")
                     if (isInsert){
                         Toast.makeText(activity, "Saved", Toast.LENGTH_SHORT).show()
+                        updateUI()
                     }else{
                         Toast.makeText(activity, "not Saved", Toast.LENGTH_SHORT).show()
                     }
@@ -93,9 +87,6 @@ class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecte
         }
         clearButton.setOnClickListener {
             getEcNumber.setText("")
-            if (mInterstitialAd != null) {
-                mInterstitialAd?.show(requireActivity())
-            }
         }
     }
     private fun showInterstitialAd() {
@@ -113,6 +104,12 @@ class EcSaveIntoPreviousDate : DialogFragment(R.layout.activity_save_old_selecte
             })
     }
 
+    override fun onStop() {
+        super.onStop()
+        if (mInterstitialAd != null) {
+            mInterstitialAd?.show(requireActivity())
+        }
+    }
     override fun onStart() {
         super.onStart()
         dialog!!.window!!.setLayout(

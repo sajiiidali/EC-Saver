@@ -40,7 +40,7 @@ class MoreFragment : Fragment() {
     }
 
     private fun privacyPolicy() {
-        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ecsaver1122.blogspot.com/"))
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.digitalfingerapps.com/p/privacy-policy_0.html"))
         startActivity(browserIntent)
     }
 

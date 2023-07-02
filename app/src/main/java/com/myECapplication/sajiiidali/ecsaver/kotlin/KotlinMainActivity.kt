@@ -1,8 +1,12 @@
 package com.myECapplication.sajiiidali.ecsaver.kotlin
 
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -14,16 +18,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.api.ApiException
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.api.services.drive.Drive
-import com.myECapplication.sajiiidali.ecsaver.R
 import com.myECapplication.sajiiidali.ecsaver.Database
+import com.myECapplication.sajiiidali.ecsaver.R
 import com.myECapplication.sajiiidali.ecsaver.databinding.ActivityKotlinMainBinding
 import com.myECapplication.sajiiidali.ecsaver.kotlin.GoogleDriveBackup.google.GoogleDriveActivity
 import com.myECapplication.sajiiidali.ecsaver.kotlin.GoogleDriveBackup.google.GoogleDriveApiDataRepository
+import com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.LoginFragment
 import java.io.File
-
-//com.myECapplication.sajiiidali.ecsaver
-//83:EC:FD:57:75:67:E9:6E:C5:09:18:66:45:63:88:F5:22:86:6A:CC
-
 
 class KotlinMainActivity : GoogleDriveActivity() {
     private lateinit var navController: NavController
@@ -47,92 +48,35 @@ class KotlinMainActivity : GoogleDriveActivity() {
         navController = navHost.navController
 
         NavigationUI.setupWithNavController(bottomNavigation, navController)
+        checkLoginState(navController)
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    private fun checkLoginState(navController: NavController) {
+            val sharedPreferences: SharedPreferences = this.getSharedPreferences(LoginFragment.mLoginFile, Context.MODE_PRIVATE)!!
+            val isUserLogin = sharedPreferences.getBoolean("isUserLoged", false)
+
+            if (!isUserLogin){
+                navController.navigate(R.id.loginFragment)
+            }
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val menuInflater = menuInflater
+        menuInflater.inflate(R.menu.my_menu, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.saveToGDrive -> {
+                saveToGDrive()
+                true
+            }
+            R.id.downloadFromGDrive -> {
+                downloadFromGDrive()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
     private fun downloadFromGDrive() {
         if (repository == null) {
@@ -194,10 +138,15 @@ class KotlinMainActivity : GoogleDriveActivity() {
 
     override fun onGoogleDriveSignedInSuccess(driveApi: Drive?) {
         repository = GoogleDriveApiDataRepository(driveApi)
-        Toast.makeText(this, "Google Drive SignedIn Success", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Google Drive Signed-In Success", Toast.LENGTH_LONG).show()
+
+        val sharedPreferences: SharedPreferences = this.getSharedPreferences(LoginFragment.mLoginFile, Context.MODE_PRIVATE)!!
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isUserLoged", true)
+        editor.apply()
     }
     override fun onGoogleDriveSignedInFailed(exception: ApiException?) {
-        Toast.makeText(this, "Google Drive SignedIn Failed", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Google Drive Signed-In Failed", Toast.LENGTH_LONG).show()
     }
     override fun onGoogleSignedInSuccess(signInAccount: GoogleSignInAccount?) {
         initializeDriveClient(signInAccount!!)

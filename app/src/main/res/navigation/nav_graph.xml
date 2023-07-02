@@ -17,11 +17,15 @@
             android:id="@+id/action_homeFragment_to_ecSaveIntoPreviousDate"
             app:destination="@id/ecSaveIntoPreviousDate" />
         <action
-            android:id="@+id/action_homeFragment_to_getMonthByUser"
-            app:destination="@id/getMonthByUser" />
-        <action
             android:id="@+id/action_homeFragment_to_saveDayOffLeave2"
             app:destination="@id/saveDayOffLeave2" />
+        <action
+            android:id="@+id/action_homeFragment_to_showSavedData"
+            app:destination="@id/showSavedData"
+            app:enterAnim="@anim/slid_in_right"
+            app:exitAnim="@anim/slid_out_left"
+            app:popEnterAnim="@anim/slid_in_left"
+            app:popExitAnim="@anim/slid_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/kotlin_AgeCalculator"
@@ -55,19 +59,6 @@
             android:name="year"
             app:argType="integer"
             android:defaultValue="0" />
-    </dialog>
-    <dialog
-        android:id="@+id/getMonthByUser"
-        android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.GetMonthByUser"
-        android:label="get_monthby_user"
-        tools:layout="@layout/get_monthby_user" >
-        <action
-            android:id="@+id/action_getMonthByUser_to_showSavedData"
-            app:destination="@id/showSavedData"
-            app:enterAnim="@anim/slid_in_right"
-            app:exitAnim="@anim/slid_out_left"
-            app:popEnterAnim="@anim/slid_in_left"
-            app:popExitAnim="@anim/slid_out_right" />
     </dialog>
     <fragment
         android:id="@+id/showSavedData"
@@ -177,4 +168,9 @@
             app:argType="string"
             app:nullable="true" />
     </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" /><action android:id="@+id/action_global_loginFragment" app:destination="@id/loginFragment"/>
 </navigation>

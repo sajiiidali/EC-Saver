@@ -8,15 +8,59 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.noActionBar" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/holo_blue_light</item>
-        <item name="colorPrimaryDark">@color/holo_blue_light</item>
-        <item name="colorAccent">@color/holo_blue_light</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style  name="myAppTheme" parent="Theme.Material3.Light">
+        <item name="android:statusBarColor" >@android:color/holo_blue_dark</item>
+        <item name="actionBarStyle">@style/myAppBarStyle</item>
+        <item name="actionOverflowButtonStyle">@style/myThreeDotsStyle</item>
+        <item name="actionBarPopupTheme">@style/myActionBarPopumTheme</item>
+        <item name="popupMenuBackground">@color/holo_blue_light</item>
+        <item name="materialCardViewElevatedStyle">@style/MaterialCardStyle</item>
     </style>
+
+    <style name="myAppBarStyle" parent="Base.Widget.Material3.Light.ActionBar.Solid">
+        <item name="background">@color/holo_blue_light</item>
+        <item name="titleTextStyle">@style/myAppBarStyle.titleTextColor</item>
+    </style>
+
+    <style name="myThreeDotsStyle" parent="Widget.AppCompat.Light.ActionButton.Overflow">
+        <item name="tint">@color/white</item>
+    </style>
+
+    <style name="myAppBarStyle.titleTextColor" parent="TextAppearance.Material3.ActionBar.Title">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="myActionBarPopumTheme" parent="Base.ThemeOverlay.AppCompat.Light">
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+    <style name="MaterialCardStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="shapeAppearance">@style/ShapeAppearance.App.MediumComponent</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="cardElevation">10dp</item>
+        <item name="cardBackgroundColor">@color/holo_blue_light</item>
+    </style>
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="MaterialCardStyle2" parent="Widget.MaterialComponents.CardView">
+        <item name="shapeAppearance">@style/ShapeAppearance.App.MediumComponent</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="cardElevation">10dp</item>
+    </style>
+
+    <style name="SpinnerStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="myToolbarPopupTheme" parent="Theme.MaterialComponents.Light">
         <item name="android:colorBackground">@android:color/white</item>
         <item name="android:textColor">@color/black</item>

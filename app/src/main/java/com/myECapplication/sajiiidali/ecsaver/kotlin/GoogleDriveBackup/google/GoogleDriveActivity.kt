@@ -15,7 +15,7 @@ import com.myECapplication.sajiiidali.ecsaver.R
 import java.util.ArrayList
 
 abstract class GoogleDriveActivity : GoogleSignInActivity() {
-    protected fun startGoogleDriveSignIn() {
+    fun startGoogleDriveSignIn() {
         startGoogleSignIn()
     }
 

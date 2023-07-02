@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".kotlin.fragments.SaveDayOffLeave">
 
@@ -12,7 +13,7 @@
         android:orientation="vertical"
         android:background="@color/white">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textStyle="bold"
@@ -22,18 +23,28 @@
             android:background="@color/holo_blue_light"
             android:id="@+id/tvdateforDayoff"/>
 
-        <Spinner
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout3"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:spinnerMode="dropdown"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:layout_gravity="center"
-            android:popupBackground="@color/holo_blue_light"
-            android:background="@drawable/shape"
-            android:id="@+id/dayoffSpinner" />
-        <Button
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@color/holo_blue_light"
+            android:layout_margin="10dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/SaveDayOffAutoText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="none"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:textColor="@color/white"
+                android:text="@string/spinnerName2"
+                tools:ignore="LabelFor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginRight="10dp"

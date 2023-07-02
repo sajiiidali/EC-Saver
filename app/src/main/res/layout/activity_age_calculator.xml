@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".kotlin.fragments.KotlinAgeCalculator">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/birthday_date"
         android:layout_width="match_parent"
         android:layout_height="30dp"
@@ -27,7 +27,7 @@
         android:orientation="horizontal"
         android:padding="8dp">
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/birthdayDate"
             android:layout_width="0dp"
             android:layout_height="30dp"
@@ -39,7 +39,7 @@
             android:inputType="number"
             tools:ignore="Autofill,TextFields" />
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/birthdayMonth"
             android:layout_width="0dp"
             android:layout_height="30dp"
@@ -51,7 +51,7 @@
             android:inputType="number"
             tools:ignore="Autofill" />
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/birthdayYear"
             android:layout_width="0dp"
             android:layout_height="30dp"
@@ -63,7 +63,7 @@
             android:inputType="number"
             tools:ignore="Autofill" />
     </LinearLayout>
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/too_date"
         android:layout_width="match_parent"
         android:layout_height="30dp"
@@ -84,7 +84,7 @@
         android:padding="8dp"
         android:background="@drawable/border_colour"
         android:orientation="horizontal">
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/tooDate"
             android:layout_width="0dp"
             android:layout_height="30dp"
@@ -95,7 +95,7 @@
             android:digits="1234567890"
             android:background="@drawable/edit_text_border"
             tools:ignore="Autofill,TextFields" />
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/tooMonth"
             android:layout_width="0dp"
             android:layout_height="30dp"
@@ -106,7 +106,7 @@
             android:digits="1234567890"
             android:background="@drawable/edit_text_border"
             tools:ignore="Autofill" />
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/tooYear"
             android:layout_width="0dp"
             android:layout_height="30dp"
@@ -119,7 +119,7 @@
             tools:ignore="Autofill" />
     </LinearLayout>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/getCurrentDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -141,13 +141,14 @@
         android:layout_below="@+id/getCurrentDate"
         android:layout_marginTop="3dp"
         android:orientation="horizontal">
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_calculate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:textColor="@color/white"
             android:gravity="center|center_horizontal"
             android:textStyle="bold"
             android:elevation="10dp"
@@ -157,7 +158,7 @@
             android:background="@drawable/shape"
             tools:ignore="ButtonStyle" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_clear"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -165,6 +166,7 @@
             android:layout_marginEnd="10dp"
             android:background="@drawable/shape"
             android:gravity="center|center_horizontal"
+            android:textColor="@color/white"
             android:text="@string/Clear"
             android:clickable="true"
             android:focusable="true"
@@ -173,7 +175,7 @@
             tools:ignore="ButtonStyle" />
     </LinearLayout>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/age_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -191,7 +193,7 @@
         android:layout_below="@+id/age_header"
         android:background="@drawable/border_colour">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/showYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -200,7 +202,7 @@
             android:textColor="@android:color/black"
             android:textSize="22sp"
             android:textStyle="bold" />
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="22sp"
@@ -210,7 +212,7 @@
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@+id/showYear"
             android:id="@+id/showMonth"/>
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="22sp"

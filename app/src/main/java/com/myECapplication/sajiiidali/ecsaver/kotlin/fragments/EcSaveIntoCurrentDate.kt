@@ -1,5 +1,6 @@
 package com.myECapplication.sajiiidali.ecsaver.kotlin.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -15,40 +16,38 @@ import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import com.myECapplication.sajiiidali.ecsaver.R
 import com.myECapplication.sajiiidali.ecsaver.Database
+import com.myECapplication.sajiiidali.ecsaver.kotlin.fragments.HomeFragment.Companion.updateUI
 import java.util.*
 
 class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_day) {
     lateinit var mAdView : AdView
-    private var mRewardedAd: RewardedAd? = null
+    private var mInterstitialAd: InterstitialAd? = null
+    private var ecType :String? = null
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         mAdView = view.findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
-        loadRewardedAds()
+        showInterstitialAd()
 
         val currentDate = view.findViewById<TextView>(R.id.tvdate)
         val getEcNumber = view.findViewById<EditText>(R.id.edttext)
         val saveButton  = view.findViewById<Button>(R.id.btnsave)
         val clearButton = view.findViewById<Button>(R.id.btnclear)
+        val autoCT = view.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
         val database = Database(requireActivity())
 
 
-        val spin = view.findViewById<Spinner>(R.id.spinner)
-        val arrayList = ArrayList<String>()
-        arrayList.add("<Select EC Type>")
-        arrayList.add("RC")
-        arrayList.add("ME")
-        arrayList.add("FO")
-        arrayList.add("WR")
-        arrayList.add("RO")
-        arrayList.add("OO")
-        arrayList.add("REF")
-        val array = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, arrayList)
-        array.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spin.adapter = array
+        val reSources = resources.getStringArray(R.array.spinnerItem)
+        val resourcesArrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, reSources)
+            autoCT.setAdapter(resourcesArrayAdapter)
+            autoCT.setOnItemClickListener { _, _, position, _ ->
+                ecType = resourcesArrayAdapter.getItem(position)
+        }
+
         val calendar    = Calendar.getInstance(TimeZone.getDefault())
         val month       = calendar.get(Calendar.MONTH)
         val byMonth    = month+1
@@ -73,12 +72,11 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
                 Toast.makeText(activity, ""+e, Toast.LENGTH_LONG).show()
             }
 
-            if (spin.selectedItem.toString() == "<Select EC Type>"){
-                Toast.makeText(activity, "Select EC Type ", Toast.LENGTH_SHORT).show()
+            if (ecType == null) {
+                Toast.makeText(requireContext(), "Select Type Of EC", Toast.LENGTH_SHORT).show()
             }else if (getEcNumber.text.toString().isEmpty()) {
-                getEcNumber.error = "Type EC Number"
-            }else if (isMatch == 0){
-                val ecType = spin.selectedItem.toString()
+                getEcNumber.error = "Enter EC Number"
+            }else  if (isMatch == 0){
                 val ecNumber = getEcNumber.text.toString()
                 val dayOfMonth = byDay.toString()
                 val monthOfYear = byMonth.toString()
@@ -86,7 +84,7 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
                 val isInsert = database.insertData(ecType,ecNumber,getCurrentDate,monthOfYear,dayOfMonth,yYear,"")
                 if (isInsert){
                     Toast.makeText(activity, "Saved", Toast.LENGTH_SHORT).show()
-                    showRewardAds()
+                    updateUI()
                 }else{
                     Toast.makeText(activity, "not Saved", Toast.LENGTH_SHORT).show()
                 }
@@ -97,35 +95,31 @@ class EcSaveIntoCurrentDate: DialogFragment(R.layout.activity_save_data_current_
         }
         clearButton.setOnClickListener {
             getEcNumber.setText("")
-
         }
     }
 
-    private fun loadRewardedAds() {
+    private fun showInterstitialAd() {
         val adRequest = AdRequest.Builder().build()
-        RewardedAd.load(requireContext(),resources.getString(R.string.Rewarded_ad), adRequest, object : RewardedAdLoadCallback() {
-            override fun onAdFailedToLoad(adError: LoadAdError) {
-                mRewardedAd = null
-            }
-
-            override fun onAdLoaded(rewardedAd: RewardedAd) {
-                mRewardedAd = rewardedAd
-            }
-        })
-    }
-    private fun showRewardAds() {
-        if (mRewardedAd != null) {
-            mRewardedAd?.show(requireActivity()) {
-                fun onUserEarnedReward(rewardItem: RewardItem) {
-                    var rewardAmount = rewardItem.amount
-                    var rewardType = rewardItem.type
+        InterstitialAd.load(requireActivity(),
+            resources.getString(R.string.Interstitial_ad),
+            adRequest,
+            object : InterstitialAdLoadCallback() {
+                override fun onAdFailedToLoad(p0: LoadAdError) {
+                    mInterstitialAd = null
                 }
-            }
+                override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                    mInterstitialAd = interstitialAd
+                }
+            })
+    }
+
+
+    override fun onStop() {
+        super.onStop()
+        if (mInterstitialAd != null) {
+            mInterstitialAd?.show(requireActivity())
         }
     }
-
-
-
     override fun onStart() {
         super.onStart()
         dialog!!.window!!.setLayout(

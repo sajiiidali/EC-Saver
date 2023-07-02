@@ -56,34 +56,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="getMonthByUser">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-2185" />
-                            <option name="y" value="-164" />
-                          </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_getMonthByUser_to_showSavedData">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
                   <entry key="homeFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-3150" />
-                            <option name="y" value="-135" />
+                            <option name="x" value="-3032" />
+                            <option name="y" value="-229" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -98,12 +77,12 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_homeFragment_to_getMonthByUser">
+                            <entry key="action_homeFragment_to_saveDayOffLeave2">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_homeFragment_to_saveDayOffLeave2">
+                            <entry key="action_homeFragment_to_showSavedData">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -137,6 +116,77 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="loginFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-3063" />
+                            <option name="y" value="-591" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="moreFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_moreFragment_to_kotlin_AgeCalculator">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_moreFragment_to_kotlin_BMI_Calculator">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="rescueAsWebview">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="256" />
+                            <option name="y" value="368" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="rescueDashBoard">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="368" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_rescueDashBoard_to_rescueAsWebview">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="saveDayOffLeave2">
                     <value>
                       <LayoutPositions>
@@ -154,8 +204,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-1821" />
-                            <option name="y" value="-169" />
+                            <option name="x" value="-2091" />
+                            <option name="y" value="-211" />
                           </Point>
                         </option>
                         <option name="myPositions">

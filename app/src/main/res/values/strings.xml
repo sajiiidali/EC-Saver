@@ -27,13 +27,13 @@
     <string name="previousDay">Previous Day</string>
     <string name="savedayoff">Save DayOff Leave</string>
     <string name="getSavedEC">Get EC Numbers</string>
-    <string name="bmicalculator">BMI calculator</string>
-    <string name="Age_Calculator">Age Calculator</string>
-    <string name="aboutUS">Version App 22.1.21\nCreation_Date 14-August-2018\nEmail ID: sajiiidali1122@gmail.com\nPhone #0302 329 4411</string>
-    <string name="moreApps">MORE APPS</string>
-    <string name="share">Share</string>
-    <string name="rateus">Rate Us</string>
-    <string name="about">About</string>
+    <string name="bmicalculator"> BMI calculator</string>
+    <string name="Age_Calculator"> Age Calculator</string>
+    <string name="aboutUS">Version App 24.1.23\nEmail ID: sajiiidali1122@gmail.com\nPhone #0302 329 4411</string>
+    <string name="moreApps"> MORE APPS</string>
+    <string name="share"> Share</string>
+    <string name="rateus"> Rate Us</string>
+    <string name="about"> About</string>
     <string name="deleteWholeData">Delete All Saved Data</string>
     <string name="Weight">Weight</string>
     <string name="kg">KG</string>
@@ -85,15 +85,52 @@
     <string name="MainPage">Main Page</string>
     <string name="ActiveJobs">Active Jobs</string>
     <string name="FinalResults">Final Results</string>
+    <string name="tEmergency">Total EC: </string>
+    <string name="jan">Jan</string>
+    <string name="feb">Feb</string>
+    <string name="March">Mar</string>
+    <string name="April">Apr</string>
+    <string name="May">May</string>
+    <string name="June">Jun</string>
+    <string name="July">Jul</string>
+    <string name="Auguest">Aug</string>
+    <string name="September">Sep</string>
+    <string name="October">Oct</string>
+    <string name="November">Nov</string>
+    <string name="December">Dec</string>
+    <string name="signIn">Sign-In With Google</string>
+    <string name="login">Welcome to Sign-In With Google Screen</string>
+    <string name="Sign_In">Sign-In</string>
+    <string name="spinnerName2">Select One</string>
+
+    <string name="spinnerName">Select EC Type</string>
+    <string-array name="spinnerItem">
+        <item>RC</item>
+        <item>ME</item>
+        <item>FO</item>
+        <item>WR</item>
+        <item>RO</item>
+        <item>OO</item>
+        <item>REF</item>
+    </string-array>
+
+    <string-array name="spinnerItem2">
+        <item>Select One</item>
+        <item>DAY OFF</item>
+        <item>CASUAL LEAVE</item>
+        <item>MEDICAL LEAVE</item>
+        <item>POWER LEAVE</item>
+        <item>MARRIAGE LEAVE</item>
+        <item>PATERNITY LEAVE</item>
+        <item>NATIONAL DAY</item>
+        <item>DUTY CHANGE</item>
+    </string-array>
 
 
     // test ads
-   <!-- <string name="Interstitial_ad">ca-app-pub-3940256099942544/1033173712</string>
-    <string name="Banner_ad">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="Rewarded_ad">ca-app-pub-3940256099942544/5224354917</string>-->
-
-
-
+<!--    <string name="Interstitial_ad">ca-app-pub-3940256099942544/1033173712</string>-->
+<!--    <string name="Banner_ad">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--    <string name="Rewarded_ad">ca-app-pub-3940256099942544/5224354917</string>-->
 
     // Orignal Ads
     <string name="Interstitial_ad">ca-app-pub-1241237715193709/2049228828</string>

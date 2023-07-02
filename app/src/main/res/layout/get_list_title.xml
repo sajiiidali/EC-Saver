@@ -18,7 +18,7 @@
         android:background="@drawable/shape"
         android:elevation="5dp">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/group_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

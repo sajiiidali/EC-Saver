@@ -137,9 +137,6 @@ class ShowSavedData : Fragment(R.layout.show_saved_data) {
                     }
                     myExpandableAdapter = expandAbleListAdapter(hashMap,parentName)
                     expandAbleListview.setAdapter(myExpandableAdapter)
-                    if (mInterstitialAd != null) {
-                        mInterstitialAd?.show(requireActivity())
-                    }
                 }else{
                     alwaysMaintainYearValue = selectedYear.toInt()
                     parentName.clear()
@@ -173,9 +170,6 @@ class ShowSavedData : Fragment(R.layout.show_saved_data) {
                     }
                     myExpandableAdapter = expandAbleListAdapter(hashMap,parentName)
                     expandAbleListview.setAdapter(myExpandableAdapter)
-                    if (mInterstitialAd != null) {
-                        mInterstitialAd?.show(requireActivity())
-                    }
                 }
 
             }
@@ -256,6 +250,13 @@ class ShowSavedData : Fragment(R.layout.show_saved_data) {
                 expandAbleListview.setAdapter(myExpandableAdapter)
             } catch (e: Exception) {
             }
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (mInterstitialAd != null) {
+            mInterstitialAd?.show(requireActivity())
         }
     }
 

@@ -34,8 +34,8 @@ abstract class GoogleDriveActivity : GoogleSignInActivity() {
         val scopes: MutableList<String> = ArrayList()
         scopes.add(DriveScopes.DRIVE_APPDATA)
         val credential: GoogleAccountCredential = GoogleAccountCredential.usingOAuth2(this, scopes)
-        credential.setSelectedAccount(signInAccount.account)
-        val builder: Drive.Builder = Builder(
+        credential.selectedAccount = signInAccount.account
+        val builder = Builder(
             AndroidHttp.newCompatibleTransport(),
             GsonFactory(),
             credential

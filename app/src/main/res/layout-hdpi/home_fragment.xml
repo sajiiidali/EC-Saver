@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".kotlin.fragments.HomeFragment">
+
+    <RelativeLayout
+        android:id="@+id/totalECLayout"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+    android:elevation="10dp"
+    android:background="@color/holo_blue_light"
+    android:layout_alignParentTop="true">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/totalECShown"
+        android:layout_width="200dp"
+    android:layout_height="30dp"
+    android:layout_alignParentTop="true"
+    android:layout_centerInParent="true"
+    android:layout_marginTop="5dp"
+    android:elevation="10dp"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/ecText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/tEmergency"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+    android:textStyle="bold" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/totalECShown"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <!--                jan-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:weightSum="2"
+                    android:elevation="5dp"
+                    android:background="@drawable/textview_bg_style"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/JanEC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/darkGray"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="@string/zero_Value"
+                        android:layout_weight="1"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/jan"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <!--                fab-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:weightSum="2"
+                    android:elevation="5dp"
+                    android:background="@drawable/textview_bg_style"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/FebEC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/darkGray"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="@string/zero_Value"
+                        android:layout_weight="1"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/feb"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <!--                March-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:weightSum="2"
+                    android:elevation="5dp"
+                    android:background="@drawable/textview_bg_style"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/MarEC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/darkGray"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="@string/zero_Value"
+                        android:layout_weight="1"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/March"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <!--                April-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:weightSum="2"
+                    android:elevation="5dp"
+                    android:background="@drawable/textview_bg_style"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/AprEC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/darkGray"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="@string/zero_Value"
+                        android:layout_weight="1"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/April"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <!--                May-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:weightSum="2"
+                    android:elevation="5dp"
+                    android:background="@drawable/textview_bg_style"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/MayEC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/darkGray"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="@string/zero_Value"
+                        android:layout_weight="1"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/May"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <!--                June-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:weightSum="2"
+                    android:elevation="5dp"
+                    android:background="@drawable/textview_bg_style"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/JuneEC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/darkGray"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="@string/zero_Value"
+                        android:layout_weight="1"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/June"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <!--                July-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:weightSum="2"
+                    android:elevation="5dp"
+                    android:background="@drawable/textview_bg_style"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/JulyEC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/darkGray"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="@string/zero_Value"
+                        android:layout_weight="1"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/July"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <!--                Auguest-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:weightSum="2"
+                    android:elevation="5dp"
+                    android:background="@drawable/textview_bg_style"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/AugEC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/darkGray"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="@string/zero_Value"
+                        android:layout_weight="1"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Auguest"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <!--                September-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:weightSum="2"
+                    android:elevation="5dp"
+                    android:background="@drawable/textview_bg_style"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/SepEC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/darkGray"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="@string/zero_Value"
+                        android:layout_weight="1"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/September"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <!--                October-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:weightSum="2"
+                    android:elevation="5dp"
+                    android:background="@drawable/textview_bg_style"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/OctoberEC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/darkGray"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="@string/zero_Value"
+                        android:layout_weight="1"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/October"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <!--                November-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:weightSum="2"
+                    android:elevation="5dp"
+                    android:background="@drawable/textview_bg_style"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/NovemberEC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/darkGray"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="@string/zero_Value"
+                        android:layout_weight="1"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/November"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <!--                December-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:weightSum="2"
+                    android:elevation="5dp"
+                    android:background="@drawable/textview_bg_style"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/DecemberEC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/darkGray"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="@string/zero_Value"
+                        android:layout_weight="1"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/December"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </HorizontalScrollView>
+
+    </RelativeLayout>
+
+<ScrollView
+android:id="@+id/myScrollView"
+android:layout_above="@+id/adView"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_below="@+id/totalECLayout">
+
+<GridLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:columnCount="2"
+    android:layout_gravity="center">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/saveDayOff"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+    style="@style/MaterialCardStyle"
+    android:layout_columnWeight="1"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_row="0"
+    android:clickable="true"
+    android:focusable="true">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:src="@drawable/dayoff" />
+
+</com.google.android.material.card.MaterialCardView>
+
+<com.google.android.material.card.MaterialCardView
+    android:id="@+id/previousDayLayout"
+    android:layout_width="0dp"
+    android:layout_height="100dp"
+style="@style/MaterialCardStyle"
+android:layout_columnWeight="1"
+android:layout_marginEnd="20dp"
+android:layout_marginTop="10dp"
+android:layout_row="0"
+android:clickable="true"
+android:focusable="true">
+
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:src="@drawable/last_day" />
+
+</com.google.android.material.card.MaterialCardView>
+
+<com.google.android.material.card.MaterialCardView
+android:id="@+id/ToDayLayout"
+android:layout_width="0dp"
+android:layout_height="100dp"
+    style="@style/MaterialCardStyle"
+    android:layout_columnWeight="1"
+    android:layout_columnSpan="2"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="20dp"
+    android:layout_row="0"
+    android:clickable="true"
+    android:focusable="true">
+
+<ImageView
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_margin="10dp"
+android:src="@drawable/today" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    </GridLayout>
+    </ScrollView>
+
+<com.google.android.gms.ads.AdView
+xmlns:ads="http://schemas.android.com/apk/res-auto"
+android:id="@+id/adView"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentBottom="true"
+android:layout_centerHorizontal="true"
+android:layout_marginBottom="10dp"
+ads:adSize="LARGE_BANNER"
+ads:adUnitId="@string/Banner_ad" />
+
+    </RelativeLayout>

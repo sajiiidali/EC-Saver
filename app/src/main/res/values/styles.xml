@@ -8,13 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style  name="myAppTheme" parent="Theme.Material3.Light">
+    <style  name="myAppTheme" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:statusBarColor" >@android:color/holo_blue_dark</item>
         <item name="actionBarStyle">@style/myAppBarStyle</item>
         <item name="actionOverflowButtonStyle">@style/myThreeDotsStyle</item>
         <item name="actionBarPopupTheme">@style/myActionBarPopumTheme</item>
         <item name="popupMenuBackground">@color/holo_blue_light</item>
         <item name="materialCardViewElevatedStyle">@style/MaterialCardStyle</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
     </style>
 
     <style name="myAppBarStyle" parent="Base.Widget.Material3.Light.ActionBar.Solid">

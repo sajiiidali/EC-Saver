@@ -48,7 +48,7 @@ class KotlinMainActivity : GoogleDriveActivity() {
         navController = navHost.navController
 
         NavigationUI.setupWithNavController(bottomNavigation, navController)
-        checkLoginState(navController)
+//        checkLoginState(navController)
     }
 
     private fun checkLoginState(navController: NavController) {
@@ -149,9 +149,11 @@ class KotlinMainActivity : GoogleDriveActivity() {
         Toast.makeText(this, "Google Drive Signed-In Failed", Toast.LENGTH_LONG).show()
     }
     override fun onGoogleSignedInSuccess(signInAccount: GoogleSignInAccount?) {
+        Toast.makeText(this, "Google Sign-In Success", Toast.LENGTH_SHORT).show()
         initializeDriveClient(signInAccount!!)
     }
     override fun onGoogleSignedInFailed(exception: ApiException?) {
+        Toast.makeText(this, "Google Sign-In Failed", Toast.LENGTH_SHORT).show()
         onGoogleDriveSignedInFailed(exception)
     }
 }
